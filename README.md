@@ -46,6 +46,16 @@ Two other claims can only be settled by null tests. Five experiments decide what
 
 All five together come to about $4–9M over about 3 years; the first two answers (T5 and T4) to about $1–2M. These are rough-order-of-magnitude costs (±50%). They assume magnet and laser time is won by peer-reviewed proposal.
 
+## What may be new
+
+Three ideas in this record may be new. They are candidates, not claims: the review searched the literature and patents as it went, but no exhaustive prior-art search has been done.
+
+- **A rotor held by its stator (B6).** The stator's magnetic field carries the load that would burst a self-supporting rim, so the rotor is not limited by the strength of its material. Sheets CT-33 to CT-61; run sheet I.17 onward.
+- **Driving a film inside a laser cavity (B7, test T3).** A K3C60 film sits inside a free-electron-laser cavity, which cuts the source power needed to keep its light-driven state on. Unproven. Sheets CT-46, CT-52, CT-57, CT-64; run sheet V.9 to V.13.
+- **A tangential coupon shot (test T1).** A small coupon fired along a curved track tests how burst-rotor debris loads its wall, without spinning a full rotor. Sheet CT-62; run sheet I.34.
+
+They are published openly on 14 November 2026, with no patent filed, so that they stay free for everyone to use under the licence.
+
 ## Contents
 
 | Path | What it is |
