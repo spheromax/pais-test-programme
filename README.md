@@ -10,12 +10,12 @@ Spheromax · version 1.0 · 14 November 2026
 
 **Licence:** Hippocratic License 3.0 with the Military Activities module, written "Hippocratic 3.0 (HL3-MIL)". See [LICENSE.md](LICENSE.md). The author has filed no patent on this work. Publishing it openly is meant to keep it free for everyone.
 
-## Made with AI
+## Who did what
 
-The author did this work with Claude (Anthropic), a large language model used as a research assistant.
+This is one person's project, carried out with an AI research assistant.
 
-- **The author** set the questions and goals, directed the research and chose which paths to keep.
-- **Claude** ran and logged the literature searches, derived and computed the results, designed the concept rigs and drawings, made the film and drafted the text.
+- **The author** conceived the project and chose the patents and the questions. They directed every pass of the review, decided which paths to keep and which to cut, and decided when it should stop. They also designed the sheet style, made the film's music, and set the purpose and the licence.
+- **Claude (Anthropic)**, a large language model, worked under that direction: it ran and logged the literature searches, derived and computed the results, drew the concept rigs and drawings, cut the film and drafted the text.
 
 AI tools are not listed as authors. Every number can be checked against the code and sources in this record. Please report errors.
 
