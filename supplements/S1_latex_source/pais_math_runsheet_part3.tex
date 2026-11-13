@@ -1,0 +1,294 @@
+% Pais gap loop -- mathematics run sheet, part 3: run-4 items (loaded by \input from part 2, before the paths table).
+% Items keep their chain numbers (counters set below). Numbers: run4_numbers.json from run4_math.py.
+%=====================================================================================================
+\section*{Run 4 additions to chains I, III and V}
+\addcontentsline{toc}{section}{Run 4 additions: I.11--I.14, III.4, V.6, V.7}
+\noindent Each item keeps its chain number and names the item it builds on. Numbers come from \texttt{run4\_math.py}; the run opened with a
+blind re-derivation of four logged run-3 numbers from their written inputs (\texttt{canary4.py}, 4 of 4 within 1\,\%).
+
+\setcounter{section}{1}\setcounter{subsection}{10}
+\subsection{The fibre ladder: specific strength at buildable length}
+\meta{[D] run 4 $\cdot$ gap 2 (K1) $\cdot$ from I.4, I.7, I.8}
+\begin{statement}
+A hoop spinning at rim speed $v$ needs $\sigma/\rho\ge v^2$ (I.4). In textile units $1\un{N/tex}=1\un{GPa/(g\,cm^{-3})}=10^6\un{J/kg}$, so gap 2
+($R=2\un{m}$, 30{,}000 rpm, $v=6.28\un{km/s}$) needs $39.5\un{N/tex}$. A unidirectional composite with fibre fraction $V_f$ in a matrix of density
+$\rho_m$ needs fibre strength
+\begin{equation}
+\sigma_f\ge v^2\,\frac{V_f\rho_f+(1-V_f)\rho_m}{V_f}.\label{eq:dilution}
+\end{equation}
+\end{statement}
+\begin{proof}
+$1\un{tex}=1\un{g/km}=10^{-6}\un{kg/m}$, so $1\un{N/tex}=10^6\un{N\,m/kg}=10^6\un{J/kg}$. For \eqref{eq:dilution}: the composite's hoop stress
+is $\rho_cv^2$ with $\rho_c=V_f\rho_f+(1-V_f)\rho_m$, and the fibres carry it, $V_f\sigma_f\ge\rho_cv^2$.
+\end{proof}
+\inputs{commercial CNT yarn at 100--120 mm gauge, $0.911\pm0.137$ N/tex \cite{dessureault}; continuous CNT yarn (150--500 m lengths made),
+$1.77\pm0.07$ N/tex \cite{liang23}; Kevlar 49, Dyneema, Zylon and T1100G from strength and density data \cite{wikiss}; ultralong CNT bundles
+80 GPa at 2 cm \cite{bai}, $\rho=1300$ (assumed); graphene 130 GPa, 2200 kg/m$^3$ \cite{lee}; $\rho_m=1200$.}
+\nums{Factor short of 39.5 N/tex: CNT yarn at 0.1 m, $43\times$; continuous CNT yarn, $22\times$; Kevlar, $16\times$; Dyneema, Zylon and T1100G,
+$10\times$ (T1100G 3.91 N/tex, rim 1.98 km/s, $3.2\times$ short in speed). Over the line: only the 2 cm bundles (61.5 N/tex) and ideal graphene
+(59.1). As a $V_f=0.6$ composite the bundles need 82.9 GPa, $1.04\times$ their cm-scale strength; graphene would need 91\,\% of ideal.}
+\verdict{At buildable length nanotube yarns are $2$--$4\times$ \emph{weaker} per kilogram than carbon fibre. Gap 2 at buildable size is $10\times$ in
+$\sigma/\rho$, and only the dry cm-scale bundle is over the line. K1 kept with a lowered prior.}
+
+\subsection{How many specimens decide the Weibull modulus}
+\meta{[P] run 4 $\cdot$ gap 2 (K1 test design) $\cdot$ from I.8}
+\begin{theorem}\label{thm:weibullN}
+For $N$ strengths drawn from a Weibull law with unknown scale, the maximum-likelihood modulus $\hat m$ is asymptotically normal with
+\begin{equation}
+\operatorname{Var}\hat m=\frac{6}{\pi^2}\,\frac{m^2}{N};\qquad\text{telling $m$ from $m+\Delta m$ at $z$ standard errors needs}\quad
+N\ge\Big(\frac{z\sqrt6}{\pi}\,\frac{m}{\Delta m}\Big)^2 .\label{eq:weibullN}
+\end{equation}
+\end{theorem}
+\begin{proof}
+$y=\ln\sigma$ follows the smallest-extreme-value (Gumbel) law with location $\mu=\ln\sigma_0$ and scale $b=1/m$. With $w=e^{(y-\mu)/b}\sim$
+Exp(1), the Fisher information per observation is
+$b^{-2}\bigl(\begin{smallmatrix}1&1-\gamma_E\\ 1-\gamma_E&\pi^2/6+(1-\gamma_E)^2\end{smallmatrix}\bigr)$ (moments of $\ln w$ and $w\ln w$ from
+$\Gamma'(k)$, $\Gamma''(k)$). Its determinant is $\pi^2/(6b^4)$, so the $(b,b)$ element of the inverse is $6b^2/\pi^2$. With $m=1/b$ the delta
+method gives $\operatorname{Var}\hat m=\operatorname{Var}\hat b/b^4=6m^2/(\pi^2N)$.
+\end{proof}
+\noindent Two more estimators follow from \eqref{eq:weibull}: across two gauges, $m=\ln(L_2/L_1)/\ln(\bar\sigma_1/\bar\sigma_2)$; from the scatter at
+one gauge, $\mathrm{CoV}=\sqrt{\Gamma(1+2/m)/\Gamma(1+1/m)^2-1}\approx1.2/m$.
+\nums{$z=2$, $\Delta m=4.5$: $N=12$ if $m=10$, $N=25$ if $m=14.5$. Over a decade of length the mean strength falls $1.26\times$ ($m=10$) or
+$1.17\times$ ($m=14.5$). From scatter: commercial yarn at 110 mm, CoV 0.150, $m\approx7.9$ \cite{dessureault}; continuous yarn, CoV 0.040,
+$m\approx32$ if the $\pm$ is one standard deviation (producer's own data, grade C) \cite{liang23}. A yarn is a bundle, so Daniels averaging
+(I.9) raises its $m$ and lowers its mean: neither number transfers to the 80 GPa bundles.}
+\verdict{K1 test: 12--25 bundles at each of two gauges a decade apart (20 and 200 mm); $m$ by maximum likelihood and by the two-gauge ratio. Cut
+the bundle rim route if $m<10$.}
+
+\subsection{Shear lag: what the matrix must hold}
+\meta{[D] run 4 $\cdot$ gap 2, composite route $\cdot$ from I.10}
+\begin{statement}
+A fibre or bundle of diameter $d$, reloaded from a break through an interface that yields at shear stress $\tau$, regains stress linearly,
+$d\sigma/dx=4\tau/d$, and carries $\sigma_f$ again $\sigma_fd/4\tau$ from the break on each side. The ineffective zone is the Kelly--Tyson length
+\begin{equation}
+\delta=\frac{\sigma_f\,d}{2\tau}\qquad\Longleftrightarrow\qquad\tau\ge\frac{\sigma_f\,d}{2\delta}.\label{eq:shearlag}
+\end{equation}
+\end{statement}
+\begin{proof}Force balance on a slice $dx$: $\tfrac{\pi d^2}{4}\,d\sigma=\pi d\,\tau\,dx$ \cite{kellytyson}.\end{proof}
+\nums{I.10 needs $\delta\lesssim0.1\un{mm}$. With $\sigma_f=80\un{GPa}$: $d=1\,\mu$m needs $\tau\ge400\un{MPa}$; $d=100\un{nm}$, 40 MPa;
+$d=10\un{nm}$, 4 MPa. At $\tau=50\un{MPa}$ (an epoxy-class interface, assumed): $\delta=0.8\un{mm}$ for 1 $\mu$m bundles, 0.08 mm for 100 nm.}
+\verdict{The composite route needs bundles about 100 nm across or thinner, each reloaded by the matrix; micron bundles need an interface no
+polymer provides. This is the R\&D item between ``80 GPa at 2 cm'' and a hoop.}
+
+\subsection{Cooldown: contraction mismatch and the pre-compression window (bridge B1)}
+\meta{[D]+[E] run 4 $\cdot$ gap 6 (K2) $\cdot$ from I.6; supplies the pre-compression term I.6 left out}
+\begin{statement}
+A REBCO pack and a band shrink freely by $s_1$ and $s_2$ from room temperature to 4.2 K; their axial stiffnesses are $k_i=E_iA_i$.
+\begin{enumerate}
+\item Bonded or co-wound, both take the common shrinkage $\bar s=(k_1s_1+k_2s_2)/(k_1+k_2)$ and the tape is left with
+\begin{equation}
+\varepsilon_1=\frac{k_2\,(s_1-s_2)}{k_1+k_2}\qquad(\text{positive}=\text{tension}).\label{eq:cte}
+\end{equation}
+\item An unbonded overband loses contact by $s_1-s_2$ unless it is wound warm with pre-strain $\varepsilon_{\rm pre}\ge s_1-s_2$.
+\item A tape pre-compressed by $\varepsilon_c$ at 4.2 K can take $\varepsilon_{\rm irr}+\varepsilon_c$ of tension, so the strain-matched field ceiling
+\eqref{eq:strain} rises by $\sqrt{1+\varepsilon_c/\varepsilon_{\rm irr}}$.
+\end{enumerate}
+\end{statement}
+\begin{proof}
+(1) Equal final length and zero net force: $k_1(\bar s-s_1)+k_2(\bar s-s_2)=0$; the tape's strain is $s_1-\bar s$. (2) The free shrinkages differ by
+$s_1-s_2$; contact needs that much stored band strain. (3) $B_{\max}^2\propto E\varepsilon$ in \eqref{eq:strain}.
+\end{proof}
+\inputs{$s_1=0.26\,\%$ for a Hastelloy-substrate tape pack (run-4 search, 0.26--0.27\,\%), stainless 304 $0.30\,\%$ and unidirectional carbon
+along the fibre $\approx0$ \cite{ekin}; $E_1=150$ GPa (tape, assumed, 130--170), M55J hoop $0.6\times540$ GPa, stainless 193 GPa; equal areas;
+$\varepsilon_{\rm irr}=0.63\,\%$; $\varepsilon_c=0.2\,\%$ (assumed, low end of reported compressive limits).}
+\nums{Carbon co-wound: $\varepsilon_1=+0.178\,\%$, 28\,\% of the tensile window spent by cooling alone. Stainless co-wound: $-0.023\,\%$, a small
+pre-compression. Carbon overband: $\varepsilon_{\rm pre}\ge0.26\,\%$, i.e.\ 842 MPa of warm band stress, pressing 42 MPa on the pack at
+$t/R=0.05$. Pre-compression of 0.2\,\%: $1.32\times$ the strain window and $1.15\times$ the field ceiling (Hastelloy-class 59 $\to$ 68 T).}
+\verdict{B1 revised. A carbon or nanotube band (the K1$\times$K2 bridge) either separates on cooldown or, bonded, pre-tensions the tape by
+$\sim$0.18\,\%. Prefer a co-wind that shrinks at least as much as the tape (stainless, Inconel-class); use carbon only as a warm-pre-tensioned
+overband sized by (2). Co-winding also lowers screening-current-induced stress, with diminishing returns as the co-wind thickens
+\cite{scis22,yan19}.}
+
+\setcounter{section}{3}\setcounter{subsection}{3}
+\subsection{Thrust per watt: the ladder from light to ion wind (Biefeld--Brown)}
+\meta{[D] run 4 $\cdot$ exploration, cut $\cdot$ from III.1, III.2}
+\begin{statement}
+A device that ejects mass at speed $v\ll c$ gets $F/P=2/v$ ($F=\dot mv$, $P=\tfrac12\dot mv^2$). Ions of mass $m$ and charge $q$ through voltage
+$V$: $F/P=\sqrt{2m/(qV)}$. Electrons: $F/P=\gamma\beta/[(\gamma-1)c]$. Light: $1/c$. In a gas, ions drifting with mobility $\mu$ across a gap $d$
+hand their momentum to neutrals:
+\begin{equation}
+F=\frac{I\,d}{\mu},\qquad \frac FP=\frac{d}{\mu V}.\label{eq:ehd}
+\end{equation}
+\end{statement}
+\begin{proof}
+The drift speed is $\mu E$, so the space charge per unit length is $I/(\mu E)$ and the electric force on it is $\int_0^d\frac{I}{\mu E}E\,dx=Id/\mu$;
+in steady state collisions pass this to the gas. With no gas, Theorem~\ref{thm:com} leaves only what is ejected.
+\end{proof}
+\inputs{air $\mu=2\e{-4}\un{m^2/(V\,s)}$; $d=3$ cm, $V=30$ kV, $I=1$ mA (lifter-like, assumed); singly charged ions.}
+\nums{Air: 0.15 N, 5 mN/W. Vacuum: protons 0.83 $\mu$N/W, Cu$^+$ 6.6, Xe$^+$ 9.5; 30 keV electrons 0.020 $\mu$N/W; light 3.3 nN/W. A vacuum claim
+of 0.1 mN/W sits $10\times$ above xenon ejection: it needs a visible heavy-ion exhaust, or it is an artefact.}
+\verdict{Biefeld--Brown cut: the force is ion wind and vanishes in vacuum \cite{talley,tajmarbb}. Any closed electrostatic device sits at zero
+(III.1); one that ejects sits on the $2/v$ line.}
+
+\setcounter{section}{5}\setcounter{subsection}{5}
+\subsection{What field enhancement buys: the driven-volume theorem (B5)}
+\meta{[P] run 4 $\cdot$ gap 9 (B5) $\cdot$ from V.3, V.4}
+\begin{theorem}\label{thm:enh}
+A metasurface that raises the local field by $F$ over a fraction $f$ of the illuminated area cuts the incident intensity needed for a given local
+field by $F^2$, leaves the absorbed power per driven volume unchanged, and changes the driven volume per incident watt by
+\begin{equation}
+G=f\,F^2 .\label{eq:enh}
+\end{equation}
+\end{theorem}
+\begin{proof}
+The absorbed power density $\tfrac12\sigma_1E_{\rm loc}^2$ is fixed by the target field. Bare film: power $I_0A$ drives volume $At$. Metasurface:
+power $I_0A/F^2$ drives volume $fAt$. Take the ratio of volume per watt.
+\end{proof}
+\inputs{hold fluence 4 J/m$^2$ \cite{rowe} delivered in 1 ps (assumed): local field 0.55 MV/cm. SRR gap 2.2 $\mu$m, enhancement $\propto1/g$
+\cite{fan13}; SRR arm 4--10 $\mu$m in a 50 $\mu$m cell, dipole gap $1\times5\,\mu$m in a $170\times100\,\mu$m cell (geometry assumed).}
+\nums{A tenfold intensity saving needs $F=\sqrt{10}=3.2$ (incident 0.17 MV/cm). Measured $F$: split-ring resonator $\sim$4 for a broadband pulse and
+$\sim$15 on resonance \cite{fan13}; 1 $\mu$m-gap rings $\sim$20, reaching 3.5 MV/cm \cite{fan12}; dipole gap 170 at the metal edge, 60 mid-gap
+\cite{tifee}. So $G=0.06$--0.14, 0.8--2.0, 0.6--1.6 and 1.1--1.7. Field ladder in a gap: needed 0.55 MV/cm; GaAs impact ionization 0.64
+\cite{fan13}; electromigration damage seen above 2 \cite{electromig}; 3.5 reached \cite{fan12}; field emission 10 \cite{tifee}.}
+\verdict{B5 kept only as a \emph{test enabler}: a smaller source can reach the hold field in micron gaps, $3.6\times$ below the damage seen. Cut as a
+power route for gap 9: $G\approx0.1$--2, and the driven islands cover $\lesssim1\,\%$ of the film without connecting, so a test needs a
+gap-resolved probe, not a transport measurement.}
+
+\subsection{The London moment and the Tate anomaly}
+\meta{[D] run 4 $\cdot$ exploration lead K5 $\cdot$ from V.1; meets the gravity path cut in run 3}
+\begin{statement}
+Deep inside a superconductor rotating at $\boldsymbol\omega$ no current flows relative to the lattice, so the pairs co-rotate, and fluxoid
+quantization ($n=0$) gives a uniform field
+\begin{equation}
+\mathbf B=-\frac{2m^*}{e^*}\,\boldsymbol\omega\approx-\frac{2m_e}{e}\,\boldsymbol\omega=-1.137\e{-11}\un{T}\times\frac{\omega}{\rm rad\,s^{-1}} .\label{eq:london}
+\end{equation}
+\end{statement}
+\begin{proof}
+Canonical momentum $\mathbf p=m^*\mathbf v_s+e^*\mathbf A$ with $\mathbf v_s=\boldsymbol\omega\times\mathbf r$. On a loop of area $S$ inside,
+$\oint\mathbf p\cdot d\mathbf l=0$ and $\oint(\boldsymbol\omega\times\mathbf r)\cdot d\mathbf l=2\omega S$, so $2m^*\omega S+e^*BS=0$. Pairs have
+$m^*/e^*=m_e/e$ up to small corrections (theory for Nb: $m^*/2m_e=0.999992$).
+\end{proof}
+\nums{1000 rad/s gives 11.4 nT, one flux quantum through a 1 cm-radius ring per 0.58 rad/s. Tate \emph{et al.} (Nb rings, 1989--90):
+$m^*/2m_e=1.000084(21)$, $+92$ ppm, $4.4\sigma$ \cite{tate}; an average over rotation-rate bins gives $1.000075(25)$. The gravitomagnetic
+explanation needs $B_g=1.84\e{-4}\,\omega$ \cite{tajmargm}, about $5\e{22}$ times a classical estimate for a 1 cm Nb cylinder (E), and the same
+authors' density-ratio model falls $23\times$ short of Tate's value \cite{tajmargm2}. For the craft: a REBCO band at 300 rad/s makes 3.4 nT.}
+\verdict{K5 kept as a measurement lead only: an unrepeated $4\sigma$ precision result with no accepted explanation. Deciding experiment: repeat at
+$\le10$ ppm; SQUID flux resolution is not the limit (10 ppm of 1728 flux quanta is 0.017 $\Phi_0$), the ring's cold dimensions and stray flux
+are (E). Engineering consequence for the craft: none.}
+
+%=====================================================================================================
+\section*{Run 5 additions to chains I and III}
+\addcontentsline{toc}{section}{Run 5 additions: I.15--I.17, III.5}
+\noindent\textbf{Corrections found in run 5.} (i) I.11: the best metre-scale fibre is Toray T1200 (8.0 GPa at 1.82 g/cm$^3$, announced October
+2023 \cite{toray23}), 4.40 N/tex, so gap 2 is $9.0\times$ short in $\sigma/\rho$ ($3.0\times$ in speed), not $10\times$; the run-4 value came from a
+stale table. (ii) I.14: measured cooldown offsets imply a free-tape shrinkage of 0.31--0.32\,\% to 4.2 K, not 0.26\,\% (I.16). (iii) I.7 and
+ledger 16: ``rims $\le7.7$ km/s'' holds for a rim that carries its own load; with a stator the virial bound applies to the whole craft (I.17).
+Numbers below come from \texttt{run5\_math.py}; the run opened with a blind re-derivation of seven run-4 numbers (\texttt{canary5.py}, 7 of 7).
+
+\setcounter{section}{1}\setcounter{subsection}{14}
+\subsection{Schulz--Flory: the length budget of continuous nanotubes}
+\meta{[D] run 5 $\cdot$ gap 2 (K1) $\cdot$ from I.8, I.13}
+\begin{statement}
+If a growing tube's catalyst survives each growth step $\Delta$ with probability $\alpha$, the number of tubes reaching length $L$ is
+\begin{equation}
+N(L)=N_0\,\alpha^{L/\Delta}=N_0\,2^{-L/L_{1/2}},\qquad L_{1/2}=\frac{\Delta\ln2}{\ln(1/\alpha)},\qquad \bar L=\frac{L_{1/2}}{\ln2}.\label{eq:sf}
+\end{equation}
+\end{statement}
+\begin{proof}Deactivation is memoryless, so survival probabilities multiply step by step: a geometric distribution, the Schulz--Flory
+law of polymer chain lengths \cite{zhang13}.\end{proof}
+\inputs{$L_{1/2}=74.4$ mm for semiconducting ultralong tubes \cite{zhu19}; longest grown 550 mm \cite{zhang13}; tube diameter 2 nm, useful
+length 2 cm, $V_f=0.6$, rim section 1 cm$^2$ (assumed).}
+\nums{Fraction reaching 20 mm: 83\,\%; 200 mm: 16\,\%; 1 m: $9.0\e{-5}$; the 12.57 m hoop: $10^{-50.8}$. Deactivation probability
+$9.3\e{-6}$ per $\mu$m of growth. A path round the hoop crosses about 117 tube ends ($\bar L=107$ mm), and a 1 cm$^2$ rim section needs
+$1.2\e{16}$ tubes 2 cm long. With ordinary (defective) tubes, nanoscale Weibull statistics give $m\approx2.7$ and 34 GPa at 100 nm
+\cite{pugno06}: a single 1 m tube would hold 0.08 GPa, and simulated macroscopic cables stay below about 10 GPa (7.7 N/tex) \cite{pugno08}.}
+\verdict{No continuous tube spans a rim: it must be a spliced composite (I.13) of defect-free cm-long tubes, about $10^{16}$ per cm$^2$ of
+section. The 20/200 mm test of I.12 stays feasible (16\,\% of tubes reach 200 mm). K1 is waiting on data, with its prior lowered again.}
+
+\subsection{Bonded bands through the cooldown: the measured offset and the radial tension}
+\meta{[D]+[E] run 5 $\cdot$ gap 6 (K2) $\cdot$ from I.14}
+\begin{statement}
+(a) A tape bonded to a much stiffer holder of shrinkage $s_h$ keeps the mechanical strain $\varepsilon\approx s_{\rm tape}-s_h$ (I.14 with
+$k_2\gg k_1$). (b) A bonded outer band that shrinks less than the pack, by $\Delta s$, pulls it outward with radial tension
+\begin{equation}
+q=\frac{\Delta s}{R/(E_wt_w)+R/(E_bt_b)} .\label{eq:qrad}
+\end{equation}
+\end{statement}
+\begin{proof}(a) is \eqref{eq:cte} as $k_2/k_1\to\infty$. (b) A thin ring of hoop stiffness $Et$ under a radial pressure $q$ moves by $qR^2/(Et)$;
+the pack's outward and the band's inward displacements must add up to the free mismatch $R\,\Delta s$.\end{proof}
+\inputs{Ti-6Al-4V Walters spring, 0.17\,\% to 4.2 K; zero-strain offsets for five makers' tapes 0.144--0.152\,\% at 4.2 K; irreversible limits
+0.45--0.72\,\% at 4.2 K, 19 T \cite{barth}. Pack $R=0.1$ m, 20 mm at 150 GPa; M55J band 5 mm at $0.6\times540$ GPa (assumed geometry).}
+\nums{(a) Free-tape shrinkage $0.17+0.144\ldots0.152=0.31$--$0.32\,\%$. Re-running I.14: a bonded carbon co-wind leaves $+0.18$ to
+$+0.22\,\%$, i.e.\ 31--48\,\% of the five tapes' windows; stainless leaves $-0.02$ to $+0.01\,\%$, neutral. (b) $q=27$--$34$ MPa, against
+c-axis delamination strengths of 18--53 MPa \cite{parkcaxis}; radial tension from contraction mismatch is the known cause of delamination in
+impregnated pancakes \cite{delam}.}
+\verdict{I.14's cooldown offset is a measured fact (grade B). Bonded carbon or nanotube bands are cut twice: strain window and delamination.
+Metal co-winds are neutral; K2 reduces to one number, the free shrinkage of the actual conductor.}
+
+\subsection{A rotor held by a stator: the virial theorem for a closed craft with magnetic support (bridge B6)}
+\meta{[P] run 5 $\cdot$ gap 2 (new bridge B6) $\cdot$ from I.2, I.4, I.7; corrects the reading of I.7}
+\begin{theorem}\label{thm:stator}
+For a closed system of rotating matter, stationary matter and steady axisymmetric fields, $\int\tr\sigma\,dV$ over all matter equals $2T+U$.
+A rotor can be free of stress where $\mathbf J\times\mathbf B=\rho_rv^2/R$ locally; the stator then carries $2T+U$, so
+$M_{\rm stator}\ge\rho_s(2T+U)/\sigma_s$. A fully supported thin rotor needs
+\begin{equation}
+S_m\equiv\frac{J_e\,B\,R}{\rho_r}\;\ge\;v^2 :\label{eq:sm}
+\end{equation}
+its speed is bounded by this magnetic specific strength, not by its own $\sigma/\rho$.
+\end{theorem}
+\begin{proof}
+$\partial_j(\sigma_{ij}+T_{ij})=\rho a_i$, with no $\partial_t\mathbf g$ term because the fields are steady. Multiply by $x_i$ and integrate over
+all space: $-\int(\tr\sigma+\tr T)\,dV=\int\rho\,\mathbf x\cdot\mathbf a\,dV=-2T$, and $\tr T=-u$. For the rotor, the radial momentum balance
+of a thin ring is $J_eB=\rho_rv^2/R$.
+\end{proof}
+\begin{corollary}[tilt]\label{cor:tilt}
+If a fraction $\beta$ of a thin ring's centripetal load is magnetic, in a uniform axial field, then $4I_\perp K=\beta L^2$, where $L$ is the
+spin angular momentum and $K$ the magnetic overturning stiffness. The ring is stable against tilting iff $\beta\le1$: full magnetic support
+is exactly marginal, and the margin is $1-\beta$.
+\end{corollary}
+\begin{proof}
+For tilt $\xi=\theta_x+i\theta_y$: $I_\perp\ddot\xi-iL\dot\xi-K\xi=0$, so $s=[iL\pm\sqrt{4I_\perp K-L^2}\,]/(2I_\perp)$, stable iff
+$L^2\ge4I_\perp K$. An inward force needs the ring's moment anti-parallel to $\mathbf B$, so $K=|I|\pi R^2B$ with $|I|B=\beta M\omega^2/2\pi$, giving
+$K=\tfrac12\beta M\omega^2R^2$; with $I_\perp=\tfrac12MR^2$ and $L=MR^2\omega$, $4I_\perp K=\beta M^2\omega^2R^4=\beta L^2$. A
+flux-conserving ring changes $K$ only at second order in a uniform field.
+\end{proof}
+\inputs{$R=2$ m, 30\,000 rpm, $v^2=3.95\e7$ J/kg; REBCO $\rho_r=8900$; $J_e$ at 4.2 K, 20 T: 0.6 kA/mm$^2$ commercial \cite{kar19}, $\approx1$
+kA/mm$^2$ record tape (2019) \cite{aries}, $\approx4.6$ kA/mm$^2$ thick-film R\&D samples \cite{selva24}; $J_e$ held to 40 T for
+$\mathbf B\parallel ab$ (optimistic; $I_c$ falls $\sim$22\,\% to 31 T); rotor 2 mm $\times$ 100 mm (assumed).}
+\nums{$S_m$ ranges from $2.7\e6$ (commercial, 20 T: $15\times$ short) through $9.0\e6$ (record tape, 40 T: $4.4\times$) to $3.1\e7$ and
+$4.1\e7$ (R\&D, 30 and 40 T: $1.3\times$ short, then meets it); the best fibre is $9.0\times$ short. The rotor weighs 22 kg and holds
+$T=442$ MJ; the stator needs $\ge289$ kg of T1200 hoop ($\ge6.1$ t at REBCO-coil $\sigma/\rho$); a 5 cm annular field gap stores only 10--40
+MJ. A REBCO-only rotor can carry at most 0.4\,\% of the load itself ($\beta\ge0.9963$), so its tilt margin is 0.4\,\%.}
+\verdict{B6 kept (D). It turns gap 2 from a materials wall into an engineering target: within $1.3\times$ at 30 T with lab-best conductor,
+$4$--$15\times$ short with today's tape. Tilt stability decides it (exactly marginal at $\beta=1$): field shaping or active control must add
+stiffness. Smallest deciding experiment: a REBCO ring of 10 cm radius in 10 T spun to 500 m/s (full magnetic support would need $\rho v^2/BR=2.2$ kA/mm$^2$), $1.3\times$ its own burst speed (381 m/s), at
+$\beta\approx0.5$, which needs about 1.1 kA/mm$^2$. Prior art for levitated superconducting rings exists, with feedback and eddy-current
+damping \cite{cooper70}; superconductors and spin both evade Earnshaw's static theorem \cite{post}.}
+
+\setcounter{section}{3}\setcounter{subsection}{4}
+\subsection{The flyby anomaly against frame dragging}
+\meta{[E] run 5 $\cdot$ exploration, cut $\cdot$ from III.1}
+\begin{statement}
+Anderson's empirical formula is $\Delta V_\infty/V_\infty=K(\cos\delta_{\rm in}-\cos\delta_{\rm out})$ with $K=2\omega_ER_E/c=3.099\e{-6}$
+\cite{anderson08}. The Lense--Thirring acceleration of a probe near the rotating Earth is of order $a\approx2GJ_Ev/(c^2r^3)$.
+\end{statement}
+\inputs{$J_E=5.86\e{33}$ kg m$^2$/s; NEAR perigee 539 km, 12.7 km/s (assumed speed); about 1000 s near perigee.}
+\nums{NEAR: formula 13.28 mm/s against 13.46 observed. Frame dragging: $3.4\e{-10}$ m/s$^2$, about $3\e{-4}$ mm/s over 1000 s, $4\e4$ times
+too small. The formula's predictions failed: no anomaly at Galileo's second flyby or Rosetta's second and third; about 7 mm/s predicted for
+Juno (2013), which showed none or a threshold signal \cite{iorio15,acedo18}. No velocity-independent force field reproduces the formula.}
+\verdict{Cut as a lead for the craft: no mechanism, and the anomaly does not repeat. Revive only if a dedicated flyby, tracked continuously
+through perigee, shows it.}
+
+\subsection{Charged-dielectric thrust claims: what electrostatics alone gives (X1)}
+\meta{[D]+[E] run 5, side research (not scored) $\cdot$ exploration lead X1 $\cdot$ from I.1, III.1, III.2, III.4}
+\begin{statement}
+A conductor or electret face carrying surface charge $\sigma$ is pulled towards nearby conductors with the pressure $p=\sigma^2/2\varepsilon_0$, so a
+face of area $A$ feels
+\begin{equation}
+F=\frac{\sigma^2A}{2\varepsilon_0},\qquad \sigma\le\varepsilon_0E_{\rm bd}\quad(\text{air, }E_{\rm bd}\approx3\un{MV/m}:\ \sigma\le26.6\,\mu\mathrm{C/m^2}).\label{eq:espress}
+\end{equation}
+A sealed device that ejects nothing has $F\le P/c$ (III.2), which is zero with the power off.
+\end{statement}
+\begin{proof}The field just outside a charged surface facing a conductor is $\sigma/\varepsilon_0$ and the normal Maxwell stress there is
+$\varepsilon_0E^2/2$ (I.1); breakdown caps $E$. The second part is Theorem~\ref{thm:com}.\end{proof}
+\inputs{claimed: $\sim$1 mN at $\sim$480 V, $\sim$2.5 mN in vacuum on a pendulum with grounded walls, 10 mN peak from stacked devices of 30--40 g,
+thrust persisting on stored charge with the power off \cite{buhler}; face $5\times5$ cm (assumed).}
+\nums{10 mN on 25 cm$^2$ needs $\sigma=8.4\,\mu$C/m$^2$, 32\,\% of the air-breakdown limit: ordinary attraction to walls and images is the right size,
+and grounding the walls creates it rather than removing it. With nothing ejected and no power, $P/c=0$; photon thrust of 10 mN would need 3.0 MW.
+Ejecting N$_2^+$ at 30 kV would give 4.4 $\mu$N/W (III.4). Weight: conductors of $\sim$1 kg charged from 10 V to 200 kV, both polarities, changed
+weight by less than 2 g, i.e.\ $2\e{-3}$ \cite{hathaway21}.}
+\verdict{X1 kept as a lead, grade E, contested; no independent test found. Deciding experiment: a battery-powered device sealed in a conducting
+box on a torsion balance in high vacuum, with polarity reversal and an uncharged dummy; kill if the force vanishes inside the box, and a real
+effect must exceed 3.34 nN/W with nothing ejected. The same items cut St.~Clair's rotating electrostatic thruster (US 2003/0209637, cited by the
+project's triangular-spacecraft filing): a steadily spinning axisymmetric charge radiates nothing (II.2) and cannot move its centre of energy
+(III.1).}

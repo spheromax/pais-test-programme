@@ -1,0 +1,92 @@
+[
+ {
+  "name": "T_m, 50 um basis (K)",
+  "new": 24.452793292408845,
+  "logged": 24.452793292408845,
+  "ok": true
+ },
+ {
+  "name": "ripple 4.2 K wall, 50 um, eps 0.05 (mT)",
+  "new": 0.8658795671798479,
+  "logged": 0.8658795671798479,
+  "ok": true
+ },
+ {
+  "name": "ripple 4.2 K wall, 0.1 mm, eps 0.02 (mT)",
+  "new": 0.17087871082046158,
+  "logged": 0.17087871082046158,
+  "ok": true
+ },
+ {
+  "name": "eps sensitivity 0.95/0.02",
+  "new": 3.62157822172087,
+  "logged": 3.62157822172087,
+  "ok": true
+ },
+ {
+  "name": "Iseult-class loss at 30 T (W)",
+  "new": 7.358514199330527e-08,
+  "logged": 7.358514199330522e-08,
+  "ok": true
+ },
+ {
+  "name": "100 ppm rotor temperature, eps 0.1 (K)",
+  "new": 52.20700895264043,
+  "logged": 52.20700895264042,
+  "ok": true
+ },
+ {
+  "name": "coupon mass (g)",
+  "new": 8.90001249893161,
+  "logged": 8.90001249893161,
+  "ok": true
+ },
+ {
+  "name": "coupon normal force (kN)",
+  "new": 175.67920505841138,
+  "logged": 175.67920505841138,
+  "ok": true
+ },
+ {
+  "name": "capstan 30 deg, mu 0.3",
+  "new": 0.8546359991532334,
+  "logged": 0.8546359991532334,
+  "ok": true
+ },
+ {
+  "name": "beta ratio at 20 K",
+  "new": 0.019651875035807804,
+  "logged": 0.0196519145742959,
+  "ok": true
+ },
+ {
+  "name": "warm design 20 K, eps 0.5 (mT)",
+  "new": 1.5311724755272276,
+  "logged": 1.5311724755272276,
+  "ok": true
+ },
+ {
+  "name": "HFGW flux for h 1e-21 at 300 MHz (W/m2)",
+  "new": 14267858061.417484,
+  "logged": 14267858061.417482,
+  "ok": true
+ },
+ {
+  "name": "Pais flux as GW, h at 1 GHz",
+  "new": 2.7282418607896655e-15,
+  "logged": 2.7282418607896655e-15,
+  "ok": true
+ },
+ {
+  "name": "US 3,095,167 shortfall",
+  "new": 225.9942943168667,
+  "logged": 225.9942943168667,
+  "ok": true
+ },
+ {
+  "name": "FELICE peak fluence, zR 55 mm (mJ/cm2)",
+  "new": 48.48484848484849,
+  "logged": 48.484848484848484,
+  "ok": true
+ }
+]

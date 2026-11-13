@@ -1,0 +1,411 @@
+% Pais gap loop -- mathematics run sheet.  Growing document: each run of the loop appends items.
+% Every number is computed in run3_math.py -> run3_numbers.json (SI, CODATA 2018); inputs are written next to each result.
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=2.0cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx,longtable}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+
+\newcommand{\e}[1]{\times10^{#1}}
+\newcommand{\un}[1]{\,\mathrm{#1}}
+\newcommand{\tr}{\operatorname{Tr}}
+\newcommand{\meta}[1]{\par\noindent{\small\textsf{\color{black!60}#1}}\par\smallskip}
+\newcommand{\verdict}[1]{\par\smallskip\noindent\textbf{Verdict.} #1\par}
+\newcommand{\inputs}[1]{\par\noindent\textbf{Inputs.} #1\par}
+\newcommand{\nums}[1]{\par\noindent\textbf{Numbers.} #1\par}
+\newcommand{\refs}[1]{\par\noindent{\small\textbf{Refs.} #1}\par}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem*{statement}{Statement}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\setlist{nosep,leftmargin=1.4em}
+\pagestyle{fancy}\fancyhf{}
+\lhead{\small Pais gap loop --- mathematics run sheet}\rhead{\small run 11 (final) $\cdot$ 13 Nov 2026}\cfoot{\small\thepage}
+
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Pais gap loop --- mathematics run sheet}\\[4pt]
+{\large First-principles derivations, canonical forms, proofs and numbers}\\[4pt]
+{\small Version: run 11 (the loop stopped here), 13 November 2026. A growing document: every run of the loop appends its new items here.}
+\end{center}
+
+\noindent\textbf{How to read it.} Items are grouped in five \emph{chains}; inside a chain each item leads to the next, so a reader can follow
+one argument from its first principle to its verdict on a gap. Items that connect to nothing else stand alone in Section~S.
+Every item has the same parts: a statement in canonical form, a proof or derivation, the numbers \emph{with their inputs},
+a verdict on the gap it touches, and references. Status codes:
+\textbf{[P]} proved here from the stated assumptions;
+\textbf{[D]} standard result, re-derived here;
+\textbf{[E]} estimate with stated assumptions.
+Run codes: R0 = sheets CT-11 to CT-17; R1--R11 = runs of the gap loop. Evidence grades (A--E) are those of the loop.
+All numbers come from \texttt{run3\_math.py} to \texttt{run11\_math.py} and were checked by independent re-derivations
+(\texttt{canary.py}, \texttt{canary4.py} to \texttt{canary11.py}) where marked. Items from runs 4--10 sit in their chains' numbering but are printed
+together by run, after chain V.
+
+\medskip
+\noindent\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+Chain & Items and how they lead on\\
+\midrule
+I.\ Stress, strength, stored energy & I.1 Maxwell trace $\to$ I.2 virial (static) $\to$ I.3 minimum mass $\to$ I.5 windings $\to$ I.6 strain-matched bands;
+I.2 $\to$ I.4 virial (spin) $\to$ I.7 specific-strength ceiling and field-mass bound; I.8 weakest link $\to$ I.9 bundle $\to$ I.10 composite (gap 2);
+\emph{run 4:} I.7 $\to$ I.11 fibre ladder at buildable length; I.8 $\to$ I.12 specimens to decide $m$; I.10 $\to$ I.13 shear lag;
+I.6 $\to$ I.14 cooldown mismatch and pre-compression; \emph{run 5:} I.12 $\to$ I.15 Schulz--Flory length budget;
+I.14 $\to$ I.16 measured offset and radial tension; I.2, I.4 $\to$ I.17 stator-borne rotor (B6); \emph{run 6:} I.17 $\to$ I.18 ring
+stability (Earnshaw trace) $\to$ I.19 supercritical whirl $\to$ I.20 ripple loss; I.6, I.14 $\to$ I.21 pre-strained band (correction);
+\emph{run 7:} I.18 $\to$ I.22 active hold (delay, bandwidth) $\to$ I.23 passive hold (flux-conserving loops); I.20 $\to$ I.24 dynamic resistance; \emph{run 8:} I.17, I.23 $\to$ I.25 loss of hold $\to$ I.26 self-forces, I.27 heat, I.28 flywheel and gyroscope, I.29 tabletop test; \emph{run 9:} I.25 $\to$ I.30 containment inherits the virial $\to$ I.31 angular momentum after a burst; I.27 $\to$ I.32 conductor at the radiative temperature; \emph{run 10:} I.32 $\to$ I.33 stator field quality, I.35 flux-jump margin and warm design point; I.30 $\to$ I.34 tangential fragment test\\
+II.\ Radiation from moving charge & II.1 Pais flux $\to$ II.2 stationary sources $\to$ II.3 breathing sphere; II.4 Larmor $\to$ II.5 $C_n$ rule (H1) $\to$ II.6 ferroelectric (H2) $\to$ II.7 rig $\to$ II.8 ultrasound transducers\\
+III.\ Momentum and thrust & I.2 + III.1 closed systems $\to$ III.2 photon rocket $\to$ III.3 balance floor and protocol (gap 4);
+\emph{run 4:} III.2 $\to$ III.4 thrust per watt, light to ion wind (Biefeld--Brown); \emph{run 5:} III.5 flyby anomaly;
+III.2, III.4 $\to$ III.6 charged-dielectric thrust claims (side research); \emph{run 8:} III.6 $\to$ III.7 lingering force; \emph{run 9:} III.7 $\to$ III.8 UV charge-modulation control; \emph{run 10:} III.9 HFGW cavities as a null test, III.10 patent sweep\\
+IV.\ Vacuum thresholds & IV.1 critical fields $\to$ IV.2 pair rate $\to$ IV.3 invariants and boosted frames (gap 3); IV.4 Gertsenshtein; IV.5 zero-point energy\\
+V.\ Pairing and the 10 THz drive & V.1 BCS ratio $\to$ V.2 pairing photon $\to$ V.3 pulse bookkeeping $\to$ V.4 spot heating; V.5 no mechanical route (gap 9);
+\emph{run 4:} V.4 $\to$ V.6 driven-volume theorem (B5); V.1 $\to$ V.7 London moment and the Tate anomaly; \emph{run 6:} V.8 strain as
+pressure (gap 8); \emph{run 7:} V.3, V.4 $\to$ V.9 intracavity drive (B7); \emph{run 8:} V.9 $\to$ V.10 thin film and lasing condition; V.11 dark cavity; \emph{run 9:} V.10 $\to$ V.12 headroom at 30 $\mu$m, film in monolayers; \emph{run 10:} V.12 $\to$ V.13 FELICE intracavity fluence\\
+S.\ Standalone & S.1 Earth's binding energy; S.2 thermal occupation; S.3 kinetic impactor; \emph{run 7:} S.4 the craft's magnet as a magnetic sail\\
+\bottomrule
+\end{tabularx}
+
+\medskip
+\noindent\textbf{Constants and walls} (SI, CODATA 2018). $c=299\,792\,458\un{m\,s^{-1}}$, $\varepsilon_0=8.8541878128\e{-12}\un{F\,m^{-1}}$,
+$\mu_0=1.25663706212\e{-6}\un{H\,m^{-1}}$, $G=6.67430\e{-11}$, $\hbar=1.054571817\e{-34}\un{J\,s}$, $e=1.602176634\e{-19}\un{C}$,
+$m_e=9.1093837015\e{-31}\un{kg}$, $k_B=1.380649\e{-23}\un{J\,K^{-1}}$.
+Walls used by the loop: atomic field $E_{\rm at}=5.14\e{11}\un{V\,m^{-1}}$; atomic pressure $2.94\e{13}\un{Pa}$; Schwinger field
+$E_S=1.32\e{18}\un{V\,m^{-1}}$; $B_Q=4.41\e{9}\un{T}$; \emph{new in run 3:} specific strength $\sigma/\rho\le 6\e{7}\un{J\,kg^{-1}}$
+(I.7) and propellantless thrust $F\le P/c$ (III.2); \emph{new in run 4:} thrust with ejection $F/P=2/v$ (III.4), field enhancement buys
+driven volume per watt $fF^2$, not $F^2$ (V.6); \emph{new in run 5:} continuous tubes $\propto2^{-L/L_{1/2}}$ (I.15); a
+stator-held rotor is bounded by $J_eBR/\rho$ and the whole craft by $(2T+U)\rho/\sigma$ (I.17); \emph{new in run 6:} a current ring in a
+field has $k_x+k_y+k_z=0$ at fixed current, so one translation needs control (I.18); rotor-side damping destabilizes above
+$\omega_n(1+c_n/c_r)$ (I.19); a band's pre-strain comes out of its failure strain (I.21); strain gives at most about 10 GPa of pressure (V.8);
+\emph{new in run 7:} delayed feedback holds an unstable axis only if $\gamma\tau<\sqrt2$, with bandwidth $\ge4.5\gamma$ (I.22);
+flux-conserving loops add $\mathsf G^{\mathsf T}\mathsf L^{-1}\mathsf G\ge0$, so induced currents can hold what fixed currents cannot (I.23); inside a
+cavity a driven sample costs $(A+\mathcal L)$ of the single-pass source power (V.9); \emph{new in run 8:} a stator-held rotor tolerates a loss of hold of only $\sigma/\rho v^2$ (I.25); a quenched closed loop hands its current to its neighbours, $\Delta\mathbf I=I_0\mathsf L_{ss}^{-1}\mathsf L_{sq}$ (I.25); a current sheet pinches itself at $\mu_0J_e^2A\ln2/2\pi$ (I.26); a spinning rotor in vacuum sheds heat only as $\epsilon\sigma T^4$ (I.27); for the stress-free rotor $mB=T$ (I.28); \emph{new in run 9:} a containment needs no more tension than the rotor it held, $3(\gamma-1)E\le2T$ (I.30); debris faster than $\sqrt{2e_{\rm vap}}\approx3.9$ km/s ends as heat, so containment is sized by load, not absorbed energy (I.30); \emph{new in run 10:} a rotor cooled only by radiation tolerates ripple $\propto(\varepsilon/n)^{1/3}$, so field quality, not emissivity, decides (I.33); a coupon of the rotor's section on a track of the rotor's radius feels the craft's wall pressure at any size, and $v_{\rm out}/v_{\rm in}=e^{-\mu\theta}$ (I.34).
+
+%=====================================================================================================
+\section{Stress, strength and stored energy}
+
+\subsection{The trace of the Maxwell stress tensor}
+\meta{[D] run 3 $\cdot$ foundation for I.2--I.7}
+\begin{statement}
+$T_{ij}=\varepsilon_0\big(E_iE_j-\tfrac12\delta_{ij}E^2\big)+\mu_0^{-1}\big(B_iB_j-\tfrac12\delta_{ij}B^2\big)$ and
+\begin{equation}
+\tr T = -\Big(\frac{\varepsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\Big) = -u .\label{eq:trT}
+\end{equation}
+In statics the force density on charges and currents is $f_i=\rho E_i+(\mathbf J\times\mathbf B)_i=\partial_jT_{ij}$.
+\end{statement}
+\begin{proof}
+With $\delta_{ii}=3$: $\varepsilon_0(E^2-\tfrac32E^2)=-\tfrac12\varepsilon_0E^2$, and the same for $B$. The force identity is Maxwell's
+equations with $\partial_t(\varepsilon_0\mathbf E\times\mathbf B)=0$ \cite{jackson}.
+\end{proof}
+
+\subsection{Virial theorem for a static, self-contained field: von Laue's theorem}
+\meta{[P] run 3 $\cdot$ gaps 2, 4, 6 $\cdot$ leads to I.3, I.4, I.7, III.1}
+\begin{theorem}\label{thm:virial}
+Let a body of finite extent be in static equilibrium under its own electromagnetic fields (no external force), with mechanical
+stress $\sigma_{ij}$, and let the fields far away fall off at least as $E,B=O(r^{-2})$ (net charge allowed). Then
+\begin{equation}
+\int_{\rm body}\tr\sigma\,dV \;=\; \int_{\rm all\ space}u\,dV \;=\; U .\label{eq:virial}
+\end{equation}
+Holding a field energy $U$ requires a net integrated tension equal to $U$, whatever the geometry.
+\end{theorem}
+\begin{proof}
+Inside the body $\partial_j\sigma_{ij}+f_i=0$ with $f_i=\partial_jT_{ij}$. Put $\Sigma_{ij}=\sigma_{ij}+T_{ij}$ ($\sigma=0$ outside). Then
+$\partial_j\Sigma_{ij}=0$ everywhere, including across the surface, where the jump of the mechanical traction balances the jump of
+$T_{ij}n_j$ (the electromagnetic surface force). For a ball $B_R$ containing the body,
+\[
+0=\int_{B_R}x_i\,\partial_j\Sigma_{ij}\,dV=\oint_{\partial B_R}x_iT_{ij}n_j\,dS-\int_{B_R}\Sigma_{ii}\,dV .
+\]
+On $\partial B_R$, $|T|\le u=O(R^{-4})$, so the surface term is $O(R\cdot R^{-4}\cdot R^2)=O(R^{-1})\to0$. Hence
+$\int\tr\sigma\,dV=-\int\tr T\,dV=U$ by \eqref{eq:trT}.
+\end{proof}
+\noindent\emph{Remarks.} (i) The same argument applied to the full relativistic stress--energy tensor of a static closed system gives
+$\int T^{ij}\,d^3x=0$ (von Laue, 1911 \cite{laue}); \eqref{eq:virial} is its trace. It is why such a system's energy and momentum form a
+four-vector with mass $E/c^2$: internal stresses produce no inertial anomaly. (ii) Configurations without stress
+(``force-free'' fields) exist only with infinite extent \cite{hilal,cr5}.
+\refs{\cite{jackson,laue,moon,hilal,tsutsui,lbl}}
+
+\subsection{Minimum structural mass; no force-free finite magnet}
+\meta{[P] run 3 $\cdot$ gaps 6 and B1 $\cdot$ from I.2, leads to I.5, I.6}
+\begin{corollary}\label{cor:mass}
+If every principal stress obeys $\sigma_k\le\sigma_w$, then $\tr\sigma\le3\sigma_w$ and $M\ge\rho U/(3\sigma_w)$. When the load is carried by
+uniaxial members (fibres, hoops, tapes), $\tr\sigma=\sigma_1\le\sigma_w$ and
+\begin{equation}
+M\;\ge\;\frac{\rho\,U}{\sigma_w},\qquad\text{i.e.}\qquad \frac{U}{M}\le\frac{\sigma_w}{\rho}.\label{eq:mmin}
+\end{equation}
+Compression members only add mass. If $\sigma\equiv0$ then $U=0$: a finite body cannot hold field energy without stress.
+\end{corollary}
+\begin{proof}Integrate the pointwise bounds in \eqref{eq:virial} over the stressed volume.\end{proof}
+\nums{Structure needed per GJ stored, $\rho/\sigma_w\times1\un{GJ}$ (uniaxial):}
+\begin{center}\small
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Material (scale) & $\sigma_w$ & $\rho$ (kg/m$^3$) & $\sigma/\rho$ (J/kg) & kg per GJ & $v=\sqrt{\sigma/\rho}$ (m/s)\\
+\midrule
+6061-T6, yield (bulk) & 276 MPa & 2700 & $1.02\e5$ & 9\,780 & 320\\
+REBCO tape, irreversible, 4.2 K & 0.80 GPa & 8900 & $9.0\e4$ & 11\,100 & 300\\
+REBCO coil, reversible hoop & 1.29 GPa & 8900 & $1.45\e5$ & 6\,910 & 380\\
+Carbon-fibre hoop, T1000G, $V_f=0.6$ & 3.82 GPa & 1560 & $2.45\e6$ & 408 & 1\,565\\
+CNT composite coupon (2012) & 1.2 GPa & 1400$^*$ & $8.6\e5$ & 1\,170 & 926\\
+CNT fibre, record (mm gauge) & 8.2 GPa & 1300$^*$ & $6.3\e6$ & 159 & 2\,512\\
+CNT bundle (cm gauge) & 80 GPa$^\dagger$ & 2260$^\dagger$ & $3.5\e7$ & 28 & 5\,950\\
+Graphene, ideal strength & 130 GPa & 2200 & $5.9\e7$ & 17 & 7\,687\\
+\bottomrule
+\end{tabular}\\[2pt]
+{\footnotesize $^*$assumed density. $^\dagger$80 GPa is on the tubes' wall area, so it pairs with the density of graphitic walls (run-7
+correction; runs 3--6 paired it with 1300, giving $6.2\e7$ J/kg). Sources: \cite{barth,jcsj,sandia,bai,lee,bai18si}; T1000G fibre 6.37 GPa $\times V_f$.}
+\end{center}
+Check: steel at a 100 MPa working stress gives $\sigma/\rho\approx1.3\e4\un{J/kg}$, the ``order of 10 kJ/kg'' quoted for superconducting
+energy storage \cite{cr5}.
+\refs{\cite{moon,hilal,tsutsui,cr5}}
+
+\subsection{Spinning bodies: the virial theorem for rotation, and the rim speed}
+\meta{[P] run 3 (ring speed R0) $\cdot$ gap 2 $\cdot$ from I.2, leads to I.7}
+\begin{theorem}\label{thm:spin}
+For a body rotating steadily at $\Omega$, free of external forces and surface tractions, $\displaystyle\int\tr\sigma\,dV=2T$ with
+$T=\tfrac12\int\rho\Omega^2r_\perp^2\,dV$.
+\end{theorem}
+\begin{proof}
+$\partial_j\sigma_{ij}=\rho a_i$ with $\mathbf a=-\Omega^2\mathbf r_\perp$. Multiply by $x_i$ and integrate; the traction-free boundary
+kills the surface term: $-\int\tr\sigma\,dV=\int\rho\,\mathbf x\cdot\mathbf a\,dV=-\int\rho\Omega^2r_\perp^2\,dV=-2T$.
+\end{proof}
+\begin{corollary}
+$T/M\le\tfrac12\max(\tr\sigma)/\rho$. A uniaxial hoop gives $T/M\le\sigma/(2\rho)$ (shape factor $K=\tfrac12$); a biaxial constant-stress disk
+gives $K=1$: the flywheel law $E/M=K\sigma/\rho$ with $K\le1$ in plane stress. For a thin ring, an arc $d\theta$ of mass
+$\rho AR\,d\theta$ needs centripetal force $\rho A v^2d\theta$, supplied by $2\sigma A\sin(d\theta/2)\approx\sigma A\,d\theta$, so
+\begin{equation}
+\sigma=\rho v^2,\qquad v_{\max}=\sqrt{\sigma/\rho}.\label{eq:ring}
+\end{equation}
+\end{corollary}
+\nums{CT-11 rim, $R=2\un{m}$ at 30\,000 rpm: $v=6.28\un{km/s}$, needing $\sigma/\rho=3.95\e7\un{J/kg}$, i.e.\ 51 GPa at $1300\un{kg/m^3}$.
+Ring limits are in the table of I.3. Measured: composite rotors reached $965\un{m/s}$ tip speed and $>310\un{kJ/kg}$ \cite{sae}.}
+
+\subsection{Magnet windings: pressure, hoop stress and the field ceiling}
+\meta{[D] run 0, corrected in run 3 $\cdot$ gap 6 $\cdot$ from I.1, I.3; leads to I.6}
+\begin{statement}
+A winding with field $B$ inside and $\approx0$ outside feels the magnetic pressure $p=B^2/2\mu_0$ (the jump of $T_{nn}$). A thin solenoid of
+radius $R$ and wall $t$ carries the hoop stress
+\begin{equation}
+\sigma_\theta=\frac{pR}{t}=\frac{B^2R}{2\mu_0t},\qquad\text{and for a thick winding }(t\approx R)\qquad B_{\max}\approx\sqrt{2\mu_0\sigma_w}.\label{eq:bmax}
+\end{equation}
+\end{statement}
+\noindent\emph{Correction logged in run 3:} earlier sheets called $B^2/2\mu_0$ ``the hoop stress''; it is the pressure, and the hoop stress is
+the pressure times $R/t$.
+\nums{35 T: $p=0.49\un{GPa}$. $\sigma_w=0.80\un{GPa}\Rightarrow44.8\un{T}$; $1.29\un{GPa}\Rightarrow56.9\un{T}$, which brackets the
+45.5 T hybrid and 48.7 T test-coil records. Atomic pressure $2.94\e{13}\un{Pa}\Rightarrow8.6\e3\un{T}$, so $10^6\un{T}$ needs
+$1.35\e4$ times atomic pressure. A 35 T magnet of $2\un{cm}$ bore and $10\un{cm}$ length stores $1.5\e4\un{J}$ and needs only
+$\ge0.17\un{kg}$ of REBCO-class structure (I.3): small magnets are limited by conductor, large ones by structure.}
+
+\subsection{Strain-matched reinforcement around REBCO (bridge B1)}
+\meta{[E] run 3 $\cdot$ gap 6 $\times$ gap 2 $\cdot$ from I.3, I.5}
+\begin{statement}
+A band bonded to or wound over a REBCO pack shares its hoop strain. With the conductor limited to $\varepsilon_{\rm irr}$, the band can carry
+at most $\sigma_{\rm band}=\min(\sigma_w,E_{\rm band}\varepsilon_{\rm irr})$. Hence
+\begin{equation}
+B_{\max}\approx\sqrt{2\mu_0E_{\rm band}\varepsilon_{\rm irr}},\qquad \frac{M}{U}\ge\frac{\rho_{\rm band}}{E_{\rm band}\varepsilon_{\rm irr}}.\label{eq:strain}
+\end{equation}
+\end{statement}
+\noindent\emph{Derivation.} Strain compatibility, then \eqref{eq:bmax} and \eqref{eq:mmin}. Pre-compression shifts the usable strain window
+by the pre-strain (not included).
+\inputs{$\varepsilon_{\rm irr}=0.63\,\%$ (coil reversible to 1288 MPa / 0.63 \% \cite{jcsj}); moduli: Hastelloy 220 GPa; T1000G hoop $0.6\times294$;
+M55J hoop $0.6\times540$; CNT-bundle composite $0.6\times1000$ GPa (assumed).}
+\nums{Hastelloy: 1.39 GPa, 59 T, 6.4 t/GJ (the measured 1.29 GPa coil fits). T1000G hoop: 1.11 GPa, 53 T, 1.4 t/GJ (no field gain,
+4.6$\times$ lighter). M55J hoop: 2.04 GPa, 72 T, 0.80 t/GJ. CNT-bundle composite: 3.78 GPa, 97 T, 0.33 t/GJ.}
+\verdict{Bridge B1 kept and sharpened. Nanotube or carbon overbanding pays first in structural mass and only with a high modulus in field.
+No carbon-nanotube reinforcement of REBCO was found in the literature (carbon-fibre overbanding exists \cite{pourrahimi}): an untested
+intersection. Test: wind a REBCO pancake with a high-modulus carbon overband and load it to $\varepsilon_{\rm irr}$ at 4.2 K and $>20$ T;
+kill if $I_c$ degrades below the Hastelloy strain limit.}
+
+\subsection{The specific-strength ceiling and the field-mass bound}
+\meta{[P] run 3 $\cdot$ gaps 2, 4, 6 $\cdot$ from I.2--I.4; leads to III.1}
+\begin{theorem}\label{thm:fieldmass}
+For any material-supported static field (Theorem~\ref{thm:virial}) or spinning body (Theorem~\ref{thm:spin}),
+$U/M\le3\sigma_w/\rho$ and $T/M\le\tfrac32\sigma_w/\rho$. The mass-energy added is positive and bounded:
+\begin{equation}
+0<\frac{\Delta m}{M}=\frac{U}{Mc^2}\le\frac{3\sigma_w}{\rho c^2}.\label{eq:dm}
+\end{equation}
+\end{theorem}
+\begin{proof}Theorem~\ref{thm:virial} or \ref{thm:spin} with Corollary~\ref{cor:mass}, then $\Delta m=U/c^2$.\end{proof}
+\nums{The largest $\sigma/\rho$ of any known material is graphene's ideal strength, $130\un{GPa}/2200\un{kg\,m^{-3}}=5.9\e7\un{J/kg}$
+($v=7.7\un{km/s}$). That is the order of chemical energy per kilogram (TNT $4.2\e6$, hydrogen--oxygen $1.3\e7\un{J/kg}$), as it must be:
+both are bond energies. So $\Delta m/M\le2.0\e{-9}$ (triaxial) or $6.6\e{-10}$ (uniaxial). The run-2 rig stores
+$U=Q^2/2C=0.047\un{J}$ ($C=8\varepsilon_0R$), so $\Delta m=+5.2\e{-19}\un{kg}$.}
+\verdict{Stored field energy or spin can never reduce inertial mass, and can raise it by at most about $10^{-9}$ of the structure. The
+``mass reduction by field energy'' route of gap 4 is cut by the materials wall plus $E=mc^2$.}
+
+\subsection{Weakest link: Weibull size scaling}
+\meta{[D] run 3 $\cdot$ gap 2 $\cdot$ leads to I.9, I.10}
+\begin{statement}
+If a fibre of length $L$ is a chain of $L/L_0$ independent links, each surviving stress $\sigma$ with probability
+$\exp[-(\sigma/\sigma_0)^m]$, then
+\begin{equation}
+S_L(\sigma)=\exp\!\Big[-\frac{L}{L_0}\Big(\frac{\sigma}{\sigma_0}\Big)^m\Big],\quad
+\bar\sigma(L)=\sigma_0\Big(\frac{L_0}{L}\Big)^{1/m}\Gamma\!\Big(1+\frac1m\Big),\quad
+\frac{\sigma(L)}{\sigma(L_{\rm ref})}=\Big(\frac{L_{\rm ref}}{L}\Big)^{1/m}.\label{eq:weibull}
+\end{equation}
+\end{statement}
+\begin{proof}Independent links: the survival probabilities multiply. The mean follows from $\int_0^\infty S_L\,d\sigma$.\end{proof}
+\nums{Hoop circumference $2\pi\cdot2\un{m}=12.57\un{m}$. CNT fibre, 8.2 GPa at 10 mm $\to$ 2.0 / 4.0 / 5.7 GPa at 12.57 m for $m=5/10/20$.
+Bundles, 80 GPa at 2 cm $\to$ 22 / 42 / 58 GPa. Meeting the 51.3 GPa requirement needs $m\ge14.5$ (run-7 correction: on the wall area
+the requirement is 89 GPa, above the 80 GPa measured at 2 cm, so no $m$ suffices; part 5, note on I.11). Measured: CNT fibre strength fell to
+about 1 GPa as the gauge length rose from 1 to 10 mm \cite{ma}; mean and spread fall with gauge length \cite{beyerlein}; intrinsic
+$\sim$120 GPa against fibres below 10 GPa \cite{gao}.}
+\verdict{Error logged in run 3: runs 1--2 quoted the cm-gauge 80 GPa as if it held at metre scale.}
+
+\subsection{Equal load sharing: Daniels' bundle theorem}
+\meta{[D] run 3 $\cdot$ gap 2 $\cdot$ from I.8, leads to I.10}
+\begin{statement}
+For $N$ fibres with independent strengths (distribution $F$) sharing load equally, the strength per fibre tends, as $N\to\infty$, to
+\begin{equation}
+\sigma^*=\max_x\,x\,[1-F(x)];\qquad\text{for Weibull fibres}\quad \sigma^*=\sigma_0(me)^{-1/m}.\label{eq:daniels}
+\end{equation}
+\end{statement}
+\begin{proof}[Sketch]
+At load $s$ per original fibre, the survivors (fraction $1-F(x)$) each carry $x$ with $s=x[1-F(x)]$. An equilibrium exists only while $s$ is
+below the maximum of the right-hand side; beyond it the bundle fails. For Weibull $F$, $\tfrac{d}{dx}\big(xe^{-(x/\sigma_0)^m}\big)=0$ gives
+$(x/\sigma_0)^m=1/m$ \cite{daniels}.
+\end{proof}
+\nums{Bundle strength over mean fibre strength, $(me)^{-1/m}/\Gamma(1+1/m)$: 0.65, 0.76, 0.84 for $m=5,10,20$ (the ``Daniels effect'' in
+nanotube bundles \cite{bai}).}
+
+\subsection{Composites: the chain of bundles, and what gap 2 now needs}
+\meta{[D]+[E] run 3 $\cdot$ gap 2 $\cdot$ from I.8, I.9}
+\begin{statement}
+A unidirectional composite of length $L$ fails as a chain of $L/\delta$ bundles, each of the ineffective length $\delta$ over which the matrix
+reloads a broken fibre. Each bundle has the Weibull scale $\sigma_0(L_0/\delta)^{1/m}$ and Daniels strength, and the chain is only weakly
+length-dependent, so
+\begin{equation}
+\sigma_c\approx V_f\,\sigma_0\Big(\frac{L_0}{\delta\,m\,e}\Big)^{1/m}.\label{eq:rosen}
+\end{equation}
+The length that matters is $\delta$, set by load transfer, not $L$ \cite{rosen}.
+\end{statement}
+\nums{With $L_0=10\un{mm}$: $\delta=0.1\un{mm}$ gives factors 1.49 / 1.14 / 1.03 for $m=5/10/20$; $\delta=1\un{mm}$ gives 0.94 / 0.91 / 0.92.
+Gap 2 restated: a $V_f=0.6$ composite of 80 GPa bundles ($\rho\approx1260$) gives at most 48 GPa against 49.7 GPa needed (0.97$\times$).
+Run-7 correction: with the wall-area density the bundles themselves reach only 0.90$\times$ (part 5, note on I.11).}
+\verdict{Gap 2 sits at the edge of the best cm-scale material. The in-between R\&D gap is metre-long ultralong-nanotube bundles in a matrix
+with $\delta\lesssim0.1\un{mm}$ and $V_f\ge0.62$. Kill test: measure bundle strength at 2, 20 and 200 mm gauge; if $m<10$, the nanotube
+route to the rim is cut. Today's buildable best, a carbon-fibre hoop, is $4.0\times$ short in speed.}
+
+%=====================================================================================================
+\section{Radiation from charged, moving bodies}
+
+\subsection{The Pais flux formula as filed}
+\meta{[D] run 0 $\cdot$ canary in run 3}
+\begin{statement}
+Eq.~1 of US 10,135,366: $S_{\max}=f_G\gamma(\sigma^2/\varepsilon_0)[R_r\omega+R_v\nu+v_R]$; Eq.~2 replaces the bracket by $R_v\nu^2t_{\rm op}$.
+Units: $(\mathrm{J\,m^{-3}})(\mathrm{m\,s^{-1}})=\mathrm{W\,m^{-2}}$. It is an energy density carried at a surface speed, not radiation.
+\end{statement}
+\nums{Sphere, $f_G=\tfrac23$, $\sigma=5\e4\un{C/m^2}$, $R=2\un{m}$, 30\,000 rpm: $1.18\e{24}\un{W/m^2}$ (canary re-derived: 0.2 \%).
+In Eq.~2 the ``speed'' is acceleration $\times$ time: for the run-2 rig (80 nm, 100 MHz, $t_{\rm op}=1\un{s}$) it is $3.2\e{10}\un{m/s}=105\,c$.}
+
+\subsection{Stationary sources do not radiate}
+\meta{[P] run 0 $\cdot$ CT-11 verdict $\cdot$ leads to II.3, II.5}
+\begin{theorem}\label{thm:static}
+If $\rho(\mathbf x)$ and $\mathbf J(\mathbf x)$ are time-independent and localized, no power crosses a sphere at infinity.
+\end{theorem}
+\begin{proof}
+The fields are static: $E=O(r^{-2})$, and a localized steady current has no magnetic monopole term, so $B=O(r^{-3})$. Then
+$|\mathbf S|=|\mathbf E\times\mathbf B|/\mu_0=O(r^{-5})$ and $\oint\mathbf S\cdot d\mathbf A=O(r^{-3})\to0$.
+\end{proof}
+\noindent A uniformly spinning axisymmetric charged body has time-independent $\rho$ and $\mathbf J$: it radiates 0 W.
+
+\subsection{A breathing sphere does not radiate}
+\meta{[P] run 0 $\cdot$ from II.2}
+\begin{proof}[Statement and proof]
+For spherically symmetric $\rho(r,t)$ and radial $\mathbf J(r,t)$, $\mathbf B$ would be a spherically symmetric axial field, hence zero (no
+monopoles). Outside the charge Gauss gives $\mathbf E=Q\hat{\mathbf r}/(4\pi\varepsilon_0r^2)$ with $Q$ fixed: static. Inside,
+$\varepsilon_0\partial_t\mathbf E=-\mathbf J$. Nothing radiates (the electromagnetic analogue of Birkhoff's theorem).
+\end{proof}
+
+\subsection{Larmor: oscillating and rotating dipoles}
+\meta{[D] $\cdot$ used in II.5--II.8}
+\begin{statement}
+A dipole $\mathbf p(t)$ radiates $P=|\ddot{\mathbf p}|^2/(6\pi\varepsilon_0c^3)$. Hence
+\begin{equation}
+\langle P\rangle_{\rm osc}=\frac{p_0^2\omega^4}{12\pi\varepsilon_0c^3}\quad(\mathbf p=p_0\cos\omega t\,\hat{\mathbf z}),\qquad
+P_{\rm rot}=\frac{p_0^2\omega^4}{6\pi\varepsilon_0c^3}\quad(\text{fixed }p_0\text{ rotating in a plane}).\label{eq:larmor}
+\end{equation}
+\end{statement}
+\noindent For the rotating dipole $|\ddot{\mathbf p}|=p_0\omega^2$ at all times; for the oscillating one $\langle\cos^2\rangle=\tfrac12$. Check: the multipole
+formula \eqref{eq:multipole} with $l=1$ reproduces \eqref{eq:larmor} exactly (numerical ratio 1.000).
+
+\subsection{Selection rule for $C_n$-symmetric spinning charge (H1, the triangle)}
+\meta{[P] run 3 $\cdot$ hypothesis H1 $\cdot$ from II.2, II.4}
+\begin{theorem}\label{thm:cn}
+Let $\rho_0(\mathbf x)$ be invariant under rotation by $2\pi/n$ about $z$, and let $\rho(\mathbf x,t)=\rho_0(R_{-\Omega t}\mathbf x)$. Then the
+body radiates only at the harmonics $kn\Omega$ ($k=1,2,\dots$), the harmonic $kn\Omega$ comes only from multipoles $l\ge kn$, and the lowest
+radiating multipole is $l=n$ at frequency $n\Omega$. As $n\to\infty$ (axisymmetry) nothing radiates.
+\end{theorem}
+\begin{proof}
+Expand $\rho_0=\sum_m\rho_m(r,\theta)e^{im\phi}$. Invariance under $\phi\to\phi+2\pi/n$ forces $e^{2\pi im/n}=1$, so $m\in n\mathbb Z$. Rotation
+replaces $\phi$ by $\phi-\Omega t$, so the $m$ term oscillates at $|m|\Omega$ and only $m=0$ is static (Theorem~\ref{thm:static}). Its multipole
+moments $Q_{lm'}\propto\int e^{im\phi}e^{-im'\phi}d\phi=2\pi\delta_{mm'}$ vanish unless $m'=m$, and $Y_{lm'}$ exists only for $|m'|\le l$. The
+magnetic multipoles, from $\mathbf J=\rho\,\Omega\hat{\mathbf z}\times\mathbf x$, obey the same rule.
+\end{proof}
+\noindent In the long-wavelength limit the electric $(l,m)$ power is (Jackson 9.155 with 9.169 \cite{jackson})
+\begin{equation}
+P_E(l,m)=\frac{c}{2\varepsilon_0}\,\frac{l+1}{l}\,\frac{k^{2l+2}\,|Q_{lm}|^2}{[(2l+1)!!]^2},\qquad k=\frac{|m|\Omega}{c},\label{eq:multipole}
+\end{equation}
+with $Q_{lm}$ the complex amplitude of the $e^{-i|m|\Omega t}$ component (twice the $m>0$ Fourier coefficient).
+\inputs{charges $Q/3$ at the vertices of an equilateral triangle of circumradius $a=1\un{m}$; $Q=1\un{mC}$ (assumed, near vacuum
+breakdown for a 1 m body); $\Omega=320\un{rad/s}$, the 6061 rim limit $\sqrt{276\un{MPa}/2700}$.}
+\nums{Dipole and quadrupole vanish identically; first is $l=m=3$ at $3\Omega$, with
+\[
+Q_{33}=2\sum_{k=0}^{2}\frac Q3\,a^3\,Y^*_{33}\big(\tfrac\pi2,\phi_k\big)=-\frac14\sqrt{\frac{35}{\pi}}\,Qa^3,\qquad |Q_{33}|=0.834\,Qa^3 .
+\]
+Then $ka=3.2\e{-6}$ and
+$P=1.6\e{-35}\un{W}$. Since $P\propto\Omega^8$, 1 W needs $\Omega=7.2\e6\un{rad/s}$, a rim speed of $0.024\,c$, 930 times the ideal-graphene
+limit (I.7). A 0.1 \% vertex-charge imbalance leaves a rotating dipole $p=3.3\e{-7}\un{C\,m}$ radiating $2.6\e{-19}\un{W}$:
+$10^{16}$ times the octupole, and still nothing.}
+\verdict{H1 cut: the symmetry that makes the triangle elegant suppresses its radiation as $(\Omega a/c)^8$, and the speed needed crosses the
+materials wall.}
+
+\subsection{Rotating in-plane ferroelectric (H2)}
+\meta{[E] run 3 $\cdot$ hypothesis H2 $\cdot$ from II.4, I.4}
+\inputs{BiFeO$_3$ disk, $R=5\un{cm}$, $t=1\un{mm}$; $P_s=1.0\un{C/m^2}$ (bulk; strained films reach 1.3--1.5); strength 100 MPa
+(assumed ceramic); $\rho=8340$.}
+\nums{$p_0=P_sV=7.9\e{-6}\un{C\,m}$. At $\Omega=10^4\un{rad/s}$, \eqref{eq:larmor} gives $1.4\e{-10}\un{W}$ ($3.1\e{-10}$ with the film value).
+But the rim would move at 500 m/s while the disk bursts at $\sqrt{\sigma/\rho}=110\un{m/s}$, so $\Omega\le2.2\e3\un{rad/s}$ and
+$P\le3.2\e{-13}\un{W}$. Worse, the uncompensated in-plane polarization of a thin disk makes a depolarizing field $NP_s/\varepsilon_0$ with
+$N\approx\tfrac\pi4\,t/2R=7.9\e{-3}$, i.e.\ $8.9\e8\un{V/m}$, far above coercive fields ($\sim10^7\un{V/m}$): the disk breaks into domains
+and the net moment collapses.}
+\verdict{H2 cut ($\omega^4$ smallness, burst speed, depolarization).}
+
+\subsection{The decisive rig: known physics against Pais Eq.~2}
+\meta{[D] run 2 design $\cdot$ canary in run 3 $\cdot$ gap 4}
+\inputs{30 cm aluminium disk ($R=0.15\un{m}$), $Q=1\,\mu$C, rigid vibration $\pm80\un{nm}$ at 100 MHz, $t_{\rm op}=1\un{s}$, $f_G=1$ (``equal to 1
+for a disc configuration'', US 10,322,827), $\nu$ read as angular frequency.}
+\nums{Known physics: $p_0=Qx_0=8.0\e{-14}\un{C\,m}$, so $P=1.1\e{-7}\un{W}$. $C=8\varepsilon_0R=1.06\e{-11}\un{F}$, $V=94\un{kV}$,
+$U=0.047\un{J}$, $\Delta m=+5.2\e{-19}\un{kg}$ (weight $+5.1\e{-18}\un{N}$); centre field $Q/(4\pi\varepsilon_0R^2)=0.40\un{MV/m}$.
+Pais Eq.~2: $\sigma=Q/2\pi R^2=7.1\e{-6}\un{C/m^2}$ per face, $S=(\sigma^2/\varepsilon_0)x_0\omega^2t_{\rm op}=1.8\e{11}\un{W/m^2}$, so $2.5\e{10}\un{W}$
+over both faces. Ratio $2.3\e{17}$ (canary: 1.1 \%).}
+
+\subsection{Eq.~2 has already been tested: capacitive ultrasound transducers}
+\meta{[E] run 3 $\cdot$ in-between finding $\cdot$ gap 4}
+\begin{statement}
+A capacitive micromachined ultrasonic transducer (CMUT) is a metallized membrane over a 0.05--3 $\mu$m gap, held at a DC field of order
+$10^8\un{V/m}$ and driven at 10 kHz--60 MHz \cite{cmut,ergun}: a charged plate vibrating at megahertz, which is every ingredient of Eq.~2.
+\end{statement}
+\inputs{$E=10^8\un{V/m}$, so $\sigma=\varepsilon_0E=8.9\e{-4}\un{C/m^2}$ (125 times the rig); 5 MHz; amplitude 10 nm (assumed; at most a third of
+the gap); $f_G=1$; $t_{\rm op}=1\un{s}$.}
+\nums{Eq.~2: $S=8.7\e{11}\un{W/m^2}$, i.e.\ $8.7\e7\un{W}$ from every square centimetre of array after one second and $3.1\e{11}\un{W}$ after an
+hour. Known physics: the cell charge ($8.9\e{-8}\un{C}$ per cm$^2$) moving 10 nm radiates $8.5\e{-17}\un{W}$. Ratio $10^{24}$.}
+\verdict{Hand-held CMUT probes run on a few watts. Eq.~2 is falsified by devices in daily use; the decisive test of the flux formula has
+already been run, many times over. The premise of gap 4 (that Eq.~2's flux exists) fails.}
+
+% Chains III-V, standalone items, paths kept and cut, changelog and references are in the second part.
+\input{pais_math_runsheet_part2}
+\end{document}

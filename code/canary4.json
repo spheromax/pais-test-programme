@@ -1,0 +1,34 @@
+[
+ {
+  "name": "Weibull m needed for the rim",
+  "logged": 14.5,
+  "rederived": 14.51436740690672,
+  "deviation": 0.0009908556487392417,
+  "passed": true,
+  "note": "inputs: 80 GPa at 2 cm, R 2 m, 30,000 rpm, 1,300 kg/m3"
+ },
+ {
+  "name": "room-temperature drive power, W",
+  "logged": 63.0,
+  "rederived": 62.831853071795855,
+  "deviation": 0.002668998860383298,
+  "passed": true,
+  "note": "inputs: 400 uJ/cm2, 100 um, 2 GHz"
+ },
+ {
+  "name": "room-temperature spot rise, K",
+  "logged": 200.0,
+  "rederived": 199.99999999999997,
+  "deviation": 1.1102230246251565e-16,
+  "passed": true,
+  "note": "inputs: diamond k 2,000 W/m/K, a 50 um"
+ },
+ {
+  "name": "E-320 lab field for chi 0.5, V/m",
+  "logged": 18000000000000.0,
+  "rederived": 18118657100999.645,
+  "deviation": 0.006592061166647012,
+  "passed": true,
+  "note": "inputs: 10 GeV, 150 deg"
+ }
+]

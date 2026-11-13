@@ -1,0 +1,127 @@
+{
+ "run": 8,
+ "checks": [
+  {
+   "name": "growth rate at |n|=1e-3 (1/s)",
+   "rederived": 99.34588265796101,
+   "logged": 99,
+   "deviation": 0.0034937642218284166,
+   "passed": true,
+   "note": "state v8: 99 1/s"
+  },
+  {
+   "name": "critical delay at |n|=1e-3 (ms)",
+   "rederived": 14.235250868343542,
+   "logged": 14.2,
+   "deviation": 0.002482455517150874,
+   "passed": true,
+   "note": "state v8: 14 ms; part 5: 14.2"
+  },
+  {
+   "name": "minimum loop bandwidth at |n|=1e-3 (Hz)",
+   "rederived": 71.66290612168862,
+   "logged": 72,
+   "deviation": 0.004681859420991369,
+   "passed": true,
+   "note": ">= 72 Hz"
+  },
+  {
+   "name": "|n| where the loop reaches spin/3",
+   "rederived": 0.005408896450524529,
+   "logged": 0.0054,
+   "deviation": 0.0016474908378756848,
+   "passed": true,
+   "note": "5.4e-3"
+  },
+  {
+   "name": "control field per newton (T/N)",
+   "rederived": 6.794564838454948e-08,
+   "logged": 6.8e-08,
+   "deviation": 0.0007992884625077075,
+   "passed": true,
+   "note": "6.8e-8 T/N"
+  },
+  {
+   "name": "null-flux distance for 3 k_u at |n|=1e-3 (m)",
+   "rederived": 1.082350873632814,
+   "logged": 1.08,
+   "deviation": 0.0021767348451980956,
+   "passed": true,
+   "note": "state v8: 1.08 m"
+  },
+  {
+   "name": "vertical mode at |n|=1e-3 (rad/s)",
+   "rederived": 140.49629462081455,
+   "logged": 140,
+   "deviation": 0.003544961577246803,
+   "passed": true,
+   "note": "140 rad/s"
+  },
+  {
+   "name": "drift time at 1e-12 ohm (yr)",
+   "rederived": 1.822659860144718,
+   "logged": 1.8,
+   "deviation": 0.012588811191509933,
+   "passed": true,
+   "note": "1.8 yr (2 figures)"
+  },
+  {
+   "name": "mu0 I_c / w (T)",
+   "rederived": 0.4712388982976504,
+   "logged": 0.47,
+   "deviation": 0.0026359538247881877,
+   "passed": true,
+   "note": "0.47 T"
+  },
+  {
+   "name": "i_max at 3 mT ripple, kappa 0.5",
+   "rederived": 0.9872676045596512,
+   "logged": 0.987,
+   "deviation": 0.0002711292397682337,
+   "passed": true,
+   "note": "0.975-0.996 band; 0.987 at 3 mT"
+  },
+  {
+   "name": "operating fraction i",
+   "rederived": 0.7027158333575625,
+   "logged": 0.7,
+   "deviation": 0.0038797619393750515,
+   "passed": true,
+   "note": "i = 0.70"
+  },
+  {
+   "name": "K1 specific strength (N/tex)",
+   "rederived": 35.39823008849557,
+   "logged": 35.4,
+   "deviation": 4.999750012500512e-05,
+   "passed": true,
+   "note": "35.4 N/tex"
+  },
+  {
+   "name": "electrostatic gap for 4.46 mN at 3.5 kV on 25 cm2 (mm)",
+   "rederived": 5.513533103491442,
+   "logged": 5.5,
+   "deviation": 0.0024605642711712505,
+   "passed": true,
+   "note": "5.5 mm"
+  },
+  {
+   "name": "ion inertial length at 5 cm-3 (km)",
+   "rederived": 101.83535084291142,
+   "logged": 101.8,
+   "deviation": 0.00034725778891382214,
+   "passed": true,
+   "note": "~100 km; 101.8"
+  },
+  {
+   "name": "r_L(B_mp) / d_i",
+   "rederived": 0.9999999999972091,
+   "logged": 1.0,
+   "deviation": 2.7908786393027185e-12,
+   "passed": true,
+   "note": "identity"
+  }
+ ],
+ "passed": 15,
+ "total": 15
+}

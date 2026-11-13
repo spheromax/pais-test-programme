@@ -1,0 +1,869 @@
+{
+ "1": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.07142857142857142,
+   "green"
+  ],
+  "explore": [
+   0.14285714285714285,
+   "amber"
+  ],
+  "kill_ratio": [
+   0.0,
+   "red"
+  ],
+  "domain_novelty": [
+   1.0,
+   "green"
+  ],
+  "progress": [
+   7,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.0,
+   "green"
+  ],
+  "canary": [
+   null,
+   "not run"
+  ],
+  "prompt_growth": [
+   null,
+   "not run"
+  ],
+  "repeat_yield": [
+   null,
+   "not run"
+  ],
+  "recycled": [
+   null,
+   "not run"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "sfqed",
+  "max_sim": 0,
+  "sims": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "2": {
+  "repeat": [
+   0.08333333333333333,
+   "green"
+  ],
+  "concentration": [
+   0.3333333333333333,
+   "amber"
+  ],
+  "explore": [
+   0.08333333333333333,
+   "red"
+  ],
+  "kill_ratio": [
+   0.5,
+   "amber"
+  ],
+  "domain_novelty": [
+   0.7272727272727273,
+   "green"
+  ],
+  "progress": [
+   3,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.05,
+   "green"
+  ],
+  "canary": [
+   null,
+   "not run"
+  ],
+  "prompt_growth": [
+   null,
+   "not run"
+  ],
+  "repeat_yield": [
+   null,
+   "not run"
+  ],
+  "recycled": [
+   null,
+   "not run"
+  ],
+  "rework": [
+   0.08333333333333333,
+   "amber"
+  ],
+  "repeated_queries": [
+   3
+  ],
+  "top_topic": "k3c60",
+  "max_sim": 0.32,
+  "sims": [
+   0.27,
+   0.11,
+   0.32,
+   0.12,
+   0.08,
+   0.22,
+   0.13,
+   0.21,
+   0.2,
+   0.14,
+   0.22,
+   0.13
+  ]
+ },
+ "3": {
+  "repeat": [
+   0.2857142857142857,
+   "amber"
+  ],
+  "concentration": [
+   0.07142857142857142,
+   "green"
+  ],
+  "explore": [
+   0.42857142857142855,
+   "green"
+  ],
+  "kill_ratio": [
+   1.0,
+   "green"
+  ],
+  "domain_novelty": [
+   0.7692307692307693,
+   "green"
+  ],
+  "progress": [
+   5,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.08,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.05252955999224662,
+   "green"
+  ],
+  "repeat_yield": [
+   0.75,
+   "green"
+  ],
+  "recycled": [
+   0.14285714285714285,
+   "green"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [
+   1,
+   5,
+   7,
+   11
+  ],
+  "top_topic": "sfqed",
+  "max_sim": 0.54,
+  "sims": [
+   0.31,
+   0.17,
+   0.12,
+   0.12,
+   0.39,
+   0.14,
+   0.54,
+   0.04,
+   0.29,
+   0.15,
+   0.4,
+   0.12,
+   0.14,
+   0.04
+  ]
+ },
+ "4": {
+  "repeat": [
+   0.25,
+   "green"
+  ],
+  "concentration": [
+   0.1875,
+   "green"
+  ],
+  "explore": [
+   0.25,
+   "green"
+  ],
+  "kill_ratio": [
+   1.25,
+   "green"
+  ],
+  "domain_novelty": [
+   0.6923076923076923,
+   "green"
+  ],
+  "progress": [
+   3,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.07,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.10202578268876605,
+   "green"
+  ],
+  "repeat_yield": [
+   0.75,
+   "green"
+  ],
+  "recycled": [
+   0.125,
+   "green"
+  ],
+  "rework": [
+   0.1875,
+   "red"
+  ],
+  "repeated_queries": [
+   1,
+   4,
+   5,
+   14
+  ],
+  "top_topic": "thz-meta",
+  "max_sim": 0.4,
+  "sims": [
+   0.36,
+   0.18,
+   0.29,
+   0.31,
+   0.31,
+   0.14,
+   0.07,
+   0.15,
+   0.27,
+   0.07,
+   0.2,
+   0.08,
+   0.08,
+   0.4,
+   0.22,
+   0.09
+  ]
+ },
+ "5": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.25,
+   "green"
+  ],
+  "explore": [
+   0.3333333333333333,
+   "green"
+  ],
+  "kill_ratio": [
+   1.3333333333333333,
+   "green"
+  ],
+  "domain_novelty": [
+   0.6875,
+   "green"
+  ],
+  "progress": [
+   2,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.08,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.07503342245989297,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.08333333333333333,
+   "green"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "fibre",
+  "max_sim": 0.17,
+  "sims": [
+   0.12,
+   0.15,
+   0.12,
+   0.15,
+   0.0,
+   0.08,
+   0.17,
+   0.05,
+   0.12,
+   0.09,
+   0.1,
+   0.16
+  ]
+ },
+ "6": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.15384615384615385,
+   "green"
+  ],
+  "explore": [
+   0.23076923076923078,
+   "green"
+  ],
+  "kill_ratio": [
+   1.0,
+   "green"
+  ],
+  "domain_novelty": [
+   0.6842105263157895,
+   "green"
+  ],
+  "progress": [
+   2,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.08,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.06808642934867093,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.07692307692307693,
+   "green"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "rebco-je",
+  "max_sim": 0.21,
+  "sims": [
+   0.06,
+   0.11,
+   0.2,
+   0.12,
+   0.15,
+   0.2,
+   0.17,
+   0.09,
+   0.19,
+   0.19,
+   0.21,
+   0.07,
+   0.12
+  ]
+ },
+ "7": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.11764705882352941,
+   "green"
+  ],
+  "explore": [
+   0.29411764705882354,
+   "green"
+  ],
+  "kill_ratio": [
+   1.75,
+   "green"
+  ],
+  "domain_novelty": [
+   0.475,
+   "amber"
+  ],
+  "progress": [
+   2,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.07,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.08921554358899719,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.11764705882352941,
+   "green"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "gap9-ic",
+  "max_sim": 0.26,
+  "sims": [
+   0.18,
+   0.19,
+   0.19,
+   0.11,
+   0.17,
+   0.13,
+   0.08,
+   0.18,
+   0.11,
+   0.14,
+   0.25,
+   0.25,
+   0.26,
+   0.17,
+   0.07,
+   0.17,
+   0.09
+  ]
+ },
+ "8": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.09523809523809523,
+   "green"
+  ],
+  "explore": [
+   0.23809523809523808,
+   "green"
+  ],
+  "kill_ratio": [
+   1.5,
+   "green"
+  ],
+  "domain_novelty": [
+   0.5689655172413793,
+   "green"
+  ],
+  "progress": [
+   2,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.05,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.07977017637626926,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.09523809523809523,
+   "green"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "cavity-qed",
+  "max_sim": 0.29,
+  "sims": [
+   0.25,
+   0.18,
+   0.25,
+   0.16,
+   0.06,
+   0.07,
+   0.23,
+   0.29,
+   0.16,
+   0.15,
+   0.08,
+   0.17,
+   0.22,
+   0.27,
+   0.11,
+   0.18,
+   0.14,
+   0.27,
+   0.12,
+   0.06,
+   0.07
+  ]
+ },
+ "9": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.058823529411764705,
+   "green"
+  ],
+  "explore": [
+   0.35294117647058826,
+   "green"
+  ],
+  "kill_ratio": [
+   1.0,
+   "green"
+  ],
+  "domain_novelty": [
+   0.48484848484848486,
+   "amber"
+  ],
+  "progress": [
+   2,
+   "green"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.06,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.05605741863630742,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.11764705882352941,
+   "green"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "x1-uv",
+  "max_sim": 0.29,
+  "sims": [
+   0.27,
+   0.21,
+   0.18,
+   0.21,
+   0.06,
+   0.28,
+   0.2,
+   0.06,
+   0.19,
+   0.25,
+   0.29,
+   0.29,
+   0.14,
+   0.18,
+   0.08,
+   0.19,
+   0.12
+  ]
+ },
+ "10": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.125,
+   "green"
+  ],
+  "explore": [
+   0.3125,
+   "green"
+  ],
+  "kill_ratio": [
+   1.25,
+   "green"
+  ],
+  "domain_novelty": [
+   0.46153846153846156,
+   "amber"
+  ],
+  "progress": [
+   1,
+   "amber"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.11,
+   "amber"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.0666588566073103,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.1875,
+   "amber"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "field-homog",
+  "max_sim": 0.26,
+  "sims": [
+   0.15,
+   0.07,
+   0.0,
+   0.1,
+   0.25,
+   0.19,
+   0.11,
+   0.14,
+   0.2,
+   0.2,
+   0.12,
+   0.15,
+   0.11,
+   0.12,
+   0.15,
+   0.26
+  ]
+ },
+ "11": {
+  "repeat": [
+   0.0,
+   "green"
+  ],
+  "concentration": [
+   0.3,
+   "green"
+  ],
+  "explore": [
+   0.4,
+   "green"
+  ],
+  "kill_ratio": [
+   1.5,
+   "green"
+  ],
+  "domain_novelty": [
+   0.2857142857142857,
+   "red"
+  ],
+  "progress": [
+   0,
+   "red"
+  ],
+  "repeated_errors": [
+   0,
+   "green"
+  ],
+  "too_easy": [
+   false,
+   "green"
+  ],
+  "circular": [
+   0.09,
+   "green"
+  ],
+  "canary": [
+   "pass",
+   "green"
+  ],
+  "prompt_growth": [
+   0.031521142229544274,
+   "green"
+  ],
+  "repeat_yield": [
+   1.0,
+   "green"
+  ],
+  "recycled": [
+   0.2,
+   "amber"
+  ],
+  "rework": [
+   0.0,
+   "green"
+  ],
+  "repeated_queries": [],
+  "top_topic": "cyclotron",
+  "max_sim": 0.26,
+  "sims": [
+   0.24,
+   0.15,
+   0.07,
+   0.15,
+   0.23,
+   0.19,
+   0.18,
+   0.23,
+   0.24,
+   0.26
+  ]
+ }
+}

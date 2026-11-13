@@ -1,0 +1,83 @@
+{
+ "values": {
+  "repeat": 0.0,
+  "repeat_yield": 1.0,
+  "recycled": 0.1875,
+  "concentration": 0.125,
+  "explore": 0.3125,
+  "kill_ratio": 1.25,
+  "domain_novelty": 0.46153846153846156,
+  "progress": 1,
+  "repeated_errors": 0,
+  "too_easy": false,
+  "circular": 0.11,
+  "canary": "pass",
+  "prompt_growth": 0.0666588566073103,
+  "rework": 0.0
+ },
+ "lights": {
+  "repeat": "green",
+  "repeat_yield": "green",
+  "recycled": "amber",
+  "concentration": "green",
+  "explore": "green",
+  "kill_ratio": "green",
+  "domain_novelty": "amber",
+  "progress": "amber",
+  "repeated_errors": "green",
+  "too_easy": "green",
+  "circular": "amber",
+  "canary": "green",
+  "prompt_growth": "green",
+  "rework": "green"
+ },
+ "sims": [
+  0.15,
+  0.07,
+  0.0,
+  0.1,
+  0.25,
+  0.19,
+  0.11,
+  0.14,
+  0.2,
+  0.2,
+  0.12,
+  0.15,
+  0.11,
+  0.12,
+  0.15,
+  0.26
+ ],
+ "max_sim": 0.2631578947368421,
+ "top_topic": "field-homog",
+ "novelty_all": [
+  18,
+  39
+ ],
+ "novelty_planned": [
+  16,
+  35
+ ],
+ "new_domains": [
+  "ncbi.nlm.nih.gov",
+  "cds.ismrm.org",
+  "tfaws.nasa.gov",
+  "seejournal.cn",
+  "Swri.org",
+  "hemi.jhu.edu",
+  "aerospace.illinois.edu",
+  "telacyjr.engr.tamu.edu",
+  "ediss.sub.uni-hamburg.de",
+  "wiki.felix.science.ru.nl",
+  "chriswest.tech",
+  "patentsgazette.uspto.gov",
+  "unifiedfieldtheory.vercel.app",
+  "cordis.europa.eu",
+  "api.emergentmind.com",
+  "users.libero.it",
+  "searchworks.jioinstitute.edu.in",
+  "koreascience.kr"
+ ],
+ "explore_planned": 0.3333333333333333
+}

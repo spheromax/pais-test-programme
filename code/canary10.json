@@ -1,0 +1,92 @@
+[
+ {
+  "name": "debris energy / vaporization (7.5 MJ/kg)",
+  "new": 2.631894506957162,
+  "logged": 2.631894506957162,
+  "ok": true
+ },
+ {
+  "name": "hoop force M v^2 / 2 pi R (N)",
+  "new": 70271682.02336454,
+  "logged": 70271682.02336454,
+  "ok": true
+ },
+ {
+  "name": "debris pressure on 0.1 m wall (Pa)",
+  "new": 351358410.1168228,
+  "logged": 351358410.1168228,
+  "ok": true
+ },
+ {
+  "name": "end closures gamma 5/3 (kg)",
+  "new": 96.33333333333333,
+  "logged": 96.33333333333334,
+  "ok": true
+ },
+ {
+  "name": "gap-crossing speed at 5 mm (m/s)",
+  "new": 443.4572441681823,
+  "logged": 443.4572441681823,
+  "ok": true
+ },
+ {
+  "name": "wall allowable speed sigma/sqrt(E rho) (m/s)",
+  "new": 230.27764180116705,
+  "logged": 230.27764180116705,
+  "ok": true
+ },
+ {
+  "name": "friction time mu 0.3 (ms)",
+  "new": 1.061032953945969,
+  "logged": 1.061032953945969,
+  "ok": true
+ },
+ {
+  "name": "liner 100 kg final speed (m/s)",
+  "new": 1148.5287618139314,
+  "logged": 1148.5287618139314,
+  "ok": true
+ },
+ {
+  "name": "craft high (kg)",
+  "new": 711.0688377734674,
+  "logged": 711.0721711068007,
+  "ok": true
+ },
+ {
+  "name": "craft spin if L dumped (rad/s)",
+  "new": 231.43805742047454,
+  "logged": 231.43805742047454,
+  "ok": true
+ },
+ {
+  "name": "rotor T at 1 mT, eps 0.5 (K)",
+  "new": 15.33744711695051,
+  "logged": 15.33744711695051,
+  "ok": true
+ },
+ {
+  "name": "thick film 50 um: T_max for i <= 0.506, T* 22 (K)",
+  "new": 24.452793292408845,
+  "logged": 24.452793292408845,
+  "ok": true
+ },
+ {
+  "name": "J_e(8 T) alpha 0.75 (A/m2)",
+  "new": 22366680969.701992,
+  "logged": 22366680969.701992,
+  "ok": true
+ },
+ {
+  "name": "FELIX t_max (nm)",
+  "new": 91.93028088411783,
+  "logged": 91.93028088411783,
+  "ok": true
+ },
+ {
+  "name": "X1 discharge at 10 nA (s)",
+  "new": 1.405175,
+  "logged": 1.405175,
+  "ok": true
+ }
+]

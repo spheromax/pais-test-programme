@@ -1,0 +1,82 @@
+{
+ "values": {
+  "repeat": 0.0,
+  "repeat_yield": 1.0,
+  "recycled": 0.11764705882352941,
+  "concentration": 0.058823529411764705,
+  "explore": 0.35294117647058826,
+  "kill_ratio": 1.0,
+  "domain_novelty": 0.48484848484848486,
+  "progress": 2,
+  "repeated_errors": 0,
+  "too_easy": false,
+  "circular": 0.06,
+  "canary": "pass",
+  "prompt_growth": 0.05605741863630742,
+  "rework": 0.0
+ },
+ "lights": {
+  "repeat": "green",
+  "repeat_yield": "green",
+  "recycled": "green",
+  "concentration": "green",
+  "explore": "green",
+  "kill_ratio": "green",
+  "domain_novelty": "amber",
+  "progress": "green",
+  "repeated_errors": "green",
+  "too_easy": "green",
+  "circular": "green",
+  "canary": "green",
+  "prompt_growth": "green",
+  "rework": "green"
+ },
+ "sims": [
+  0.27,
+  0.21,
+  0.18,
+  0.21,
+  0.06,
+  0.28,
+  0.2,
+  0.06,
+  0.19,
+  0.25,
+  0.29,
+  0.29,
+  0.14,
+  0.18,
+  0.08,
+  0.19,
+  0.12
+ ],
+ "max_sim": 0.2857142857142857,
+ "top_topic": "b6-virial",
+ "novelty_all": [
+  16,
+  33
+ ],
+ "novelty_planned": [
+  15,
+  31
+ ],
+ "new_domains": [
+  "maglabweb.magnet.fsu.edu",
+  "eprints.soton.ac.uk",
+  "figshare.com",
+  "ascelibrary.com",
+  "apps.dtic.mil",
+  "sandia.gov",
+  "research.unipd.it",
+  "zenodo.org",
+  "link.springer.com",
+  "researchgate.net",
+  "tf.nist.gov",
+  "bib-pubdb1.desy.de",
+  "altsci.net",
+  "altpropulsion.com",
+  "insights.greyb.com",
+  "iris.unitn.it"
+ ],
+ "explore_planned": 0.3125
+}

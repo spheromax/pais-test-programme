@@ -1,0 +1,58 @@
+[
+ {
+  "name": "composite bundle fibre needs (GPa)",
+  "rederived": 82.9046769691506,
+  "logged": 82.9,
+  "deviation": 5.6416998197760496e-05,
+  "passed": true,
+  "note": "I.11: 2 m, 30,000 rpm, Vf 0.6, 1300 / 1200 kg/m3"
+ },
+ {
+  "name": "carbon co-wind tape strain (%)",
+  "rederived": 0.1777215189873418,
+  "logged": 0.178,
+  "deviation": 0.0015645000711135108,
+  "passed": true,
+  "note": "I.14: s 0.26 %, E 150 and 0.6x540 GPa, equal areas"
+ },
+ {
+  "name": "Weibull pulls, m = 10",
+  "rederived": 12.008436579832626,
+  "logged": 12,
+  "deviation": 0.0007030483193855019,
+  "passed": true,
+  "note": "I.12: z 2, dm 4.5"
+ },
+ {
+  "name": "Weibull pulls, m = 14.5",
+  "rederived": 25.247737909098092,
+  "logged": 25,
+  "deviation": 0.009909516363923671,
+  "passed": true,
+  "note": "I.12: z 2, dm 4.5"
+ },
+ {
+  "name": "split-ring G on resonance (upper)",
+  "rederived": 1.9800000000000002,
+  "logged": 2.0,
+  "deviation": 0.009999999999999898,
+  "passed": true,
+  "note": "V.6: F 15, 2.2 x 10 um gap in 50 um cell"
+ },
+ {
+  "name": "Xe+ thrust per watt at 30 kV (uN/W)",
+  "rederived": 9.524550927329441,
+  "logged": 9.5,
+  "deviation": 0.00258430813994119,
+  "passed": true,
+  "note": "III.4"
+ },
+ {
+  "name": "London coefficient (T per rad/s)",
+  "rederived": 1.1371260207131446e-11,
+  "logged": 1.137e-11,
+  "deviation": 0.00011083615931803149,
+  "passed": true,
+  "note": "V.7"
+ }
+]

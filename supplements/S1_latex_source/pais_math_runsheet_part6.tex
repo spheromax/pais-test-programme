@@ -1,0 +1,197 @@
+% Pais gap loop -- mathematics run sheet, part 6: run-8 items (loaded by \input from part 2, after part 5).
+% Items keep their chain numbers (counters set below). Numbers: run8_numbers.json from run8_math.py; canary8.py re-derived 15 run-7 numbers.
+%=====================================================================================================
+\section*{Run 8 additions to chains I, III and V}
+\addcontentsline{toc}{section}{Run 8 additions: I.25--I.29, III.7, V.10--V.11}
+\noindent\textbf{Notes on earlier items found in run 8.}
+\begin{itemize}
+\item \emph{I.17 and I.24 (operating fraction).} Run 7 took $i=I/I_c=0.70$ as safe because dynamic resistance binds only within 1--3\,\% of $I_c$
+(I.24). For a rotor made of closed loops the binding limit is different: when one loop quenches its current moves into its neighbours, and
+I.25 shows that $i\le0.51$ is needed for the neighbours to survive. At 30 T that needs $J_e\ge11.5$ kA/mm$^2$, 1.4 times the production tape of
+I.17. This replaces an assumption; it is logged with the errors.
+\item \emph{I.17, I.22 and I.23 (the deciding test).} The run-7 tabletop ring at 500 m/s has $\rho v^2/\sigma_a=2.2$: its own strength would
+carry 45\,\% of any mismatch, so it would not test the stress-free regime at all. I.29 re-sizes it.
+\item \emph{III.6 (X1).} III.7 adds the time scale: charge left on a dielectric keeps pulling for the dielectric's relaxation time.
+\end{itemize}
+Numbers below come from \texttt{run8\_math.py}; the run opened with a blind re-derivation of fifteen run-7 numbers (\texttt{canary8.py}, 15 of 15).
+
+\setcounter{section}{1}\setcounter{subsection}{24}
+\subsection{Losing the hold: quench, cascade and stored energy (B6)}
+\meta{[P] run 8 $\cdot$ gap 2 (B6) $\cdot$ from I.17, I.23; kill search: flywheel containment; prior art: parallel-coil and NI-coil quench}
+\begin{proposition}[mismatch tolerance]\label{prop:mismatch}
+A rotor of density $\rho$ at rim speed $v$ held by $J_eBR=\rho v^2$ carries no hoop stress. If its hold falls by a fraction $\delta$ (in $J_e$,
+in $B$, or locally in a strip), that part of the rim must carry the hoop stress $\delta\rho v^2$. With allowable stress $\sigma_a$ the rotor
+survives only while
+\begin{equation}
+\delta\le\delta_{\max}=\frac{\sigma_a}{\rho v^2}=\Big(\frac{v_{\rm self}}{v}\Big)^2,\qquad v_{\rm self}=\sqrt{\sigma_a/\rho}.\label{eq:mismatch}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Per unit volume the radial balance is $\rho v^2/R=J_eB+\sigma_\theta/R$ for a thin ring. With $J_eB$ reduced to $(1-\delta)\rho v^2/R$,
+$\sigma_\theta=\delta\rho v^2$.
+\end{proof}
+\begin{theorem}[a quenched loop's current]\label{thm:redistribute}
+$N$ closed superconducting loops with inductance matrix $\mathsf L$ carry $I_0$ each. If loop $q$ goes normal and its current decays to zero,
+flux conservation in the others ($s\ne q$) leaves them with
+\begin{equation}
+\Delta\mathbf I_s=I_0\,\mathsf L_{ss}^{-1}\mathsf L_{sq},\qquad
+E_{\rm diss}=\tfrac12I_0^2\big(\mathsf L_{qq}-\mathsf L_{qs}\mathsf L_{ss}^{-1}\mathsf L_{sq}\big),\label{eq:redistribute}
+\end{equation}
+where $E_{\rm diss}$ (the Schur complement) is the energy left to heat loop $q$. A loop survives only if $i\,(1+\Delta I_{\max}/I_0)<1$.
+\end{theorem}
+\begin{proof}
+For $s\ne q$, $\sum_j\mathsf L_{sj}I_j$ is conserved: $\mathsf L_{ss}(\mathbf 1+\mathbf x)I_0=\mathsf L_{ss}\mathbf1I_0+\mathsf L_{sq}I_0$, so
+$\mathbf x=\mathsf L_{ss}^{-1}\mathsf L_{sq}$. The stored energy falls from $\tfrac12I_0^2(\mathbf1^{\mathsf T}\mathsf L_{ss}\mathbf1+2\mathbf1^{\mathsf T}\mathsf L_{sq}
++\mathsf L_{qq})$ to $\tfrac12I_0^2(\mathbf1+\mathbf x)^{\mathsf T}\mathsf L_{ss}(\mathbf1+\mathbf x)$; the difference is \eqref{eq:redistribute}.
+\end{proof}
+\inputs{rotor of I.17: $R=2$ m, $\rho=8900$ kg/m$^3$, $v=6283$ m/s, $B=30$ T, section 2 mm $\times$ 100 mm as $44\times25$ tapes of
+4 mm $\times$ 45 $\mu$m, $I_0=1065$ A, $I_c=1500$ A ($i=0.71$); thin-strip geometric mean distances, $L_{ij}=\mu_0R[\ln(8R/g_{ij})-2]$.
+$\sigma_a=1.0$ GPa (Hastelloy-substrate tape yields at 0.9--1.1 GPa \cite{lee26scs}). Copper 10 $\mu$m per tape at $2\e{-10}$--$2\e{-9}\,\Omega$\,m
+(20--30 K, with or without 30 T magnetoresistance; estimate), Hastelloy 30 $\mu$m at $1.24\e{-6}\,\Omega$\,m. Dyneema SK75 3.4 GPa, 3.5\,\%,
+970 kg/m$^3$ \cite{dyneema}.}
+\nums{$\rho v^2=351$ GPa, so $\delta_{\max}=0.28\,\%$ and $v_{\rm self}=335$ m/s: losing the hold means shedding 99.7\,\% of $T=442$ MJ.
+\emph{One loop lost.} Coupling to a radial neighbour is $k=0.9955$, to an axial one 0.82, to the far side 0.40; $\mathsf L$ is positive definite.
+An outer tape's current goes almost all into its one radial neighbour ($+98\,\%$, $i=1.40$); a middle tape's splits two ways ($+50\,\%$,
+$i=1.06$). Both exceed $I_c$, so one lost tape cascades. The total current is kept to $10^{-6}$ and only 0.05--0.10 J is dissipated, so the
+cascade is electrical, not thermal. Soldering the 44 radial tapes at each height into one conductor lets a local defect bypass within it
+($+2.3\,\%$), but losing a whole end conductor puts $+76\,\%$ on its neighbour ($i=1.25$; middle $+50\,\%$) and drops the total by 0.24\,\%.
+Survival needs $i\le0.51$ (separate tapes) or 0.57 (soldered conductors).
+\emph{Everything lost.} The rotor's own inductance is $L_{\rm eq}=11.4\,\mu$H (7.9 MJ of self-field). With all tapes normal the current decays in
+$\tau_q=0.05$--0.23 s, so the rim reaches $\delta_{\max}$ after $\delta_{\max}\tau_q=0.13$--0.65 ms; braking to $v_{\rm self}$ that fast takes
+0.7--3.3 TW. A stator dumping in 1--30 s gives 3--85 ms and 5--150 GW. Only a slow, detected warm-up allows a safe spin-down (1 h at 123 kW).
+\emph{Containment.} $T=442$ MJ is 106 kg of TNT. A catcher that stores the energy in fibre strain needs at least $T/e$ with
+$e=\sigma\varepsilon_b/2\rho=61$ kJ/kg (52.7 kJ/kg elastic): 7.2--8.4 t, 23--27 times the craft's minimum mass of 312 kg. Fragments carry
+19.7 MJ/kg, above what vaporizes nickel alloys (about 7.5 MJ/kg, estimate), so a bumper might beat the bound; by how much at this scale is
+untested. Practice to date: a 1.9 MJ rotor ring at about 0.84 km/s inside a stainless liner with a 12.7 cm lip and a 7.6 cm lid \cite{flywheelcontain}.}
+\verdict{B6 cannot be made safe at craft mass as designed: one lost loop cascades, the cascade bursts the rim within a millisecond, and the
+fragments need tonnes of catcher. The mechanism of the cascade is known (parallel and no-insulation coils
+\cite{cernparallel,us10984934,niquench22}); the numbers for B6 are new. B6 stays as a ground experiment (I.29). For the craft it is blocked
+by stored-energy safety; revive only with $i\le0.5$ at 30 T and containment or a fail-safe below craft mass.}
+
+\subsection{The rotor's own forces and the current uniformity it needs (B6)}
+\meta{[P] run 8 $\cdot$ gap 2 (B6) $\cdot$ from I.17, I.25; in-between pairing: K2's screening-current kill search $\times$ B6}
+\begin{proposition}[self-pinch]\label{prop:pinch}
+A thin current sheet of height $h$ and thickness $t$ carrying $I$ (sheet current $K=I/h$) is squeezed axially; at mid-height the axial stress is
+\begin{equation}
+\sigma_z=\frac{\mu_0K^2h\ln2}{2\pi t}=\frac{\mu_0J_e^2A\ln2}{2\pi},\qquad A=ht,\label{eq:pinch}
+\end{equation}
+and its radial self-field at height $z$ is $B_r=(\mu_0K/2\pi)\ln[(h/2+z)/(h/2-z)]$.
+\end{proposition}
+\begin{proof}
+For $h\ll R$ the sheet is locally straight. The 2D field of a strip of sheet current $K$ has the stated $B_r$ on the strip. The force on the
+upper half per unit circumference is $\int_0^{h/2}KB_r\,dz=(\mu_0K^2/2\pi)\int_0^{a}\ln[(a+z)/(a-z)]\,dz$ with $a=h/2$, and the integral is
+$2a\ln2$. Dividing by $t$ gives \eqref{eq:pinch}.
+\end{proof}
+\inputs{as I.25; $K=1.17\e7$ A/m; per tape $(I_c/w)B=11.25$ MPa and centrifugal pressure $\rho t\omega^2R=7.91$ MPa; penetration field
+$\mu_0(I_c/w)/\pi=0.15$ T; delamination strength across the tape 2--100 MPa, commercial tapes 22--38 MPa at 77 K \cite{vdlaan07}; striated tapes
+with 10--46 filaments exist at a 12--25\,\% $I_c$ cost \cite{striated}.}
+\nums{(a) \emph{Uniformity.} By \eqref{eq:mismatch} the current density must match $\rho\omega^2r/B$ everywhere to 0.28\,\%.
+(b) \emph{Faces.} The sheet's own field is $\pm\mu_0K/2=\pm7.4$ T on its faces, so the outer layers are pulled harder; the stack is in radial
+compression, 22 MPa at mid-thickness ($J_e\mu_0Kt/8$): harmless.
+(c) \emph{Ends.} $B_r$ is 9--11 T at the end tapes and 2.6 T a quarter of the way in, against a penetration field of 0.15 T: every tape but the
+central ones carries screening currents at $\pm J_c$. In the critical state a strip $(1-i)w/2=0.58$ mm wide runs at $-J_c$ and is pushed out by
+$11.25+7.91=19.2$ MPa. Held by one 45 $\mu$m tape as a cantilever that is $3qL^2/t^2=9.6$ GPa of bending (yield 1 GPa); with $n_f$ filaments it
+falls as $1/n_f^2$: 96 MPa at 10, 24 MPa at 20. This is the screening-current damage seen in LBC3 and LBC6 \cite{lee26scs}, at a radius where the
+hoop path cannot help.
+(d) \emph{Pinch.} \eqref{eq:pinch} gives 0.95 GPa for the 2 cm$^2$ section, at the tape's yield. $J_e$ is fixed by $J_eBR=\rho v^2$, so only the
+section can change: $A\le2\pi\sigma/(\mu_0J_e^2\ln2)=0.63$ cm$^2$ for 0.3 GPa (1.05 cm$^2$ for 0.5 GPa), i.e.\ 139 MJ per rotor.
+(e) \emph{Through the tape.} The film carries all the current, so it must hold the rest of the tape: 5.3 MPa for the 30 $\mu$m substrate and
+1.2 MPa for 7 $\mu$m of stabilizer. With the substrate on the inside that interface is in compression; the stabilizer side sits at 1.2 MPa of
+tension, inside the measured range.}
+\verdict{Three new B6 requirements: striated tape ($\ge10$ filaments), a section of at most about 0.6--1 cm$^2$ per rotor at 30 T, and the
+substrate facing the axis. With them the self-forces fit; the 0.28\,\% current uniformity sets how finely each loop must be trimmed.}
+
+\subsection{Heat: a spinning rotor in vacuum can only radiate (B6)}
+\meta{[D] run 8 $\cdot$ gap 2 (B6) $\cdot$ from I.20, I.24; prior art: LDX, APEX-LD and Mini-RT floating coils}
+\begin{equation}
+P_{\rm rad}=\epsilon\sigma_{SB}A_s\,(T^4-T_w^4),\label{eq:rad}
+\end{equation}
+\inputs{rotor surface $A_s=2.56$ m$^2$; wall 4.2 K; emissivity 0.1--0.5; ripple loss 1 W at 6.3 mT and 500 Hz scaling as $B^3$ below
+penetration (I.20); LDX floated 6--8 h while its Nb$_3$Sn coil warmed from 5 to 10 K on an on-board helium store, then was lowered and re-cooled
+\cite{ldx}; APEX-LD floats 3.25 h \cite{apexld}.}
+\nums{$P_{\rm rad}$ = 2--12 mW at 20 K, 12--59 mW at 30 K, 37--186 mW at 40 K, 91--454 mW at 50 K; at 4.2 K, nothing. Ripple heating is 4 mW at
+1 mT, 32 mW at 2 mT, 108 mW at 3 mT. So a rotor that must stay below 30 K takes ripple $\lesssim2$ mT ($7\e{-5}$ of $B$) and tens of milliwatts
+of everything else.}
+\verdict{Every levitated superconductor so far floats on stored cold and is then docked; a craft rotor cannot dock, so it must balance its heat
+by radiation, at 20--40 K. The 1500 A rating (I.17) is at 4.2 K. Open: the tape's $I_c$ at 30 T and 20--40 K, which sets $i$ in a radiatively
+cooled rotor.}
+
+\subsection{B6 as a flywheel and a gyroscope}
+\meta{[P] run 8 $\cdot$ exploration (B6 $\times$ energy storage, B6 $\times$ craft attitude) $\cdot$ from I.2, I.17}
+\begin{proposition}[moment and energy]\label{prop:mBT}
+For the stress-free rotor the magnetic energy scale equals the kinetic energy: $mB=T$, with $m=I\pi R^2$.
+\end{proposition}
+\begin{proof}
+$IBR=J_eABR=\rho v^2A=Mv^2/(2\pi R)$, so $mB=\pi R^2IB=\tfrac12Mv^2$.
+\end{proof}
+\inputs{as I.25; minimum stator 289 kg of T1200 (I.17); T1200 4.40 N/tex; flywheels: isotropic $\sim$12 Wh/kg, wound 22--80 Wh/kg, $\sim$550 Wh/kg
+for a thin ring of the best fibre \cite{rabenhorst}; a composite system 5.6 Wh/kg \cite{tamuflywheel}.}
+\nums{Rotor: 19.7 MJ/kg (5{,}480 Wh/kg), nine times a thin ring's $\sigma/2\rho$ (2.2 MJ/kg for T1200), because the stator carries the load.
+With the minimum stator: 1.42 MJ/kg (394 Wh/kg), under the virial cap $\sigma/\rho=4.4$ MJ/kg of the stator's fibre. Angular momentum
+$MR^2\omega=2.8\e5$ N\,m\,s; turning at 0.1 rad/s takes $2.8\e4$ N\,m, a field tilt of only $\tau/mB=\tau/T=6.4\e{-5}$ rad. A craft needs rotors
+in counter-rotating pairs, as vehicle flywheels do \cite{us5921505}.}
+\verdict{As a store B6 would beat every flywheel 35--70 times at system level, which is exactly why I.25's safety problem is so large.}
+
+\subsection{The deciding tabletop test, re-sized}
+\meta{[E] run 8 $\cdot$ gap 2 (B6) $\cdot$ from I.22, I.23, I.25, I.26; host: a 300 mm warm-bore magnet \cite{magnet300}}
+\inputs{ring $R=0.1$ m, section 1 mm $\times$ 4 mm (22 tapes soldered as one conductor), $\rho=8900$ kg/m$^3$, host 8 T with the field falling a few
+per cent across the bore ($|n|=0.03$); $J_e(8\un{T},4.2\un{K},B\parallel ab)\approx15$ kA/mm$^2$ assumed (twice the 30 T value), run at 0.7 of it;
+null-flux loops of radius 0.1 m with 1 mm conductor; joints $10^{-12}\,\Omega$.}
+\nums{At 500 m/s: $\rho v^2/\sigma_a=2.2$ (tolerance 45\,\%), 2.8 kJ: too slow to test anything new. At 970 m/s: $J_e=10.5$ kA/mm$^2$, 41.9 kA,
+92{,}600 rpm, 22 g, $T=10.5$ kJ (2.5 g of TNT, a steel catcher), $\rho v^2/\sigma_a=8.4$, tolerance 12\,\%. Vertical growth $\gamma=1{,}680$ s$^{-1}$
+asks for a 1.2 kHz loop against a 1.5 kHz spin, so hold it passively: a null-flux pair at $\pm23.5$ mm gives $\omega_z=2{,}376$ rad/s and drifts
+in 22 days. Whirl: stator damping $\ge7.2\times$ rotor damping (I.19). Pinch 61 MPa.}
+\verdict{A 10.5 kJ experiment that checks levitation, passive hold and point-wise force balance at 12\,\% tolerance (full scale needs
+0.28\,\%). It does not test craft safety. An MRI magnet is the wrong host: $|n|\sim10^{-6}$ makes the radial support so soft that the whirl
+ratio is about 1{,}400.}
+
+%=====================================================================================================
+\setcounter{section}{3}\setcounter{subsection}{6}
+\subsection{X1's lingering force is a dielectric relaxation time}
+\meta{[D] run 8 $\cdot$ X1 $\cdot$ from III.6; in-between pairing: X1 $\times$ trapped charge in dielectrics}
+\begin{equation}
+F=\frac{\sigma_t^2A}{2\varepsilon_0},\qquad \sigma_t(t)=\sigma_t(0)\,e^{-t/\tau},\qquad \tau=\varepsilon_0\varepsilon_r\rho_e .\label{eq:relax}
+\end{equation}
+\inputs{4.46 mN on 25 cm$^2$ (III.6); PTFE $\rho_e>10^{16}\,\Omega$\,m, $\varepsilon_r=2.1$; polyimide film $10^{13}$--$1.5\e{15}\,\Omega$\,m,
+$\varepsilon_r=3.4$ \cite{dielectricsheets}.}
+\nums{$\sigma_t=5.6\,\mu$C/m$^2$, i.e.\ the same $6.3\e5$ V/m as III.6. $\tau\ge2.2$ days for PTFE, 5 min to 12.5 h for polyimide.}
+\verdict{A force that outlasts the power is what trapped charge does, for minutes to days. Add a control to the X1 deciding experiment:
+neutralize the article (UV, an ionizer or a bake) and see whether the lingering force goes. X1 stays E.}
+
+%=====================================================================================================
+\setcounter{section}{5}\setcounter{subsection}{9}
+\subsection{B7: the sample inside the cavity, and the film that settles the dispute}
+\meta{[P] run 8 $\cdot$ gap 9 (B7) $\cdot$ from V.9; kill search: Dodge's critique; in-between pairing: intracavity film $\times$ depth-profile dispute}
+\begin{proposition}[thin-film loss and the lasing condition]\label{prop:film}
+A free-standing film of sheet conductance $\sigma_1t$ absorbs, at normal incidence,
+\begin{equation}
+A=\frac{4y}{(2+y)^2},\qquad y=Z_0\sigma_1t,\qquad Z_0=376.7\,\Omega,\label{eq:film}
+\end{equation}
+at most 0.5 (at $y=2$). An oscillator with small-signal round-trip gain $g$ and cavity loss $\mathcal L$ keeps lasing with the film inside only
+if $A<g-\mathcal L$, and then the source pays $G^{-1}=A+\mathcal L$ of a single pass (V.9).
+\end{proposition}
+\begin{proof}
+The film is a shunt admittance $\sigma_1t$ across free space: $r=-y/(2+y)$, $t_f=2/(2+y)$, and $A=1-r^2-t_f^2$. In steady state the gain
+saturates to the total loss.
+\end{proof}
+\inputs{ELBE U27: $g\approx0.06$ against $\mathcal L\approx0.07$ at 10 $\mu$m \cite{elbe06}; FELIX: $g\approx0.5$ at first lasing, $\mathcal L\approx0.05$;
+$\sigma_1(10\un{THz})$ of K$_3$C$_{60}$ $10^4$--$10^5$ S/m (estimate; only powder data found); pump depth $\Lambda\approx220$ nm \cite{dodge23}.}
+\nums{ELBE-class gain leaves no room ($g-\mathcal L<0$); FELIX-class allows $A\le0.45$. For $\sigma_1=10^4$, $3\e4$, $10^5$ S/m, $A=0.1$ at 30, 10
+and 3 nm and $A=0.2$ at 67, 22 and 7 nm; $G=6.7$ at $A=0.1$, 4 at 0.2.}
+\verdict{Dodge \emph{et al.} argue that the K$_3$C$_{60}$ spectra depend on an assumed, non-uniform photoconductivity profile
+\cite{dodge23}. A film thinner than $\Lambda/10\approx22$ nm is pumped uniformly, and its $\sigma(\omega)$ follows from $r$ and $t_f$ with no
+profile model. The intracavity film is that film. B7 kept (D) and sharpened: FELIX-class gain, a 10--20 nm film, and the same sample settles
+the dispute. Open: no light-driven work on K$_3$C$_{60}$ films turned up.}
+
+\subsection{A dark cavity instead of a drive (exploration, cut)}
+\meta{[D] run 8 $\cdot$ gaps 8 and 9 $\cdot$ in-between pairing: light-induced state $\times$ cavity vacuum; kill search: no-go theorem}
+\begin{equation}
+E_{\rm vac}=\sqrt{\frac{\hbar\omega}{2\varepsilon_0V}}\quad\text{per mode}.\label{eq:vac}
+\end{equation}
+\inputs{10 THz ($\lambda=30\,\mu$m); mode volume $(\lambda/2)^3$, $10^{-3}\lambda^3$, $10^{-6}\lambda^3$; drives that make the light-induced state:
+$10^8$--$10^9$ V/m. Experiments: NbSe$_2$ $+10\,\%$ (3.02 to 3.41 K) and $+5.4\,\%$; NbN superfluid density $-13\,\%$; $\kappa$-ET $-50\,\%$;
+Casimir cavity $\le12\,\mu$K \cite{cavitysc,nogo26}.}
+\nums{$E_{\rm vac}=333$ V/m, 3.7 kV/m and 118 kV/m: $10^3$ to $10^6$ times short of the drive. Collective coupling raises the Rabi splitting as
+$\sqrt N$, not the field each molecule feels.}
+\verdict{A passive cavity is at most a 10\,\% knob on $T_c$, and a 2026 no-go theorem says minimal coupling lowers it. Gap 8 needs 2$\times$;
+gap 9 needs energy in. Cut; revive if a passive cavity raises a $T_c$ by $\ge2\times$ or above 77 K.}

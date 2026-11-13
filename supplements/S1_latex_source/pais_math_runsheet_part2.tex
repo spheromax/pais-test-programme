@@ -1,0 +1,314 @@
+% Pais gap loop -- mathematics run sheet, part 2 (loaded by \input from pais_math_runsheet.tex).
+% Run items live in parts 3, 4 and 5 (loaded below); the paths table and changelog are here; references are in pais_math_runsheet_refs.tex.
+%=====================================================================================================
+\section{Momentum and thrust}
+
+\subsection{A closed static system carries no momentum}
+\meta{[P] run 3 $\cdot$ gap 4 $\cdot$ from I.2 (von Laue)}
+\begin{theorem}\label{thm:com}
+For an isolated system with a symmetric stress--energy tensor (energy density $\varepsilon$, energy flux $\mathbf S$, momentum density
+$\mathbf g=\mathbf S/c^2$), the total momentum is
+\begin{equation}
+\mathbf P=\frac{d}{dt}\,\frac1{c^2}\int\mathbf x\,\varepsilon\,dV .\label{eq:com}
+\end{equation}
+A static system has $\mathbf P=0$, and the centre of energy of any isolated system moves uniformly.
+\end{theorem}
+\begin{proof}
+With $\partial_t\varepsilon+\nabla\!\cdot\mathbf S=0$:
+$\int S_i\,dV=\int S_j\partial_jx_i\,dV=-\int x_i\,\partial_jS_j\,dV=\int x_i\,\partial_t\varepsilon\,dV$, the surface term vanishing for a localized
+system. Divide by $c^2$.
+\end{proof}
+\noindent Consequences: the field momentum $\varepsilon_0\!\int\mathbf E\times\mathbf B\,dV$ of a static charged magnet is cancelled by ``hidden''
+mechanical momentum \cite{coleman}; spinning, charging or vibrating a closed device cannot move its centre of energy. Thrust needs something
+ejected (mass or radiation) or something outside to push on.
+
+\subsection{The photon-rocket bound}
+\meta{[D] run 3 $\cdot$ from III.1}
+\begin{statement}If the only thing a device ejects is radiation of power $P$, then $F\le P/c=3.34\un{nN/W}$.\end{statement}
+\nums{100 W $\to$ 0.33 $\mu$N. Laser ablation (45 $\mu$N/W) is $1.35\e4\times P/c$ because it throws target mass. Claims of order $\mu$N/W from
+closed resonant cavities exceed $P/c$ several hundred times; the Dresden group's balances bound such thrust below photon pressure for equal
+power \cite{tajmar2}. Rig: $P_{\rm rad}=1.1\e{-7}\un{W}\Rightarrow F\le3.7\e{-16}\un{N}$. Pais Eq.~2's $2.5\e{10}\un{W}$ would push with 84 N
+(and vaporize the disk).}
+
+\subsection{Thermal-noise floor of a torsion thrust balance, and what really limits it}
+\meta{[E] run 3 $\cdot$ gap 4 protocol}
+\begin{statement}
+For $I\ddot\theta+\gamma\dot\theta+\kappa\theta=\tau(t)$ with $\gamma=I\omega_0/Q$, the fluctuation--dissipation theorem gives the one-sided torque
+noise $S_\tau=4k_BT\gamma$ \cite{saulson}, so averaging for a time $\tau$ resolves
+\begin{equation}
+\delta F\approx\frac1L\sqrt{\frac{4k_BTI\omega_0}{Q\,\tau}} .\label{eq:balance}
+\end{equation}
+\end{statement}
+\inputs{$I=0.5\un{kg\,m^2}$, period 30 s, $Q=100$, arm $L=0.25\un{m}$, $\tau=100\un{s}$, 300 K.}
+\nums{$\delta F\approx1.7\e{-12}\un{N}$. Real balances resolve 10--100 nN \cite{soni,tajmar1}, $10^4$ times worse: systematics dominate (thermal
+drift and tilt, electromagnetic and electrostatic coupling). For the rig the image pressure $\varepsilon_0E^2/2=0.71\un{Pa}$ at 0.40 MV/m pulls
+0.050 N on each face; staying below 100 nN needs face-to-face symmetry better than $2\e{-6}$.}
+\verdict{The rig protocol must cancel by symmetry and reversal, not by sensitivity: polarity reversal, the device rotated 180$^\circ$ in vacuum,
+then discharged, spin-only and vibration-only runs. Known physics predicts a null to 8--10 orders below the balance floor.}
+
+%=====================================================================================================
+\section{Vacuum thresholds}
+
+\subsection{Critical fields}
+\meta{[D] run 0 $\cdot$ gap 3}
+\begin{statement}
+$E_S=m_e^2c^3/(e\hbar)=1.323\e{18}\un{V/m}$, the field that does work $m_ec^2$ on an electron across one reduced Compton wavelength
+$\hbar/m_ec$; $B_Q=E_S/c=4.414\e9\un{T}$. The atomic unit of field is $E_{\rm at}=e/(4\pi\varepsilon_0a_0^2)=\alpha^3E_S$.
+\end{statement}
+\begin{proof}[Check]
+$a_0=4\pi\varepsilon_0\hbar^2/(m_ee^2)$ gives $E_{\rm at}/E_S=e^6/[(4\pi\varepsilon_0)^3\hbar^3c^3]=\alpha^3$.
+\end{proof}
+
+\subsection{Schwinger pair production}
+\meta{[D] run 0 $\cdot$ gap 3 $\cdot$ from IV.1}
+\begin{statement}
+For a constant electric field (no magnetic field) the pair rate per volume is \cite{schwinger}
+\begin{equation}
+w=\frac{(eE)^2}{4\pi^3\hbar^2c}\sum_{n\ge1}\frac1{n^2}\exp\!\Big(-\frac{n\pi E_S}{E}\Big).\label{eq:schwinger}
+\end{equation}
+\end{statement}
+\nums{($n=1$) $w(E_S)=4.7\e{54}$, $w(0.1E_S)=2.5\e{40}$, $w(0.03E_S)=3\e7\un{m^{-3}s^{-1}}$. At the field-evaporation limit of any surface,
+$5.7\e{10}\un{V/m}=4.3\e{-8}E_S$, the exponent is $7.3\e7$: zero for every purpose. Matter can never hold the field.}
+
+\subsection{Invariants: why a craft cannot boost the vacuum, and how E-320 does}
+\meta{[P]/[D] run 3 $\cdot$ gap 3 $\cdot$ from IV.2}
+\begin{statement}
+$\mathcal F=\tfrac12(E^2-c^2B^2)$ and $\mathcal G=c\,\mathbf E\cdot\mathbf B$ are Lorentz invariant, and the constant-field pair rate depends on the
+fields only through them \cite{schwinger}. A plane wave has $\mathcal F=\mathcal G=0$ and makes no pairs at any intensity; a craft moving at any
+speed carries the same invariants. A boost changes what a \emph{probe particle} sees: for an electron of Lorentz factor $\gamma$ meeting a wave
+at angle $\alpha$ between their directions,
+\begin{equation}
+E^*=\gamma(1-\beta\cos\alpha)E,\qquad\chi=E^*/E_S .\label{eq:chi}
+\end{equation}
+\end{statement}
+\nums{E-320 at FACET-II: 10 GeV, $\gamma=1.96\e4$; $\alpha=150^\circ$ gives $\gamma(1-\beta\cos\alpha)=3.65\e4$. $\chi=0.5$ needs a laboratory field of
+$1.8\e{13}\un{V/m}$ (35 times atomic), $4.4\e{19}\un{W/cm^2}$, $a_0=4.5$ peak ($a_0^2\approx10$ rms). This matches the May 2025 run:
+$a_0^2\gtrsim10$, $\chi\gtrsim0.5$, radiation reaction in the quantum regime seen, nonlinear Breit--Wheeler positrons not yet directly
+observed \cite{e320,e320p}. Run-4 re-check (Nov 2026): a tracker now resolves single positrons (foil proxy, 0.120 per shot); no
+nonlinear Breit--Wheeler signal reported yet \cite{e320t}.}
+\verdict{Gap 3 settled for a craft by invariance (vacuum wall). The physics is reachable only by probe particles in boosted frames.}
+
+\subsection{Gertsenshtein conversion}
+\meta{[D] run 0 $\cdot$ gap 5}
+\begin{statement}
+Photon--graviton mixing in a transverse static field over length $L$: $P=\sin^2(\Delta L)\approx(\Delta L)^2$ with
+$\Delta=\sqrt{4\pi G/(\mu_0c^4)}\,B$, so
+\begin{equation}
+P=\frac{4\pi G\,B^2L^2}{\mu_0c^4}=8.26\e{-38}\Big(\frac{B}{\rm T}\Big)^2\Big(\frac{L}{\rm m}\Big)^2 .\label{eq:gert}
+\end{equation}
+\end{statement}
+\nums{45 T over 10 m: $1.7\e{-32}$ \cite{gertsenshtein}.}
+
+\subsection{Zero-point energy below a cutoff}
+\meta{[D] run 0, unit corrected in R0 source check}
+\begin{statement}
+Two polarizations give $\omega^2/(\pi^2c^3)$ modes per volume per unit $\omega$, each holding $\hbar\omega/2$, so
+\begin{equation}
+u=\int_0^{\omega_c}\frac{\hbar\omega^3}{2\pi^2c^3}\,d\omega=\frac{\hbar\omega_c^4}{8\pi^2c^3}\qquad(\omega_c\text{ in rad/s}).\label{eq:zpe}
+\end{equation}
+\end{statement}
+\nums{$\omega_c=2\pi\times10\un{THz}$: $7.7\e{-7}\un{J/m^3}$.}
+
+%=====================================================================================================
+\section{Pairing and the 10 THz drive}
+
+\subsection{The BCS gap ratio}
+\meta{[D] $\cdot$ gap 8, 9 $\cdot$ leads to V.2}
+\begin{statement}In weak-coupling BCS theory $\Delta_0/k_BT_c=\pi e^{-\gamma_E}=1.764$, so $2\Delta_0=3.528\,k_BT_c$.\end{statement}
+\begin{proof}
+The gap equation, with $\lambda=N(0)V$ and $E=\sqrt{\xi^2+\Delta^2}$, is
+\begin{equation}
+\frac1\lambda=\int_0^{\hbar\omega_D}\frac{d\xi}{E}\tanh\frac{E}{2k_BT}.\label{eq:gap}
+\end{equation}
+At $T=0$ the tanh is 1:
+\[
+\frac1\lambda=\operatorname{arsinh}\frac{\hbar\omega_D}{\Delta_0}\approx\ln\frac{2\hbar\omega_D}{\Delta_0}
+\quad\Longrightarrow\quad \Delta_0=2\hbar\omega_D\,e^{-1/\lambda}.
+\]
+At $T_c$ ($\Delta\to0$), with $X=\hbar\omega_D/2k_BT_c$ and $\int_0^X\frac{\tanh x}{x}dx=\ln X+\ln\frac{4e^{\gamma_E}}{\pi}+o(1)$:
+\[
+\frac1\lambda=\ln\frac{2e^{\gamma_E}\hbar\omega_D}{\pi k_BT_c}
+\quad\Longrightarrow\quad k_BT_c=\frac{2e^{\gamma_E}}{\pi}\,\hbar\omega_D\,e^{-1/\lambda}.
+\]
+Divide \cite{bcs,tinkham}.
+\end{proof}
+
+\subsection{The pairing photon}
+\meta{[D] run 0 $\cdot$ from V.1}
+\nums{$f=2\Delta_0/h=3.528k_BT_c/h$: 22.05 THz for $T_c=300\un{K}$; 1.47 THz for K$_3$C$_{60}$ ($T_c=20\un{K}$). The K$_3$C$_{60}$ drive resonance at
+41 meV (9.9 THz, about 16 meV wide) is 6.8 times its own gap frequency: a mode resonance (a radial T$_{1u}$ phonon, an on-ball orbital
+excitation or a dressed exciton; no accepted theory) \cite{rowe}, not a pairing energy.}
+
+\subsection{Holding a driven state: pulse bookkeeping}
+\meta{[D] runs 2--3 $\cdot$ gap 9, bridge B4 $\cdot$ canary in run 3}
+\begin{statement}
+With fluence $F$ needed per pulse, the spot is $d=2\sqrt{E/\pi F}$, the average power $P=Ef_{\rm rep}$ and the average intensity $Ff_{\rm rep}$.
+\end{statement}
+\inputs{$F=400\,\mu\mathrm{J/cm^2}=4\un{J/m^2}$ at the 10 THz resonance \cite{rowe}.}
+\nums{FELBE (13 MHz, $\sim$20 W): $E=1.54\,\mu$J, $d=0.70\un{mm}$ (canary; logged 0.69), $5.2\un{kW/cm^2}$. The authors' plan (100 MHz, 100 $\mu$m):
+31 nJ, 3.1 W; with the order-of-magnitude gain in coupling the authors say steady operation needs, 0.31 W. Shanghai ERL-FEL design (2--10 THz,
+83.33 MHz, $\sim$1 kW \cite{shanghai}): $E=12\,\mu$J, enough for a 1.95 mm spot at full fluence, $33\un{kW/cm^2}$.}
+\par\noindent\emph{Re-drive before it decays} ($f_{\rm rep}\ge1/\tau$, 100 $\mu$m spot, diamond substrate, V.4): at 100 K the state lasted
+$\tau\approx10\un{ns}$, so 100 MHz, 3.1 W and a 10 K rise; at room temperature only $\tau\ge0.5\un{ns}$ is predicted \cite{rowe}, so 2 GHz,
+63 W and a 200 K rise, or 6.3 W and 20 K with the tenfold coupling gain.
+\verdict{Bridge B4 kept, sharpened: a facility-class source matching the 100 K plan exists on paper; room temperature needs gigahertz
+repetition and the coupling gain. First test: does the state build up across a FELBE pulse train?}
+
+\subsection{Heating of a driven spot}
+\meta{[P] run 2 correction of run 1 $\cdot$ gap 9 $\cdot$ from V.3}
+\begin{statement}
+A point source $P$ on the insulated surface of a half-space of conductivity $k$ gives $T(r)=P/(2\pi kr)$; a uniform flux $q=P/\pi a^2$ over a
+disk gives a centre rise
+\begin{equation}
+\Delta T=\int_0^a\frac{q}{2\pi k\rho}\,2\pi\rho\,d\rho=\frac{qa}{k}=\frac{P}{\pi ak},\label{eq:spot}
+\end{equation}
+and a film of thickness $t$ on a heat sink adds $qt/k_{\rm film}$.
+\end{statement}
+\begin{proof}Steady state: the flux through a hemisphere of radius $r$ is $2\pi r^2k\,|dT/dr|=P$. Superpose over the disk.\end{proof}
+\nums{The authors' plan on diamond ($k=2000\un{W/m/K}$): 10 K. FELBE spot on diamond: 9.1 K, plus the film term.}
+
+\subsection{No mechanical route to 10 THz (bridge B3)}
+\meta{[E] run 3 $\cdot$ gap 9}
+\nums{Acoustic wavelength $\lambda=v_s/f$: at 10 THz with $v_s\approx5\un{km/s}$, $\lambda\approx0.5\un{nm}$, the lattice scale, where only
+zone-boundary or optical modes exist. The K$_3$C$_{60}$ 41 meV mode is intramolecular and infrared-active: it is driven by the electric field
+of light \cite{rowe}. Electrically pumped coherent-phonon sources (sasers) work from sub-THz to about 1 THz \cite{saser}.}
+\verdict{Bridge B3 (Pais's ``vibration'' at the pairing resonance) cut.}
+
+%=====================================================================================================
+\section*{S\quad Standalone items}
+\addcontentsline{toc}{section}{S Standalone items}
+\noindent\textbf{S.1 Earth's binding energy} [D, R0]. Assemble a uniform sphere shell by shell: $dU=Gm(r)\,dm/r$ with $m=Mr^3/R^3$, so
+$U=3GM^2/5R=2.24\e{32}\un{J}$. At Pais's $1.04\e{10}\un{W}$: $6.8\e{14}$ years (ledger 8 wording corrected to $1.04\e{10}$ W).
+
+\smallskip\noindent\textbf{S.2 Thermal occupation} [D, R0]. $\hbar\omega/k_BT=1.6\e{-5}$ at 100 MHz and 300 K: a 100 MHz vibration is classical
+and far below any pairing energy (V.2).
+
+\smallskip\noindent\textbf{S.3 Kinetic impactor} [D, R0]. Head-on, $(M_A+m)\Delta v=\beta mu$. Pais Eq.~3's inputs ($10^{10}\un{kg}$, $10^4\un{kg}$,
+10 km/s, $\beta=1$) give 0.010 m/s, not the printed 0.001. DART measured $\beta=3.61$ and an along-track $\Delta v=2.70\un{mm/s}$ (a projection
+set by the impact geometry) \cite{dart}.
+
+%=====================================================================================================
+\input{pais_math_runsheet_part3}
+
+%=====================================================================================================
+\input{pais_math_runsheet_part4}
+
+%=====================================================================================================
+\input{pais_math_runsheet_part5}
+
+%=====================================================================================================
+\input{pais_math_runsheet_part6}
+
+%=====================================================================================================
+\input{pais_math_runsheet_part7}
+\input{pais_math_runsheet_part8}
+
+%=====================================================================================================
+\section*{K\quad Paths kept and cut in runs 3--11}
+\addcontentsline{toc}{section}{K Paths kept and cut}
+{\small
+\begin{longtable}{@{}p{3.6cm}p{1.5cm}p{11.0cm}@{}}
+\toprule
+Path & Verdict & Why (item)\\
+\midrule
+\endhead
+H1 spinning charged triangle & cut & octupole $1.6\e{-35}$ W; 1 W needs a $0.024c$ rim (II.5, I.7)\\
+H2 rotating ferroelectric & cut & $\le3\e{-13}$ W at burst; depolarizing field $8.9\e8$ V/m (II.6)\\
+Mass reduction by field energy & cut & $\Delta m>0$ and $\Delta m/M\le2\e{-9}$ (I.7)\\
+Pais Eq.~2 flux & cut & CMUTs would emit $10^{24}\times$ what they do (II.8)\\
+B3 mechanical 10 THz & cut & no acoustic mode there; resonance is optical; sasers $\lesssim1$ THz (V.5)\\
+B2 drive PQP Hg-1223 & cut & light-induced effect vanishes at optimal doping (YBCO) \cite{mankowsky}; PQP sample near optimal (assumed)\\
+Spinning-superconductor gravity & cut & never seen independently in another laboratory \cite{mcculloch}\\
+B1 strain-matched overband & kept & high-modulus band on REBCO, test at $\varepsilon_{\rm irr}$ (I.6)\\
+Gap 2 nanotube composite & kept, edge & needs $m\ge14.5$ or $\delta\lesssim0.1$ mm at $V_f\ge0.62$ (I.8--I.10)\\
+B4 facility 10 THz source & kept & ERL-FEL design matches the plan; FELBE build-up test first (V.3)\\
+Gap 4 rig protocol & kept & symmetry $<2\e{-6}$ and reversals; null predicted (III.3)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run 4}}\\
+CNT yarn as the rim (gap 2) & cut & 0.9--1.8 N/tex at $\ge0.1$ m against 39.5 needed; below carbon fibre (I.11)\\
+K1 bundle Weibull test & kept, lower prior & 12--25 bundles per gauge, two gauges a decade apart (I.12); composite needs $d\lesssim100$ nm (I.13)\\
+Unpre-tensioned carbon or CNT band on REBCO & cut & separates on cooldown, or bonded pre-tensions the tape 0.18\,\% (I.14)\\
+B1 metal co-wind or pre-tensioned carbon band & kept, revised & co-wind shrinking $\ge$ the tape's; warm pre-strain $\ge0.26\,\%$ (I.14)\\
+Biefeld--Brown lifter & cut & ion wind, 5 mN/W in air, zero in vacuum (III.4)\\
+B5 as a power route & cut & driven volume per watt $G=fF^2\approx0.1$--2 (V.6)\\
+B5 as a test enabler & kept & $F\ge3.2$ in micron gaps, $3.6\times$ below damage seen (V.6)\\
+K5 Tate anomaly & kept, lead & unrepeated $4.4\sigma$; repeat at $\le10$ ppm (V.7)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run 5}}\\
+Continuous nanotubes round a hoop & cut & $2^{-L/74\,{\rm mm}}$: $10^{-50.8}$ survive 12.57 m (I.15)\\
+K1 spliced bundle composite & kept, waiting & $\sim10^{16}$ defect-free 2 cm tubes per cm$^2$; 20/200 mm test still feasible (I.15)\\
+Bonded carbon band (second reason) & cut & radial tension 27--34 MPa vs 18--53 MPa delamination (I.16)\\
+K2 metal co-wind & kept, narrowed & offset measured (B); one number left: conductor shrinkage (I.16)\\
+B6 stator-borne rotor & kept, new (D) & $J_eBR/\rho$: $1.3\times$ short at 30 T (R\&D tape); tilt marginal (I.17)\\
+New fibre classes (M5, graphene) & cut & 3.4--3.6 and 0.73 N/tex; T1200 4.40 is the best (I.11 corr.)\\
+Flyby anomaly & cut & no mechanism; did not repeat (III.5)\\
+X1 charged-dielectric thrust (side research) & kept, lead (E) & image forces of the claimed size; $P/c=0$ unpowered; sealed-box test (III.6)\\
+St.~Clair rotating electrostatic thruster & cut & axisymmetric spin: no radiation, no self-push (II.2, III.1, III.6)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run 6}}\\
+B6 passive translation & cut & trace of stiffness 0 at fixed current; flux conservation needs offsets of 0.3--0.9 m (I.18)\\
+B6 with active control & kept (D) & uniform field $|n|\lesssim10^{-3}$: 100 s$^{-1}$, newtons; LDX and APEX-LD prior art (I.18)\\
+B6 whirl & condition & stator damping $>(\sqrt{2/|n|}-1)\times$ rotor damping (I.19); ripple $\lesssim10^{-4}$ of $B$ (I.20)\\
+Pre-strained carbon band & cut (field) & 50 T, below the 59 T of a metal co-wind; 3.9$\times$ lighter (I.21)\\
+Strain for hydrides & cut & clamping gives $\le10$ GPa, superhydrides need 100--260 (V.8)\\
+Strain for nickelates & context & 2\,\% gives 3.8 GPa equivalent, about half the bulk $T_c$ (V.8)\\
+Passive EDS (Inductrack) for B6 & kept (D) & needs a patterned rotor; drag about 16 W per newton at 6.3 km/s (estimate)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run 7}}\\
+B6 conductor & met (C) & production tape 4 mm $\times$ 45 $\mu$m, $>1500$ A at 30 T (ab): $J_e$ 8.3 kA/mm$^2$, runs at $i=0.70$ (I.17 note)\\
+B6 active hold & kept & $\gamma\tau<\sqrt2$, loop $\ge4.5\gamma$; easy for $|n|\le5\e{-3}$ (I.22)\\
+B6 passive hold & revived (D) & superconducting null-flux pair adds $g^2/L$; drift hours to years; no spin drag (I.23)\\
+Dynamic resistance & ceiling & binds only within 1--3\,\% of $I_c$ for 3--6 mT ripple (I.24)\\
+K1 nanotube bundles as rim & cut & 35.4 N/tex at 2 cm (80 GPa on wall area), 0.90$\times$ the 39.5 needed (I.11 note)\\
+B7 intracavity drive (gap 9) & kept, new (D) & source power $\times(A+\mathcal L)$, 4--40$\times$ less; FELICE test at 1 GHz (V.9)\\
+Craft magnet as magnetic sail & cut & kinetic regime, 1.5 $\mu$N--0.21 mN at 1 AU (S.4)\\
+X1 (Exodus) & kept, lead (E) & 4.46 mN is $5.7\e5\times$ the ejecta bound; equals a 3.5 kV pull across 5.5 mm (III.6 note)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run 8}}\\
+B6 as the craft's rim & blocked (safety) & one lost loop cascades at $i=0.71$ (needs $i\le0.51$); the rim bursts within $\sim$1 ms of losing its hold; 442 MJ needs $\ge7$ t of catcher (I.25)\\
+B6 rotor build & conditions & striated tape ($\ge10$ filaments), section $\le0.6$--1 cm$^2$ (pinch), substrate inward, 0.28\,\% current uniformity (I.26)\\
+B6 heat & condition & radiation only: $\le$12--59 mW at 30 K; ripple $\lesssim2$ mT; $I_c$ at 20--40 K open (I.27)\\
+B6 tabletop test & kept, re-sized & 10 cm ring at 970 m/s in 8 T, null-flux hold, 10.5 kJ; tolerance 12\,\% (I.29)\\
+B7 intracavity film & kept, sharpened (D) & needs $A<g-\mathcal L$ (FELIX-class, not ELBE); a 10--20 nm film also settles the depth-profile dispute (V.10)\\
+Dark cavity for gaps 8--9 & cut & $\le10\,\%$ on $T_c$; vacuum field $10^3$--$10^6\times$ short of the drive; no-go theorem (V.11)\\
+X1 lingering force & explained (E) & trapped charge, 5.6 $\mu$C/m$^2$, relaxes in minutes to days (III.7)\\
+\midrule
+\multicolumn{3}{@{}l}{\emph{Run 9}}\\
+B6 containment & revised (D) & debris $>3.9$ km/s ends as heat; the stator's virial bounds its load: craft 1.3--2.3$\times$, not 24$\times$ (I.30)\\
+B6 after a burst & condition & free-spinning liner; survivor spun down in about an hour at 123 kW (I.31)\\
+B6 conductor & condition & radiative 9--23 K: production tape never safe; thick film with ripple $\le0.3$--1 mT (I.32)\\
+B6 tabletop ring & eased & $J_e(8\,{\rm T})=16$--22 kA/mm$^2$: $i=0.47$--0.65 with production tape (I.29 note)\\
+B7 film & makeable (B/C) & 12--24 ML by MBE; FELIX, FHI and ELBE U100 have headroom at 30 $\mu$m (V.12)\\
+K$_3$C$_{60}$ light-induced state & contested & no field expulsion at 50 nT, $\chi_v>-0.1$ (V.12)\\
+Tabletop 10 THz source for B7 & cut (exploration) & no watt-class source near 30 $\mu$m (V.12)\\
+X1 (Exodus) & kept, lead (E) & no outside test; UV charge-modulation control decides it (III.8)\\
+\multicolumn{3}{@{}l}{\emph{Run 10}}\\
+B6 emissivity & folded in & allowed ripple scales as $\varepsilon^{1/3}$; a field-quality condition replaces it (I.33)\\
+B6 stator field quality & condition (C) & azimuthal field within 6--80 ppm along 12.6 m; unshimmed REBCO $\ge100$ ppm, shimmed NMR $\le1$ ppm (I.33)\\
+B6 tangential fragment test & designed (C) & 9 g coupon on a 2 m track gives the craft's 351 MPa; exit speed measures $\mu$ (I.34)\\
+B6 warm operation & design point (D) & wall 15--20 K, rotor $\le24.5$ K: flux-jump margin 18--50$\times$ better, ripple 0.7--1.8 mT (I.35)\\
+HFGW-generator claims & testable null & cavities would see Pais-scale emission ($10^5$ margin); known physics $10^{20}$ below (III.9)\\
+2023--2025 gravity/propulsion patents & no new thread & every claim falls under ledger 7, 16, 17, 21 or 25 (III.10)\\
+B7 at FELICE & fluence ample (C) & 81--133$\times$ the hold fluence; no cryogenic film station (V.13)\\
+\multicolumn{3}{@{}l}{\emph{Run 11 (last literature pass; the loop stops)}}\\
+B6 field quality & precedent / caution & cyclotrons hold the 1st harmonic at a few gauss (NbTi, iron); the REBCO skeleton cyclotron quenched at 46\,\% of design (part 8 notes)\\
+B6 coupon shot & refined & debris 1.6--4.2$\times$ above gouging thresholds: measure gouges; fly the coupon along its length (part 8 notes)\\
+K4 & sharper instrument & 42 Hz resonant detector, $\sim$7--28 pN (estimate) (part 8 notes)\\
+\bottomrule
+\end{longtable}}
+
+\noindent\textbf{Run-sheet changelog.} Run 3: sheet created. Re-derived from earlier runs: I.5, II.1--II.4, II.7, IV.1, IV.2, IV.4, IV.5, V.1, V.2,
+V.4, S.1--S.3. New in run 3: I.1--I.4, I.6--I.10, II.5, II.6, II.8, III.1--III.3, IV.3, V.3, V.5. New in run 4 (file part 3): I.11
+fibre ladder, I.12 Weibull sample size (theorem), I.13 shear lag, I.14 cooldown mismatch and pre-compression, III.4 thrust per watt, V.6
+driven-volume theorem, V.7 London moment and the Tate anomaly. Run 4 lesson: sources are logged at search time (a context reset lost them).
+New in run 5 (file part 3): I.15 Schulz--Flory length budget, I.16 measured cooldown offset and radial tension, I.17 stator-borne rotor
+(theorem and tilt corollary), III.5 flyby anomaly; corrections to I.7 (scope), I.11 (T1200) and I.14 (tape shrinkage). From the run-5 side
+research (not scored): III.6 charged-dielectric thrust claims. New in run 6 (file part 4): I.18 ring stability (theorem, rates corollary,
+flux conservation), I.19 supercritical whirl, I.20 ripple loss, I.21 pre-strained band (correction to I.6 and I.14), V.8 strain as pressure;
+notes on I.11 (area definition, open), I.17 (flux jumps) and III.6 (no replication). New in run 7 (file part 5): I.22 active hold (critical
+delay, Bode bandwidth), I.23 passive hold by flux-conserving loops (theorem, null-flux corollary, drift), I.24 dynamic resistance, V.9
+intracavity drive, S.4 magnetic sail; corrections to I.3, I.8, I.10 and I.11 (K1 is 35.4 N/tex) and I.18 (passive hold revived); notes on I.17 (production tape
+meets B6) and III.6 (ejecta bound). New in run 8 (file part 6): I.25 loss of hold (mismatch tolerance, redistribution theorem for a quenched loop, cascade, global loss, containment bound), I.26 the rotor's own forces (uniformity, screening edge loads, self-pinch, through-tape stress), I.27 heat by radiation only, I.28 flywheel and gyroscope (the identity $mB=T$), I.29 the tabletop test re-sized, III.7 X1's lingering force, V.10 B7's thin film and lasing condition, V.11 a dark cavity (cut); notes on I.17 and I.24 (safe $i$ is set by quench coupling, not dynamic resistance) and on the run-7 test speed. New in run 9 (file part 7): I.30 containment inherits the stator's virial (theorem; B6 corollary), I.31 angular momentum after a burst, I.32 the conductor at the rotor's radiative temperature, III.8 a UV charge-modulation control for X1, V.12 lasing headroom at 30 $\mu$m, the film in monolayers and the Meissner bound; notes on I.25 (catcher replaced), I.17 (thick-film thickness basis), I.27 and I.29 ($J_e$ at 8 T). New in run 10 (file part 8): I.33 the field quality the stator needs, I.34 a tangential fragment test with the craft's own wall pressure, I.35 flux-jump margin against temperature and a warm design point, III.9 high-frequency GW cavities as a test of EM-to-GW claims, III.10 the 2023--2025 patent sweep, V.13 FELICE intracavity fluence; notes on I.32 (emissivity, thick-film flux jumps) and I.30 (no concave-wall data). Run 11 (file part 8, notes): cyclotron first-harmonic precedent and the REBCO skeleton-cyclotron quench (I.33), gouging and launch attitude (I.34), tape buying rules (I.35), a resonant detector for K4; the loop stopped by its rule.
+
+%=====================================================================================================
+\input{pais_math_runsheet_refs}

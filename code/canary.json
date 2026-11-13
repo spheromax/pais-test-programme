@@ -1,0 +1,26 @@
+[
+ {
+  "name": "S_claim, W/m^2",
+  "logged": 1.18e+24,
+  "rederived": 1.1827144096522586e+24,
+  "deviation": 0.002300347162931038,
+  "passed": true,
+  "note": "inputs in CT-11 and the patent example"
+ },
+ {
+  "name": "FELBE spot diameter, mm",
+  "logged": 0.69,
+  "rederived": 0.6997910525334201,
+  "deviation": 0.014189931207855278,
+  "passed": true,
+  "note": "needs FELBE 20 W at 13 MHz: in run 2 notes, not in the state file"
+ },
+ {
+  "name": "rig ratio, Pais Eq. 2 / Larmor",
+  "logged": 2.3e+17,
+  "rederived": 2.2749985141586198e+17,
+  "deviation": 0.010870211235382676,
+  "passed": true,
+  "note": "needs f_G = 1 (disc) from the 827 text and nu read as rad/s"
+ }
+]

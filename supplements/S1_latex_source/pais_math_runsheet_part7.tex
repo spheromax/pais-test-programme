@@ -1,0 +1,151 @@
+% Pais gap loop -- mathematics run sheet, part 7: run-9 items (loaded by \input from part 2, after part 6).
+% Items keep their chain numbers (counters set below). Numbers: run9_numbers.json from run9_math.py; canary9.py re-derived 21 run-8 numbers.
+%=====================================================================================================
+\section*{Run 9 additions to chains I, III and V}
+\addcontentsline{toc}{section}{Run 9 additions: I.30--I.32, III.8, V.12}
+\noindent\textbf{Notes on earlier items found in run 9.}
+\begin{itemize}
+\item \emph{I.25 (the catcher).} Run 8 sized a catcher by the energy its fibres can store, $T/e_{\rm abs}$ with $e_{\rm abs}=\sigma\varepsilon/2\rho$
+(7.2 t). That is the right model for fragments slower than about 4 km/s. B6's debris carries 19.7 MJ/kg, 2.6 times what it takes to vaporize
+itself, so its energy ends as heat; the structure has to hold the debris' load, not absorb its energy. I.30 replaces the estimate.
+\item \emph{I.17 and I.25 (thick-film tape).} The 30 T data for 4 $\mu$m films give $J_e$ on the authors' own 50 $\mu$m basis (29 kA/mm$^2$);
+run 8 used a 0.1 mm basis (14.5 kA/mm$^2$), the basis of the long-length tapes. Both are kept in I.32, because which one holds decides how cold
+the rotor must be.
+\item \emph{I.27 (heat).} The rotor's radiative temperature now sets its operating fraction (I.32).
+\item \emph{III.7 (X1).} III.8 turns the relaxation time into a control: modulate the charge with UV light and watch the force follow it.
+\end{itemize}
+Numbers below come from \texttt{run9\_math.py}; the run opened with a blind re-derivation of twenty-one run-8 numbers (\texttt{canary9.py}, 21 of 21
+within 0.04\,\%).
+
+\setcounter{section}{1}\setcounter{subsection}{29}
+\subsection{A burst rotor's containment inherits the stator's virial (B6)}
+\meta{[P] run 9 $\cdot$ gap 2 (B6) $\cdot$ from I.2, I.4, I.17, I.25; prior art: rotatable flywheel liners; no prior art found for the statement}
+\begin{theorem}[containment inherits the virial]\label{thm:contain}
+Let a rotor of mass $M$, radius $R$ and kinetic energy $T=\tfrac12Mv^2$ be held stress-free by a stator, so that the stator's structure carries
+the rotor's reaction: a radial line load $q=Mv^2/(2\pi R^2)$ and a total hoop force $N=qR=Mv^2/(2\pi R)$, i.e.\ $\int\tr\sigma\,dV=2T$ (I.4, I.17).
+After the rotor loses its hold:
+\begin{enumerate}
+\item[(a)] \emph{Sliding debris.} Debris pressed against a coaxial wall at radius $R+g$ with $g\ll R$ and moving at $v$ loads the wall with the
+same $q$ and $N$; as friction slows it, both fall as $v^2$.
+\item[(b)] \emph{Thermalized debris.} If an energy $E\le T$ ends as an ideal gas of adiabatic index $\gamma$ in a closed vessel, the vessel's
+structure carries
+\begin{equation}
+\int\tr\sigma\,dV=3PV=3(\gamma-1)E\le3(\gamma-1)T\le2T\qquad(\gamma\le5/3),\label{eq:contain}
+\end{equation}
+of which a cylinder's hoop carries $2PV$ and its ends $PV$.
+\end{enumerate}
+So the tension a stator already supplies for the spinning rotor bounds the tension its debris can demand, in either form.
+\end{theorem}
+\begin{proof}
+(a) A debris element $dm$ moving at $v$ along a wall of radius $R+g$ needs the inward force $dm\,v^2/(R+g)$, which only the wall can supply;
+integrating round the circle gives $q$, and the hoop balance of a thin wall gives $N=qR$. Before the loss the same $q$ was the stator's reaction to
+$J_eB$ on the rotor (I.17). (b) For the vessel plus gas at rest, apply I.2 with the gas as the source: the gas stress is $-P\delta_{ij}$, so the
+structure carries $\int\tr\sigma=3PV$; for an ideal gas $PV=(\gamma-1)E$ (the virial theorem of a gas, $2E_{\rm kin}=3PV$ for $\gamma=5/3$
+\cite{virialgas}). Energy taken up as latent heat of vaporization or ionization lowers the thermal energy, so $E\le T$. For a closed
+cylinder, $\sigma_\theta=PR/t$ over the wall gives $2PV$ and $\sigma_z=PR/2t$ gives $PV$.
+\end{proof}
+\begin{corollary}[B6]\label{cor:contain}
+B6's debris carries $v^2/2=19.7$ MJ/kg, 2.63 times the 7.5 MJ/kg that heats and vaporizes nickel-class metal (any debris faster than
+$\sqrt{2e_{\rm vap}}=3.87$ km/s carries more than its own vaporization energy). A craft whose stator also serves as the containment needs, beyond
+the stator, only end closures, a free-spinning liner and an ablator, plus a dynamic margin on the hoop.
+\end{corollary}
+\inputs{$T=441.5$ MJ, $M=22.37$ kg, $v=6283$ m/s, $R=2$ m, rotor height $h=0.10$ m (25 tapes of 4 mm); stator $\ge289$ kg of T1200 carrying $2T$,
+so $\sigma/\rho=3.06\times10^6$ J/kg; wall composite T1000G-class, $\sigma=3.82$ GPa, $E=176$ GPa, $\rho=1560$ (I.3); $\gamma=1.2$--$5/3$;
+liner 50--100 kg; ablation 59.8 MJ/kg (carbon) to 7.5 MJ/kg (iron); dynamic factor on the hoop 1.0--1.5 (estimate).}
+\nums{Load: $q R=7.03\times10^7$ N of hoop force; on a 0.1 m wall the debris presses 351 MPa, next to the 358 MPa magnetic pressure of 30 T.
+Gas: $\int\tr\sigma/2T=1.0$ ($\gamma=5/3$), 0.6 (1.4), 0.3 (1.2); end closures $(\gamma-1)T\rho/\sigma=96$, 58, 29 kg.
+Impact while crossing the gap: $v_r=v\sqrt{1-R^2/(R+g)^2}=199$, 443, 882 m/s for $g=1$, 5, 20 mm; impulse $Mv_r/2\pi Rh=3.5$, 7.9,
+15.7 kN\,s/m$^2$; the stator's 230 kg/m$^2$ moves at 15, 34, 69 m/s, using 0.4, 2.2, 9\,\% of the strain energy it can store
+($v_{\rm allow}=\sigma/\sqrt{E\rho}=230$ m/s). Friction: the debris slows in $R/\mu v=3.2$, 1.1, 0.6 ms for $\mu=0.1$, 0.3, 0.5 at peak heat
+0.28--1.4 TW; the hoop's breathing period is 1.18 ms. Liner of 50 or 100 kg: debris and liner end at 1.94 or 1.15 km/s, 69 or 82\,\% of $T$
+dissipated. Ablator 7.4 kg (carbon) to 58.9 kg (iron). Containment-capable craft: 398--711 kg, 1.3--2.3 times the 312 kg minimum (run 8's catcher:
+7,510 kg, 24 times).}
+\noindent\emph{Caution.} Multi-shot blast vessels sit far above their static bound: LANL's M-9 vessel for 10 kg of TNT may weigh up to 75 t, while
+$\tfrac32PV\rho/\sigma$ with $PV=0.3E$ and HY-100 steel is 214 kg, a factor of 350 \cite{blastvessel}. Their shock phase and elastic reuse dominate.
+The estimate above assumes B6's load moves from the field to the wall smoothly, at grazing incidence, once.
+\verdict{The 23$\times$ catcher of run 8 becomes about 1.3--2.3$\times$ the craft (D). The stator can be the containment because the debris needs
+no more tension than the rotor did. A free-spinning liner takes the angular momentum (I.31), as in flywheel practice \cite{rotliner}. Deciding test:
+a light-gas gun fires a tape-like fragment at about 6 km/s tangentially into a curved, composite-backed liner, and the hoop strain and torque are
+compared with $Mv^2/2\pi R$ \cite{whipple}.}
+\refs{\cite{virialgas,rotliner,whipple,blastvessel}}
+
+\subsection{Angular momentum after a burst (B6)}
+\meta{[D] run 9 $\cdot$ gap 2 (B6) $\cdot$ from I.28, I.30; prior art: NASA IPACS, rotatable liners}
+\begin{statement}
+The debris carries $L=2T/\omega$. Taken up by the craft's body of moment of inertia $I_c$ it spins the craft at $\omega_c=L/I_c$. Taken up by a
+free-spinning liner on a fluid film, the housing receives about $L/t_{\rm sd}$ over the spin-down time $t_{\rm sd}$. A counter-rotating pair that
+loses one rotor keeps a momentum bias $L$; holding attitude while slewing at $\Omega$ then needs a torque $L\Omega$.
+\end{statement}
+\nums{$L=2.81\times10^5$ N\,m\,s. Stator ring alone, 289 kg at 2.05 m: $I_c=1{,}215$ kg\,m$^2$, so $\omega_c=231$ rad/s (2,210 rpm, rim 474 m/s).
+With a liner and UT-CEM's 120 s spin-down: 2.3 kN\,m on average (their test measured at most 63,000 ft-lb, about 85 kN\,m, against 400,000 ft-lb
+predicted without the liner). Survivor bias at 0.1 rad/s: 28 kN\,m. Spinning the survivor down in one hour: 123 kW.}
+\verdict{A rotatable liner is required. After one burst the craft must spin the survivor down (about an hour at 123 kW) or live with a
+$2.8\times10^5$ N\,m\,s bias. NASA studied exactly this contingency for the ISS flywheel pair \cite{ipacs}.}
+\refs{\cite{ipacs,rotliner}}
+
+\subsection{The conductor at the rotor's radiative temperature (B6)}
+\meta{[E] run 9 $\cdot$ gap 2 (B6) $\cdot$ from I.17, I.25, I.27}
+\begin{proposition}\label{prop:radT}
+A rotor in vacuum with heat input $P=P_0(\Delta B/B_0)^3$ (ripple loss, I.27), emissivity $\varepsilon$, area $A$, facing a stator at $T_s$, sits at
+\begin{equation}
+T_r=\Big(\frac{P}{\varepsilon\sigma_{\rm SB}A}+T_s^4\Big)^{1/4}.\label{eq:Trad}
+\end{equation}
+If $I_c(T)=I_c(4.2\,{\rm K})\,e^{-(T-4.2\,{\rm K})/T^*}$, the quench-safe fraction $i\le0.506$ of I.25 needs
+\begin{equation}
+J_e(30\,{\rm T},4.2\,{\rm K})\;\ge\;\frac{J_{\rm need}}{0.506}\,e^{(T_r-4.2\,{\rm K})/T^*}.\label{eq:Jreq}
+\end{equation}
+\end{proposition}
+\begin{proof}Steady state: absorbed $P$ equals the net radiated $\varepsilon\sigma_{\rm SB}A(T_r^4-T_s^4)$ (gray body in a cold enclosure,
+$\varepsilon_{\rm stator}\approx1$). Then substitute $I_c(T_r)$ into $i=J_{\rm need}/J_e(T_r)\le0.506$.\end{proof}
+\inputs{$P_0=1$ W at $B_0=6.3$ mT (I.27); $A=2.56$ m$^2$; $T_s=4.2$ K; $T^*=21$--23 K below 40 K (commercial tape, $B\perp$, 4.2--40 K
+\cite{senatore}); $J_{\rm need}=5.86$ kA/mm$^2$. Tapes at 30 T, 4.2 K, $B\parallel ab$: production 8.3 kA/mm$^2$ (LBC6); thick film, $J_c=36.3$
+MA/cm$^2$ in a 4.0 $\mu$m film \cite{majkic20}: 14.5 kA/mm$^2$ on a 0.1 mm basis, 29.0 on the authors' 50 $\mu$m basis.}
+\nums{$T_r$ for $\varepsilon=0.5$ to 0.1: 6.5--9.4 K at 0.3 mT ripple, 9.2--13.6 K at 0.5 mT, 15.3--22.9 K at 1 mT, 25.8--38.5 K at 2 mT. Needed
+$J_e(4.2\,{\rm K})$: 12.8--14.6, 14.5--17.8, 19.2--27.1, 30.8--55 kA/mm$^2$. Production tape is never quench-safe (it needs $T<4.2$ K) and passes
+$i=1$ above about 12 K (11.5--12.2 K). Thick film is safe below 9.0--9.4 K on the 0.1 mm basis (ripple $\lesssim0.3$ mT) or below 23.5--25.4 K on the 50 $\mu$m
+basis (ripple $\lesssim1$ mT). Each rotor loop is 12.57 m, so 40 m pieces of A-MOCVD tape \cite{selva24,selvafnal} give three loops: 371 pieces for
+1,111 loops.}
+\verdict{Radiation-only cooling rules out production tape for B6 at any ripple. Thick-film tape works with ripple of 0.3--1 mT
+($1$--$3\times10^{-5}$ of 30 T, MRI-class homogeneity), depending on its thickness. Grade C: the temperature scaling comes from commercial tape in
+perpendicular field; $I_c(T)$ of thick film at 30 T, $B\parallel ab$, is the number to measure \cite{htsdb}.}
+\par\smallskip\noindent\emph{Note on I.29 (the tabletop ring).} With $I_c\propto B^{-\alpha}$, production tape gives $J_e(8\,{\rm T})=8.3\,(30/8)^\alpha
+=16.1$ ($\alpha=0.5$) to 22.4 kA/mm$^2$ ($\alpha=0.75$ above 10 T \cite{senatore}). The ring's 10.47 kA/mm$^2$ then runs at $i=0.47$--0.65 at 4.2 K;
+run 8's 15 kA/mm$^2$ was conservative.
+\refs{\cite{senatore,majkic20,selva24,selvafnal,htsdb}}
+
+\setcounter{section}{3}\setcounter{subsection}{7}
+\subsection{A UV charge-modulation control for X1}
+\meta{[D] run 9 $\cdot$ X1 $\cdot$ from III.6, III.7; bridge: LISA Pathfinder and Gravity Probe B charge management}
+\begin{statement}
+A body with trapped charge $Q$ on a face of area $A$ next to a grounded electrode feels $F=a+bQ+cQ^2$, with $c=1/(2\varepsilon_0A)$ (III.7) and $b$
+set by stray potentials. A propulsive force is the $a$ term, independent of $Q$. Changing $Q$ with UV photoemission (or an electron flood) and fitting
+$F(Q)$ separates them; an air ionizer cannot, because it needs gas.
+\end{statement}
+\inputs{X1's slide: 4.46 mN on 25 cm$^2$, so $\sigma_t=5.62\,\mu$C/m$^2$ (III.7); claimed resolution $\pm20\,\mu$N; LISA Pathfinder's expected
+maximum test-mass charge $2.35\times10^8\,e$; 254 nm mercury line \cite{lpf}.}
+\nums{$Q=1.41\times10^{-8}$ C $=8.8\times10^{10}\,e$ (373 times LPF's maximum). $c=2.26\times10^{13}$ N/C$^2$. Discharge time $Q/I$: 14 s at 1 nA,
+1.4 s at 10 nA, 0.14 s at 100 nA. Force at 30, 10 and 1\,\% of $Q$: 401, 44.6 and 0.45 $\mu$N; the $\pm20\,\mu$N resolution is reached at 6.7\,\%
+of $Q$. A 254 nm photon carries 4.88 eV.}
+\verdict{A UV or electron-flood control makes X1's test a short one: an electrostatic artefact follows $Q$ (as $Q^2$), a thrust stays. LISA
+Pathfinder used the same method to measure charge-induced forces, including by modulating the charge on purpose \cite{lpf}.}
+\refs{\cite{lpf}}
+
+\setcounter{section}{5}\setcounter{subsection}{11}
+\subsection{B7 at 30 \texorpdfstring{$\mu$m}{um}: lasing headroom, the film in monolayers, and the Meissner bound}
+\meta{[D] run 9 $\cdot$ gap 9 (B7) $\cdot$ from V.9, V.10; kill search: magnetic expulsion in driven K$_3$C$_{60}$}
+\begin{statement}
+With single-pass gain $g$ and round-trip loss $\mathcal L$ the laser keeps lasing while the sample absorbs $A<g-\mathcal L$ (V.10). Inverting
+$A=4y/(2+y)^2$ on its thin branch, $y(A)=2\big[(1-A)-\sqrt{1-2A}\big]/A$, the thickest film allowed is $t_{\max}=y(A_{\max})/(Z_0\sigma_1)$.
+A K$_3$C$_{60}$(111) film of thickness $t$ holds $t/d_{111}$ monolayers, $d_{111}=a/\sqrt3$.
+\end{statement}
+\inputs{FELIX FEL-2 $g\approx0.5$, $\mathcal L\approx0.05$ (V.10); FHI mid-IR FEL, computed $g>2$ for 1 ps bunches at 7--30 $\mu$m,
+$\mathcal L\approx0.08$ \cite{fhifel}; ELBE U100 at 30 $\mu$m, $g=0.25$--0.5 (design), $\mathcal L=0.10$ measured \cite{elbeu100}; $\sigma_1=3\times10^4$
+S/m (V.10); $a=14.24$ \AA; MBE at about 2 ML/h \cite{k3c60films}.}
+\nums{Headroom: FELIX 0.45 ($t_{\max}=92$ nm), FHI 1.9 (any film up to 177 nm), ELBE U100 0.15--0.40 (16--68 nm), ELBE U27 at 10 $\mu$m $-0.01$
+(none). $d_{111}=0.822$ nm: 10 nm is 12 ML, 20 nm is 24 ML, 22.5 nm is 27 ML, i.e.\ 6--14 h of growth. K$_3$C$_{60}$ films on Si(111) superconduct
+down to at least 25 ML (20.6 nm), and Rb$_3$C$_{60}$ films at 3--9 ML \cite{k3c60films}. Thin films of K$_3$C$_{60}$ have already been driven
+optically in ultrafast transport experiments \cite{wang23}. No watt-class tabletop source exists near 30 $\mu$m \cite{dfgmir}.}
+\verdict{The film B7 needs can be grown (MBE, about 20 nm), and it fits three FELs at 30 $\mu$m. A FEL stays the only source. The light-induced state
+remains contested: a Faraday-rotation search found no field expulsion at about 50 nT, so $\chi_v>-0.1$ \cite{devecchi25}. The claimants expect
+a state like the equilibrium superconductor near $0.8\,T_c$, which would be consistent with that bound.}
+\refs{\cite{fhifel,elbeu100,k3c60films,wang23,devecchi25,dfgmir}}

@@ -1,0 +1,114 @@
+[
+ {
+  "name": "rotor mass M (kg)",
+  "rederived": 22.36813969355933,
+  "logged": 22.4,
+  "deviation": 0.0014223351089584898,
+  "passed": true,
+  "note": "part 4 nums: 22.4 kg"
+ },
+ {
+  "name": "vertical growth rate at |n|=0.1 (1/s)",
+  "rederived": 993.4588265796102,
+  "logged": 993,
+  "deviation": 0.0004620610066568155,
+  "passed": true,
+  "note": "cor:rates, logged to 3 or 2 figures"
+ },
+ {
+  "name": "vertical growth rate at |n|=0.001 (1/s)",
+  "rederived": 99.34588265796101,
+  "logged": 99,
+  "deviation": 0.0034937642218284166,
+  "passed": true,
+  "note": "cor:rates, logged to 3 or 2 figures"
+ },
+ {
+  "name": "force to hold 20 um at |n|=1e-3 (N)",
+  "rederived": 4.4152937992746955,
+  "logged": 4.4,
+  "deviation": 0.0034758634715216126,
+  "passed": true,
+  "note": "I.18 nums"
+ },
+ {
+  "name": "stator/rotor damping ratio at |n|=0.1",
+  "rederived": 3.4721359549995796,
+  "logged": 3.5,
+  "deviation": 0.007961155714405825,
+  "passed": true,
+  "note": "I.19, logged 3.5"
+ },
+ {
+  "name": "stator/rotor damping ratio at |n|=1e-3",
+  "rederived": 43.721359549995796,
+  "logged": 44,
+  "deviation": 0.006332737500095543,
+  "passed": true,
+  "note": "I.19, logged 44"
+ },
+ {
+  "name": "ripple for 1 W, R&D tape, 500 Hz (mT)",
+  "rederived": 6.341807145960665,
+  "logged": 6.3,
+  "deviation": 0.0066360549143913115,
+  "passed": true,
+  "note": "I.20 nums"
+ },
+ {
+  "name": "M55J band B_max, pre-strain 0.32 % (T)",
+  "rederived": 49.63377173451463,
+  "logged": 49.6,
+  "deviation": 0.0006808817442465771,
+  "passed": true,
+  "note": "I.21"
+ },
+ {
+  "name": "Hastelloy-class co-wind B_max (T)",
+  "rederived": 59.02031799487556,
+  "logged": 59.0,
+  "deviation": 0.0003443727945010483,
+  "passed": true,
+  "note": "I.21"
+ },
+ {
+  "name": "P_eq at 2 % biaxial strain (GPa)",
+  "rederived": 3.80952380952381,
+  "logged": 3.8,
+  "deviation": 0.002506265664160626,
+  "passed": true,
+  "note": "V.8"
+ },
+ {
+  "name": "K1 at 80 GPa and 1,300 kg/m3 (N/tex)",
+  "rederived": 61.53846153846153,
+  "logged": 61.5,
+  "deviation": 0.0006253908692932194,
+  "passed": true,
+  "note": "I.11 note"
+ },
+ {
+  "name": "K1 density threshold (kg/m3)",
+  "rederived": 2026.4236728467554,
+  "logged": 2030,
+  "deviation": 0.0017617375139136057,
+  "passed": true,
+  "note": "I.11 note, logged 2,030"
+ },
+ {
+  "name": "flux-conservation offset at |n|=0.1, 30 T (m)",
+  "rederived": 0.9352174841032966,
+  "logged": 0.94,
+  "deviation": 0.005087782868833309,
+  "passed": true,
+  "note": "I.18"
+ },
+ {
+  "name": "Inductrack drag at L/R 1 ms, 0.1 m (W/N)",
+  "rederived": 15.915494309189537,
+  "logged": 15.9,
+  "deviation": 0.0009744848546878325,
+  "passed": true,
+  "note": "run 6 log"
+ }
+]

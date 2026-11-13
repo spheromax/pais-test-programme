@@ -1,0 +1,161 @@
+% Pais gap loop -- mathematics run sheet, part 8: run-10 items (loaded by \input from part 2, after part 7).
+% Items keep their chain numbers (counters set below). Numbers: run10_numbers.json from run10_math.py; canary10.py re-derived 15 run-9 numbers.
+%=====================================================================================================
+\section*{Run 10 additions to chains I, III and V}
+\addcontentsline{toc}{section}{Run 10 additions: I.33--I.35, III.9--III.10, V.13}
+\noindent\textbf{Notes on earlier items found in run 10.}
+\begin{itemize}
+\item \emph{I.32 (emissivity).} The best cryogenic black coatings keep $\varepsilon\ge0.95$ only down to about 30 K \cite{birb}; others fall
+steeply below 50--100 K because they turn partly transparent at long wavelengths \cite{acktar}. At 5--25 K the rotor radiates at
+120--580 $\mu$m, so $\varepsilon$ there is unmeasured and probably small. I.33 shows this matters little: the allowed ripple scales as $\varepsilon^{1/3}$.
+\item \emph{I.30 (sliding debris).} Ricochet data exist only for flat plates: at oblique incidence the largest ricochet fragments keep 24--36\,\% of
+the impact speed \cite{schonberg}. Nobody has tested debris sliding along a concave wall at $\ge3$ km/s. I.34 designs that test.
+\item \emph{I.32 (thick film).} Long thick-film tapes vary in $I_c$ along their length at 4.2 K, 30 T, and thick films on thin stabilizers show
+flux jumps \cite{jaroszynski25}. I.35 sizes the second effect against temperature.
+\end{itemize}
+Numbers below come from \texttt{run10\_math.py}; the run opened with a blind re-derivation of fifteen run-9 numbers (\texttt{canary10.py}, 15 of 15
+within $10^{-4}$).
+
+\setcounter{section}{1}\setcounter{subsection}{32}
+\subsection{The field quality B6's stator needs (B6)}
+\meta{[P] run 10 $\cdot$ gap 2 (B6) $\cdot$ from I.27, I.32; evidence: Iseult \cite{iseult}, a 9.4 T all-REBCO NMR magnet \cite{rebconmr}}
+\begin{proposition}\label{prop:ripple}
+Let the rotor see an azimuthal field ripple $\Delta B$ at harmonic $n$ of its rotation, with hysteresis loss $P=nP_0(\Delta B/B_0)^3$
+($P_0=1$ W at $B_0=6.3$ mT, I.27), and shed heat only by radiation (emissivity $\varepsilon$, area $A$) to a wall at $T_s$. It stays at or below
+the temperature $T_m$ its tape tolerates (I.32) if and only if
+\begin{equation}
+\Delta B\le B_0\left[\frac{\varepsilon\sigma A\,(T_m^4-T_s^4)}{nP_0}\right]^{1/3}.\label{eq:ripple}
+\end{equation}
+The bound grows as $\varepsilon^{1/3}$ and falls as $n^{-1/3}$.
+\end{proposition}
+\begin{proof}
+In steady state the absorbed ripple loss equals the radiated power, $nP_0(\Delta B/B_0)^3=\varepsilon\sigma A(T_r^4-T_s^4)$; $T_r$ increases
+with $\Delta B$, so $T_r\le T_m$ is the stated inequality.
+\end{proof}
+\inputs{$A=2.5635$ m$^2$, $B=30$ T, $T^*=22$ K (21--23); $T_m$ from $i\le0.506$: 9.2 K (9.0--9.4) for thick film on a 0.1 mm basis,
+24.5 K (23.5--25.4) on a 50 $\mu$m basis; $\varepsilon$ 0.02--0.95; $T_s$ = 4.2, 15, 20 K.}
+\nums{At $T_s=4.2$ K and $n=1$: 0.17--0.62 mT (5.7--21 ppm of 30 T) for the 0.1 mm basis and 0.64--2.31 mT (21--77 ppm) for the 50 $\mu$m basis,
+across $\varepsilon=0.02$--0.95. A 48-fold range in $\varepsilon$ moves the bound only 3.6$\times$. With $T_s=20$ K (50 $\mu$m basis): 0.52--1.90 mT
+(17--63 ppm). Evidence: Iseult (NbTi, 11.72 T) measured 0.88 ppm peak to peak on a 22 cm sphere with passive shims only \cite{iseult};
+at 30 T that is 26 $\mu$T, a loss of $7\e{-8}$ W, and the rotor stays at 4.20--4.23 K. A 9.4 T all-REBCO NMR magnet differed from its design
+by more than 100 ppm before shimming (screening currents, tape thickness) and reached sub-ppm only after passive and active shimming
+\cite{rebconmr}; 100 ppm of 30 T (3 mT) would heat the rotor to 35--62 K and no tape survives. Simulated screening-current fields reach 7.8\,\%
+of the centre field in high-field REBCO coils \cite{scfsim}.}
+\verdict{The emissivity question folds into a field-quality condition: B6's stator must hold its azimuthal field to about 6--80 ppm along the
+rotor's 12.6 m path, depending on the tape. That lies between unshimmed REBCO coils ($\ge100$ ppm) and shimmed NMR/MRI magnets ($\le1$ ppm)
+(C: met in small volumes, never along a 4 m ring). Shimming and current overshoot are known remedies; drift of screening currents is the open
+item.}
+\refs{\cite{iseult,rebconmr,scfsim,birb,acktar}}
+
+\subsection{A tangential fragment test with the craft's own wall pressure (B6)}
+\meta{[P] run 10 $\cdot$ gap 2 (B6) $\cdot$ tests I.30; facilities \cite{swrilgg}; no prior test of sliding on a concave wall found}
+\begin{proposition}[similarity and the capstan law]\label{prop:capstan}
+(a) A coupon cut from the rotor's cross-section, with height $h_c\le h$, the rotor's radial thickness and any length $\ell$, moving at $v$ along
+a concave track of radius $R$, presses on the track with the craft's own wall pressure $p=\lambda v^2/(Rh)$, where $\lambda=M/2\pi R$.
+(b) If it slides with friction coefficient $\mu$ and loses no mass, its speed after turning through angle $\theta$ is $v_0e^{-\mu\theta}$, so
+\begin{equation}
+\mu=-\frac{1}{\theta}\ln\frac{v_{\rm out}}{v_{\rm in}},\qquad \Delta E/E=1-e^{-2\mu\theta}.\label{eq:capstan}
+\end{equation}
+\end{proposition}
+\begin{proof}
+(a) The coupon's mass is $\lambda(h_c/h)\ell$ and it needs the inward force $\lambda(h_c/h)\ell v^2/R$, spread over the contact area $h_c\ell$:
+the pressure is $\lambda v^2/(Rh)$ for any $h_c$ and $\ell$. (b) The track supplies the normal force $N=mv^2/R$, friction $\mu N$ slows the
+coupon, $m\,dv/dt=-\mu mv^2/R$; with $ds=v\,dt=R\,d\theta$ this is $dv/d\theta=-\mu v$.
+\end{proof}
+\inputs{$\lambda=1.78$ kg/m, $h=0.1$ m, $R=2$ m, $v=6.28$ km/s; mean rotor density 8,000 kg/m$^3$ (assumed), so radial thickness 2.2 mm;
+coupon $20\times25\times2.2$ mm; sabot 20 g; SwRI's 38 mm two-stage gun: 7 km/s top, 0.5 kg at 3 km/s \cite{swrilgg}.}
+\nums{Coupon 8.9 g, normal force 176 kN, wall pressure 351 MPa (the craft's), kinetic energy 176 kJ; with sabot 570 kJ at 6.28 km/s, a quarter
+of the gun's 2.25 MJ at 3 km/s. Over a 30$^\circ$ arc (1.05 m, 0.17 ms) $v_{\rm out}/v_{\rm in}$ = 0.949, 0.855, 0.770 for $\mu$ = 0.1, 0.3, 0.5;
+1\,\% velocimetry resolves $\mu$ to $\pm0.027$. Over a full turn the same $\mu$ leave 0.53, 0.15, 0.04 of the speed. Entering from a gap of
+1, 5, 20 mm reproduces the radial impacts of I.30: 199, 443, 882 m/s. At 3 km/s the coupon carries 4.5 MJ/kg (0.6 of vaporization) and presses
+80 MPa; a 0.25 m coupon then weighs 89 g (400 kJ).}
+\verdict{A 9 g coupon on a 2 m-radius track reproduces the craft's wall pressure exactly, and its exit speed measures the friction that
+sets I.30's slowing time. Two speeds bracket the vaporization threshold (3 and $\sim$6.3 km/s). I.30 fails if the load exceeds $\lambda v^2/R$
+by much beyond the entry impact, or if debris leaves the track inward and strikes elsewhere with more than the predicted energy. Facility: C
+(energy within reach; launching a flat coupon edge-on at 6 km/s is unproven).}
+\refs{\cite{swrilgg,schonberg}}
+
+\subsection{Flux-jump margin against temperature, and a warm design point (B6)}
+\meta{[P] run 10 $\cdot$ gap 2 (B6) $\cdot$ criterion from \cite{wilsonmag}; observation \cite{jaroszynski25}; heat capacity model \cite{kittel}}
+\inputs{Adiabatic stability of a slab of half-thickness $a$ \cite{wilsonmag}: $\beta=\mu_0J_c^2a^2/(C\,T^*)<3$, with $T^*$ replacing
+$T_c-T_0$ for $J_c\propto e^{-T/T^*}$. Thick film: $J_c=36.3$ MA/cm$^2$ (30 T, $B\parallel ab$, 4.2 K), $a=2$ $\mu$m. Heat capacity of the
+Hastelloy-dominated tape $C=\gamma T+aT^3$ with $\gamma=0.119$ J kg$^{-1}$K$^{-2}$ (Ni-like) and $\theta_D=400$ K (assumed, $\pm50$\,\%);
+REBCO alone 630 J m$^{-3}$K$^{-1}$ at 4.2 K (assumed).}
+\nums{$\mu_0J_c^2a^2=6.6\e5$ J/m$^3$. At 4.2 K: $\beta=48$ for the film alone, 0.50 and 0.25 if the heat spreads through a 50 $\mu$m or 0.1 mm tape.
+Relative to 4.2 K, $\beta(T)/\beta(4.2)=e^{-2(T-4.2)/T^*}C(4.2)/C(T)$ = 0.19, 0.057, 0.020, 0.007 at 10, 15, 20, 25 K. A warm design point,
+wall at 15--20 K and rotor below 24.5 K on the 50 $\mu$m basis, tolerates ripple of 0.71--0.82 mT at $\varepsilon=0.05$ and 1.5--1.8 mT at
+$\varepsilon=0.5$ (I.33).}
+\verdict{Whether the film flux-jumps at 4.2 K depends on how fast heat leaves the 4 $\mu$m film, which only a measurement settles; flux jumps have
+been seen in thick films on thin stabilizers \cite{jaroszynski25}. Running warm cuts the margin parameter 18--50 fold at 15--20 K while the
+50 $\mu$m-basis tape still carries the load, and a 20 K wall matches the cryocooler practice of the 20 T SPARC model coil \cite{tfmc}. The
+conductor test should therefore ramp the field at spin-up rates at 15--25 K as well as at 4.2 K (D).}
+\refs{\cite{wilsonmag,kittel,jaroszynski25,tfmc}}
+
+\setcounter{section}{3}\setcounter{subsection}{8}
+\subsection{High-frequency gravitational-wave cavities as a test of EM-to-GW claims}
+\meta{[P] run 10 $\cdot$ gap 5 and side thread $\cdot$ from ledger 1 and 7; detectors \cite{hfgwcav}}
+\inputs{Plane-wave flux $S=c^3\omega^2h^2/(32\pi G)$; detector reach: $h\approx10^{-21}$ at 300 MHz, $10^{-20}$ at 3 GHz, $3.9\e{-21}$ at 5.311 GHz
+\cite{hfgwcav}; Pais's flux formula 1.18$\e{24}$ W/m$^2$ (ledger 1); conversion $4\pi G/(\mu_0c^4)=8.26\e{-38}$ per (T m)$^2$ \cite{gertsenshtein}.}
+\nums{The detectors need $S=1.4\e{10}$, $1.4\e{14}$, $6.8\e{13}$ W/m$^2$ respectively. Pais's flux, read as gravitational waves, gives
+$h=9.1\e{-15}$, $2.7\e{-15}$, $5.1\e{-16}$ at 0.3, 1, 5.3 GHz: $1.3\e5$ above the 5.3 GHz limit. Known physics for a generous generator
+(10 T m, 1 MW) gives $8.3\e{-30}$ W of gravitational waves, $6.6\e{-31}$ W/m$^2$ at 1 m and $h=2\e{-42}$ at 1 GHz, $1.5\e{20}$ below reach.}
+\verdict{An existing cavity detector, tuned near a claimed generator's frequency, would see Pais-scale emission at once and known-physics emission
+never: a clean null test of any HFGW-generator claim. Stress-energy quadratic in the fields radiates at $2f$, so tuning to $2f$ rejects direct
+electromagnetic pickup at $f$; shielding must still exceed the claimed signal ratio.}
+\refs{\cite{hfgwcav,gertsenshtein}}
+
+\subsection{Patent sweep 2023--2025: every claim falls under a ledger bound}
+\meta{[P] run 10 $\cdot$ side thread $\cdot$ sources \cite{patents25,zhang25pat,oldpatents}}
+\inputs{Filings found: US 12,417,870 (gravity field from a varying EM field); US 2025/0055389 (pulsed field to ``decouple the Higgs field''); US
+2024/0063731 (inertia attenuator); US 2024/0375795, 2025/0286480, 2025/0296708 (closed electromagnetic drives); US 2025/0132082 (accelerated
+electrons radiate); US 12,442,361 (photon drive); older US 3,095,167, 3,610,971, 3,120,363, 3,071,705, 2003/0209637.}
+\nums{Each falls in one class. Closed EM systems: thrust $\le P/c=3.34$ nN/W (ledger 17). Radiation or photon drives: exactly $P/c$. Mass or
+inertia reduction: field mass is positive and $\le2\e{-9}$ (ledger 16); charge leaves weight unchanged to $2\e{-3}$ (ledger 25). Gravity from
+EM fields: $8.26\e{-38}$ per (T m)$^2$ (ledger 7); nothing seen at nN (Tajmar 2024 \cite{tajmar24}). Air-breathing electrostatics: ion wind
+(ledger 21). The one checkable number, US 3,095,167 (charge a vehicle against Earth's fair-weather field, $\sim$130 V/m): floating 1 kg needs
+0.075 C, but a 1 m sphere at air breakdown (3 MV/m) holds $3.3\e{-4}$ C, 226$\times$ short; it would float 4.4 g.}
+\verdict{No new physics thread: the 2023--2025 filings repeat bounded classes, with no data. The side thread's only open edge stays the
+high-frequency coupling (K4), testable with balances or a resonant gravity detector (ETH, 42 Hz, 3\,\% agreement with theory \cite{brack22}).}
+\refs{\cite{patents25,zhang25pat,oldpatents,tajmar24,brack22}}
+
+\setcounter{section}{5}\setcounter{subsection}{12}
+\subsection{FELICE: intracavity fluence against the hold fluence (B7)}
+\meta{[P] run 10 $\cdot$ gap 9 (B7) $\cdot$ from V.9, V.12; source \cite{felice}}
+\inputs{FELICE first lasing: 10 $\mu$J outcoupled $\approx$ 400 $\mu$J intracavity per micropulse; Rayleigh range 50--82 mm at the user
+stations \cite{felice}; $\lambda=30$ $\mu$m (10 THz); hold fluence 0.4 mJ/cm$^2$ \cite{rowe}.}
+\nums{Intracavity factor 40. Waist $w_0=\sqrt{\lambda z_R/\pi}$ = 0.69--0.88 mm; peak fluence $2E/\pi w_0^2$ = 33--53 mJ/cm$^2$, 81--133$\times$ the
+hold fluence. A film placed 0.58--0.73 m from focus sees the hold fluence over an 8 mm spot.}
+\verdict{FELICE's cavity holds far more fluence than B7 needs, so a film could sit well off focus with a large spot and small loss. Its stations
+are built for gas-phase samples, with limited access during operation; a cryogenic film station would be new (hardware C).}
+\refs{\cite{felice,rowe}}
+
+%=====================================================================================================
+\section*{Run 11 notes and the stop rule}
+\addcontentsline{toc}{section}{Run 11 notes and the stop rule}
+\noindent Run 11 was the last literature pass: kill searches on run 10's conclusions, since-date checks and one bridge (ten searches; numbers
+in \texttt{run11\_math.py}; canary: fifteen run-10 numbers re-derived exactly).
+\begin{itemize}
+\item \emph{I.33, precedent and caution.} Superconducting cyclotrons hold the first azimuthal harmonic at the few-gauss level: 2--3 G already
+disturbs the beam at Kolkata; RIKEN's trim coils leave errors below 15 G; a 1 mm trim-rod error at CYCIAE-230 gives 0.24 G \cite{cyclotrons}.
+That is the absolute level B6 needs at $n=1$ (0.17--2.3 mT), reached with NbTi and iron at a few tesla. The only REBCO circular-orbit magnet
+built for field accuracy, the 0.7 m Ultra-Baby Skeleton Cyclotron (1.6 T design, 540 A, 30 K), quenched at 250 A while charging (46\,\% of its
+design current, 36\,\% of $I_c$) and damaged its main coils; screening-current stress and cooldown contraction were blamed \cite{ubsc}. The
+technique exists; its transfer to REBCO is unproven and has a failure on record.
+\item \emph{I.34, gouging and attitude.} Sled rails gouge above 1.5 km/s and gun barrels above 4 km/s \cite{gouging}; B6's debris at 6.28 km/s
+is 1.6--4.2 times faster, so the coupon will gouge its track. The shot must record gouge depth and shape, and the track's material pair should
+be chosen from the gouging literature. Entry from a 1, 5 or 20 mm gap meets the wall at 1.8$^\circ$, 4.0$^\circ$ or 8.1$^\circ$; fragment
+simulants in a two-stage gun fly with mean pitch and yaw of 4.7--5.5$^\circ$ end-on but 32--43$^\circ$ side-on \cite{fsp}. So the coupon should
+fly along its length, with its attitude recorded by flash X-ray.
+\item \emph{I.35, buying rules.} Edge-slit thick-film tapes fluctuate in $I_c$ and centre-slit tapes do not; metal layers suppress flux
+avalanches in films \cite{jaroszynski25,avalanche}. Buy centre-slit tape with a thicker copper stabilizer.
+\item \emph{K4's instrument.} A 42 Hz resonant beam with $Q\approx10^4$ and $\sim$1 pm resolution resolves $F=m\omega^2x/Q\approx$ 7--28 pN for an
+effective mass of 1--4 kg (assumed), 36--140 times below a nN balance, at one frequency \cite{brack22,brack23}. A shielded electromagnetic
+source whose field energy oscillates at 42 Hz (driven at 21 Hz) is a sharper K4 test than a balance.
+\item \emph{X1 and B7.} No outside test and no paper for X1, and no independent driven-K$_3$C$_{60}$ experiment, as of November 2026.
+\end{itemize}
+\verdict{Run 11 moved no gap: no status, grade or deciding measurement changed, and the tests were refined. Every gap is settled in the loop's
+sense: closed (4, 6, 10), against a wall (1, 3, 5, 7), nothing to do (11), or reduced to deciding experiments (2: stator field map,
+thick-film ramp, coupon shot; 9: the FEL film test), with gap 8 on a dated re-check (February 2027). The loop stops here. It restarts if a
+re-check (gap 8, E-320) finds a new record, an outside group tests Exodus or driven K$_3$C$_{60}$, a REBCO ring is field-mapped, or any
+measurement from the test plans comes in.}
+\refs{\cite{cyclotrons,ubsc,gouging,fsp,avalanche,brack23}}

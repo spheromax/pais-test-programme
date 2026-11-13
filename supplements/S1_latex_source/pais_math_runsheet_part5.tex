@@ -1,0 +1,227 @@
+% Pais gap loop -- mathematics run sheet, part 5: run-7 items (loaded by \input from part 2, after part 4).
+% Items keep their chain numbers (counters set below). Numbers: run7_numbers.json from run7_math.py; run7_delay.json from run7_delay.py.
+%=====================================================================================================
+\section*{Run 7 additions to chains I and V, and S.4}
+\addcontentsline{toc}{section}{Run 7 additions: I.22--I.24, V.9, S.4}
+\noindent\textbf{Notes on earlier items found in run 7.}
+\begin{itemize}
+\item \emph{I.11 (correction; K1 closed).} The Supplementary Information of the 80 GPa bundle paper lists, for each bundle, the tube diameters
+$d$, two areas and two stresses \cite{bai18si}. The areas are reproduced by $A_1=\sum\pi d\times0.34$ nm (the tube walls: 3.632 vs 3.630 nm$^2$
+and 6.302 vs 6.299 nm$^2$ for two bundles) and $A_2=\sum\pi d^2/4$ (filled tubes: 4.555 and 9.621 nm$^2$, both exact). The headline 80 GPa is
+therefore on the wall area, whose density is that of graphitic walls, about 2{,}260 kg/m$^3$; the ``engineering'' 43 GPa is on the filled-tube
+area (implied mean $d\approx2.5$ nm, density about 1{,}215 kg/m$^3$). Either pairing gives the same specific strength, as it must:
+\[
+\frac{\sigma}{\rho}=\frac{F}{\lambda}=\frac{80\un{GPa}}{2260\un{kg\,m^{-3}}}=35.4\un{N/tex},
+\]
+where $\lambda$ is the mass per unit length. The rim needs $v^2=39.5$ N/tex, so even the best 2 cm bundles of near-perfect tubes are 0.90 times
+short (5.95 against 6.28 km/s) before any length penalty. Runs 3--6 quoted 61.5 N/tex by pairing the wall-area stress with a bundle density; the
+error is logged. K1 is cut as a rim route.
+\item \emph{I.17 (conductor; open check closed).} Production-length REBCO now carries more than 1500 A at 4.2 K and 30 T with the field in the
+ab plane, in tape 4.0 mm wide and 45 $\mu$m thick (30 $\mu$m substrate; the LBC6 coil, which reached 42.6 T) \cite{lbc6}. That is
+$J_e=8.3$ kA/mm$^2$. B6 needs 5.86 kA/mm$^2$, i.e.\ it runs at $i=I/I_c=0.70$: 1{,}111 tapes of 12.57 m (14 km), 1{,}054 A each. In the rotor the
+axial stator field lies in the tape plane, which is the ab orientation. Run 6's ``1.2--3.3 times short'' assumed 0.1 mm tape.
+\item \emph{I.18 (cut revived).} Run 6 cut passive translational hold because the only flux-conserving element it considered was the rotor
+itself, whose coupling vanishes at the symmetric position. A dedicated superconducting loop pair couples at that position; I.23 shows it
+holds the unstable axis.
+\item \emph{III.6 (X1).} The company's own slide shows 4.46 mN at 0.065 $\mu$A and 3{,}500 V (228 $\mu$W) at $1.4\e{-5}$ Torr \cite{exodusslides}.
+Anything ejected can push at most $I\sqrt{2m_iV/e}$: 2.9 nN for N$_2^+$, 7.8 nN even for 200 u ions; photons give $P/c=0.76$ pN. The reading is
+$5.7\e5$ times the ejecta bound, so it is a force between the article and its surroundings or an artefact. It equals the electrostatic pull
+$\varepsilon_0E^2A/2$ on a 25 cm$^2$ face at $E=6.3\e5$ V/m, i.e.\ 3.5 kV across 5.5 mm; charge trapped in a dielectric (an electret) would
+keep that pull after switch-off. No outside replication as of June 2026; X1 stays E.
+\end{itemize}
+Numbers below come from \texttt{run7\_math.py} and \texttt{run7\_delay.py}; the run opened with a blind re-derivation of fourteen run-6 numbers
+(\texttt{canary7.py}, 14 of 14).
+
+\setcounter{section}{1}\setcounter{subsection}{21}
+\subsection{Holding the unstable axis actively: the delay and bandwidth it needs (B6)}
+\meta{[P] run 7 $\cdot$ gap 2 (B6) $\cdot$ from I.18, I.19; prior art: levitated dipoles, tokamak vertical control, Beams' rotors, ESGs}
+\begin{proposition}[critical delay]\label{prop:delay}
+Let a translation obey $M\ddot x=k_ux+F$ with $\gamma=\sqrt{k_u/M}$, and let the controller apply proportional and derivative feedback with a
+delay $\tau$: $F=-pk_u\,x(t-\tau)-dM\gamma\,\dot x(t-\tau)$. Some $(p,d)$ makes the motion asymptotically stable if and only if
+\begin{equation}
+\gamma\tau<\sqrt2 .\label{eq:delay}
+\end{equation}
+\end{proposition}
+\begin{proof}[Derivation]
+In units of $1/\gamma$ the characteristic function is $D(s)=s^2-1+(p+ds)e^{-s\tau}$. Roots cross the imaginary axis only on the D-curves
+\cite{stepan89}: $s=0$ gives the line $p=1$, and $p<1$ is unstable because $D(0)<0$ while $D(s)\to+\infty$ on the positive real axis. $s=i\omega$
+gives the curve
+\[
+p(\omega)=(1+\omega^2)\cos\omega\tau,\qquad d(\omega)=\frac{(1+\omega^2)\sin\omega\tau}{\omega},
+\]
+which leaves the line $p=1$ at $(1,\tau)$ as $\omega\to0$ with $p(\omega)-1=\omega^2(1-\tau^2/2)+O(\omega^4)$. The stable set is the region
+between the line and the first arc of the curve; it has positive area only if the arc starts into $p>1$, i.e.\ $\tau^2<2$, and it shrinks to the
+point $(1,\sqrt2)$ as $\tau\to\sqrt2$.
+\end{proof}
+\noindent\emph{Numerical check.} Chebyshev collocation of the delay equation \cite{breda05} ($N=32$), maximizing the decay rate over $(p,d)$: the
+best decay rate is $\gamma$ at $\gamma\tau=0.5$, $0.268\gamma$ at 1.0, $0.061\gamma$ at 1.3 and $0.007\gamma$ at 1.40. Beyond the bound the
+best rightmost root is unstable: $+0.008\gamma$ at 1.43 and $+0.027\gamma$ at 1.47. Interpolating, the decay rate vanishes at $\gamma\tau=1.414$.
+\begin{proposition}[bandwidth]\label{prop:bode}
+If the loop transfer function $L(s)$ has relative degree at least 2 and one unstable pole at $s=\gamma$, the sensitivity $S=1/(1+L)$ satisfies
+Bode's integral $\int_0^\infty\ln|S(i\omega)|\,d\omega=\pi\gamma$ \cite{freudenberg85,stein03}. If the loop has negligible gain above $\omega_a$, then
+$\max|S|\ge e^{\pi\gamma/\omega_a}$, and keeping $\max|S|\le2$ needs
+\begin{equation}
+\omega_a\ge\frac{\pi\gamma}{\ln2}=4.53\,\gamma .\label{eq:bodebw}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Bode's integral is Cauchy's theorem for $\ln S$ on the right half-plane, with the unstable pole entering as a zero of $S$. With $\ln|S|\approx0$
+above $\omega_a$, $\pi\gamma=\int_0^{\omega_a}\ln|S|\,d\omega\le\omega_a\ln\max|S|$.
+\end{proof}
+\inputs{rotor of I.17 ($M=22.4$ kg, $\Omega=3142$ rad/s, $I_r=1.171\e6$ A-turns at 30 T), $\beta=1$, $n<0$ so the vertical axis is the unstable
+one; sensors with $10$ nm/$\sqrt{\rm Hz}$ (capacitive) or $1\,\mu$m/$\sqrt{\rm Hz}$ (laser) noise; control field from an opposed coil pair of
+radius $R$ at $\pm0.3$ m (near-wire limit $B_r=\mu_0NI/\pi h$); a 5 mm stainless wall between coil and rotor, delay $\sim\mu_0\sigma t\ell$ with
+$\ell=0.3$ m.}
+\nums{\begin{center}\small
+\begin{tabular}{@{}rrrrrrr@{}}
+\toprule
+$|n|$ & $\gamma$ (s$^{-1}$) & $\tau_c=\sqrt2/\gamma$ & $\omega_a/2\pi$ min & spin$/\omega_a$ & force at 20 $\mu$m & laser-noise rms\\
+\midrule
+$10^{-3}$ & 99 & 14.2 ms & 72 Hz & 7.0 & 4.4 N & 8.5 $\mu$m\\
+$10^{-2}$ & 314 & 4.5 ms & 227 Hz & 2.2 & 44 N & 15 $\mu$m\\
+$10^{-1}$ & 993 & 1.4 ms & 717 Hz & 0.70 & 442 N & 27 $\mu$m\\
+\bottomrule
+\end{tabular}\end{center}
+The loop stays a factor 3 below the 500 Hz spin (where run-out appears) for $|n|\le5.4\e{-3}$. The radial control field is $6.8\e{-8}$ T per newton:
+holding 20 $\mu$m at $|n|=10^{-3}$ takes 0.30 $\mu$T, resisting 0.1 $g$ takes 1.5 $\mu$T, i.e.\ about 1 ampere-turn in the opposed pair (APEX-LD's
+lifting coil is 2.9 kA-turns against 60 kA-turns \cite{apexld}). The stainless wall delays the field by about 2.6 ms: inside the 14 ms budget at
+$|n|=10^{-3}$, not inside 1.4 ms at $|n|=0.1$.}
+\verdict{Active hold of B6's one unstable axis is easy if the stator field is uniform to $|n|\lesssim5\e{-3}$: millisecond delays, a loop below
+250 Hz, microtesla control fields and micron sensors, the regime of levitated dipoles \cite{apexld,ldx07}, of Beams' magnetically suspended rotors
+(one servo axis, radial centring passive, spinning in vacuum since 1937--51 \cite{beams51}), and of tokamak vertical control, where a vertically
+unstable plasma is held by feedback on the radial field and the vessel's eddy currents set the delay \cite{humphreys09}. At $|n|=0.1$ the loop must
+run above the spin frequency, inside the cryostat, and cancel the run-out synchronously, as electrostatically suspended gyroscopes do \cite{esg}.}
+
+\subsection{Holding it passively: flux-conserving loops beat the zero trace (B6)}
+\meta{[P] run 7 $\cdot$ gap 2 (B6) $\cdot$ from I.18 (revives the run-6 cut), I.19; in-between pairing: B6 $\times$ null-flux suspension}
+\begin{theorem}[flux-conserving loops]\label{thm:fluxloops}
+A rigid body carries fixed currents in the field of fixed external currents and of $N$ closed superconducting loops with inductance matrix
+$\mathsf L$, cooled with no current at the equilibrium $\boldsymbol\xi=0$. Let $\mathsf G_{j\alpha}=\partial\Phi_j/\partial\xi_\alpha$ be the rate at which
+the body's flux through loop $j$ changes. The translational stiffness is
+\begin{equation}
+\mathsf K=\mathsf K_0+\mathsf G^{\mathsf T}\mathsf L^{-1}\mathsf G,\qquad \tr\mathsf K_0=0 .\label{eq:fluxloops}
+\end{equation}
+The added term is positive semi-definite with rank at most $N$: one loop, or one series pair, can remove one unstable direction.
+Earnshaw's bound (Theorem~\ref{thm:ring}) does not apply to induced currents.
+\end{theorem}
+\begin{proof}
+Flux conservation, $\mathsf L\boldsymbol\iota+\boldsymbol\Phi(\boldsymbol\xi)=0$, gives the loop currents $\boldsymbol\iota=-\mathsf L^{-1}\boldsymbol\Phi$ and stores
+$\tfrac12\boldsymbol\iota^{\mathsf T}\mathsf L\boldsymbol\iota=\tfrac12\boldsymbol\Phi^{\mathsf T}\mathsf L^{-1}\boldsymbol\Phi$. The body's potential is
+$U=U_0(\boldsymbol\xi)+\tfrac12\boldsymbol\Phi^{\mathsf T}\mathsf L^{-1}\boldsymbol\Phi$, with $U_0$ the fixed-current part of Theorem~\ref{thm:ring}
+($\tr\mathsf K_0=0$). The force $-\nabla U$ includes $\mathsf G^{\mathsf T}\boldsymbol\iota$, the push of the induced currents. With
+$\boldsymbol\Phi=\mathsf G\boldsymbol\xi+O(\xi^2)$ the Hessian is \eqref{eq:fluxloops}; $\mathsf L$ is positive definite, so the added form is
+$\boldsymbol\xi^{\mathsf T}\mathsf G^{\mathsf T}\mathsf L^{-1}\mathsf G\boldsymbol\xi\ge0$.
+\end{proof}
+\begin{corollary}[null-flux pair]\label{cor:nullflux}
+Two coaxial loops of radius $a$ at heights $\pm d$ about the rotor's plane, joined in series opposition, link no flux from the rotor at any
+in-plane offset or tilt when $z=0$, and couple only to vertical motion, with
+\begin{equation}
+g=\frac{\partial\Phi}{\partial z}=-2I_r\,\partial_zM(R,a;d),\qquad k_c=\frac{g^2}{L_{\rm pair}},\qquad L_{\rm pair}=2L_{\rm loop}-2M(a,a;2d),
+\label{eq:nullflux}
+\end{equation}
+where $M(a,b;z)=\mu_0\sqrt{ab}\,[(2/k-k)K(k)-(2/k)E(k)]$, $k^2=4ab/[(a+b)^2+z^2]$. For $d\ll a=R$,
+$k_c\approx2\mu_0aI_r^2/[d^2\ln(2d/r_w)]$. $k_c$ does not depend on the number of turns.
+\end{corollary}
+\begin{proof}
+Reflection $z\to-z$ swaps the loops. At $z=0$ it maps a ring offset in its plane to itself, and a ring tilted about the $x$ axis to the opposite
+tilt, which a half-turn about $z$ maps back. So each loop links the same flux and the pair links none, at any offset or tilt. $M$ is even in the
+separation, so $\partial_z[M(z-d)-M(z+d)]_{z=0}=-2M'(d)$. With $N$ turns, $g\propto N$ and $L\propto N^2$. For $s\ll a$,
+$M\approx\mu_0a[\ln(8a/s)-2]$ and $L_{\rm loop}=\mu_0a[\ln(8a/r_w)-2]$.
+\end{proof}
+\begin{proposition}[drift and damping]\label{prop:drift}
+If the pair has resistance $R_j$ (its joints), the vertical motion and the loop current obey $M\ddot z=k_uz+g\iota$ and $L\dot\iota+R_j\iota=-g\dot z$,
+with characteristic polynomial
+\begin{equation}
+MLs^3+MR_js^2+(g^2-k_uL)s-k_uR_j=0 .\label{eq:driftpoly}
+\end{equation}
+For $k_c>k_u$ one root is real, positive and small, $s\simeq(R_j/L)\,k_u/(k_c-k_u)$: the hold drifts on that time scale and needs only a slow
+trim. A resistive pair adds damping, largest when its $R_n/L_n$ is near the mode frequency.
+\end{proposition}
+\begin{proof}
+Eliminate $\iota=-gsz/(Ls+R_j)$; then $(Ms^2-k_u)(Ls+R_j)+g^2s=0$. For $R_j\to0$ the root at $s=0$ moves to first order to
+$k_uR_j/(g^2-k_uL)$.
+\end{proof}
+\inputs{rotor of I.17 as one filament ($R=2$ m, $I_r=1.171\e6$ A-turns); loops of radius $a=R$ with effective conductor radius $r_w=5$ mm;
+$L_{\rm loop}$ for surface current; joints $10^{-13}$ to $10^{-8}\,\Omega$ (superconducting joints $<10^{-12}\,\Omega$ at 4 K, soldered ones
+nanohms \cite{nimsjoint}); a copper pair with half the coupling as the damper.}
+\nums{Check: at $d=0.3$ m the energy route ($\partial_z^2$ of $\Phi^2/2L$ with elliptic integrals) gives $k_c=1.533\e7$ N/m, equal to
+\eqref{eq:nullflux}. Stiffness of one pair: $3.1\e8$ ($d=0.08$ m), $1.9\e8$ (0.1), $3.9\e7$ (0.2), $1.5\e7$ (0.3), $4.7\e6$ (0.5) and $8.2\e5$ N/m
+(1.0 m); the loop carries 16 A per 20 $\mu$m of displacement at $d=0.3$ m (0.8 kA per mm). Pairs sized for $k_c=3k_u$:
+\begin{center}\small
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+$|n|$ & $k_u$ (N/m) & $d$ for $3k_u$ & vertical mode & in-plane mode & whirl ratio $c_n/c_r$ (I.19)\\
+\midrule
+$10^{-3}$ & $2.2\e5$ & 1.08 m & 140 rad/s (0.04 spin) & 70 rad/s & 44\\
+$10^{-2}$ & $2.2\e6$ & 0.43 m & 444 rad/s (0.14 spin) & 222 rad/s & 13\\
+$10^{-1}$ & $2.2\e7$ & 0.157 m & 1405 rad/s (0.45 spin) & 702 rad/s & 3.5\\
+\bottomrule
+\end{tabular}\end{center}
+Drift time $1/s$ from \eqref{eq:driftpoly}: 18 years at $10^{-13}\,\Omega$, 1.8 years at $10^{-12}\,\Omega$, 16 hours at 1 n$\Omega$ and 1.6 hours at
+10 n$\Omega$ ($|n|=10^{-3}$; 0.72 times these at $|n|=0.1$). A copper pair with half the superconducting pair's coupling gives a damping ratio up to
+0.086, at $R_n/L_n\approx1.2$ times the mode frequency.}
+\verdict{B6's unstable axis can be held passively. An axisymmetric superconducting null-flux pair supplies the missing stiffness with room to
+spare; the feedback loop shrinks to a trim acting over hours to years. The pair couples only to the mean height, so rotor run-out and
+eccentricity induce no first-order current and no spin drag. The idea is not new: superconducting loops were proposed to stabilize a levitated
+coil passively in 1980 \cite{tran80}, null-flux coils have held maglev magnets since 1969 \cite{powell69}, and shorted superconducting turns appear
+in bearing patents \cite{us5789837}. Passive hold also frees the field index: at $|n|=0.1$ the in-plane suspension is ten times stiffer and the
+stator-side damping needed against whirl falls from 44 to 3.5 times the rotor-side damping, at the price of loops 0.16 m from the rotor. Run-6 cut
+revived; B6 kept (D, prior art C). Deciding test: the tabletop rotor of I.17 held by a null-flux pair, with no fast loop.}
+
+\subsection{Dynamic resistance: a ceiling on the operating current (B6 kill search)}
+\meta{[E] run 7 $\cdot$ gap 2 (B6) $\cdot$ from I.20}
+\begin{statement}
+A tape of width $w=2a$ carrying a DC current $I_t=iI_c$ in an alternating perpendicular field of amplitude $B_a$ develops a DC resistance once
+$B_a$ passes a threshold that falls linearly with $i$ \cite{jiang17,st194}:
+\begin{equation}
+B_{\rm th}=\kappa\,\mu_0\frac{I_c}{w}(1-i),\qquad \frac{R_{\rm dyn}}{L}=\frac{4af\,(B_a-B_{\rm th})}{I_c},\qquad P=I_t^2R_{\rm dyn},\label{eq:rdyn}
+\end{equation}
+with $\kappa=\tfrac12$ in the slab (parallel-field) theory and measured perpendicular thresholds two to three times higher.
+\end{statement}
+\inputs{LBC6 tape at 30 T: $I_c=1500$ A, $w=4$ mm, so $\mu_0I_c/w=0.47$ T; ripple bound of I.20: 3--6 mT at 500 Hz; one tape of 12.57 m.}
+\nums{$B_{\rm th}=71$--212 mT at $i=0.7$, 24--71 mT at 0.9, 4.7--14 mT at 0.98, 2.4--7.1 mT at 0.99. A 3--6 mT ripple stays below threshold up to
+$i=0.975$--0.996. Above it the loss is prohibitive: at $i=0.995$ with 6 mT, 360 W per tape at 4.2 K.}
+\verdict{The kill search did not kill B6. Dynamic resistance is a hard ceiling near $I_c$ (within 1--3\,\%), not a constraint at the
+$i\approx0.7$ that quench margin needs and production tape now allows (I.17 note); I.20's hysteresis bound still sets the ripple budget.}
+
+\setcounter{section}{5}\setcounter{subsection}{8}
+\subsection{Driving inside the cavity: what a light-held state costs at the source (gap 9)}
+\meta{[P] run 7 $\cdot$ gap 9, in-between pairing (driven state $\times$ FEL optical cavity) $\cdot$ from V.3, V.4}
+\begin{statement}
+A sample of single-pass absorption $A$ inside an optical cavity whose other round-trip losses (mirrors, outcoupling) are $\mathcal L$, driven at
+fluence $F$ per pass on area $S$ at repetition rate $f$, needs from the gain medium
+\begin{equation}
+P_{\rm src}=(A+\mathcal L)\,FSf\qquad\text{instead of}\qquad FSf\ \text{in a single pass},\label{eq:intracav}
+\end{equation}
+a gain of $G=1/(A+\mathcal L)$. The heat $AFSf$ and the condition $f\ge1/\tau$ are unchanged.
+\end{statement}
+\begin{proof}In steady state the gain medium replaces exactly what the round trip loses; only the absorbed part heats the sample.\end{proof}
+\inputs{V.3: $F=4$ J/m$^2$ at 10 THz, 100 $\mu$m spot, $f=100$ MHz (100 K, $\tau\approx10$ ns) or 2 GHz (room temperature); $\mathcal L=0.04$
+(four mirrors, no outcoupling). FELICE: 10 $\mu$J outcoupled $\approx$ 400 $\mu$J intra-cavity at 13 $\mu$m, 3--100 $\mu$m, 1 GHz micropulses in
+$\sim$8 $\mu$s macropulses at 10 Hz, $\le1$ mJ \cite{felice}. Diamond: $k=2000$ W/m/K, $\rho c=1.79\e6$ J/m$^3$/K.}
+\nums{Single pass: 31 nJ per pulse, 3.1 W at 100 MHz, 63 W at 2 GHz. Inside the cavity, for $A=0.02$, 0.05, 0.1, 0.2: $G=17$, 11, 7.1, 4.2,
+i.e.\ 0.19--0.75 W at 100 MHz and 3.8--15 W at 2 GHz. FELICE's measured ratio is 40 (2.5\,\% outcoupling). One 400 $\mu$J pulse covers 4 J/m$^2$
+over an 11 mm spot. In one macropulse a K$_3$C$_{60}$ film on diamond would be re-driven 8{,}000 times at 1 ns spacing; with $A=0.1$ the flux is
+$4\e8$ W/m$^2$ and the surface rises $2q\sqrt{t/\pi k\rho c}=21$ K in 8 $\mu$s.}
+\verdict{The run-2 verdict that the source binds gap 9 softens by 4--40 times when the sample sits in the cavity; the lifetime $\tau$ and the
+repetition it demands still bind. New lead B7 (D; hardware exists, C): K$_3$C$_{60}$ at FELICE's intracavity focus at 30 $\mu$m. Does the
+light-induced state persist through an 8 $\mu$s train of 1 GHz re-drives? At 100 K that is ten re-drives per lifetime; at room temperature,
+where $\tau\ge0.5$ ns is predicted, 1 GHz is within a factor of 2 of what is needed. A condition: the sample's loss must stay below the FEL gain.}
+
+%=====================================================================================================
+\smallskip\noindent\textbf{S.4 The craft's magnet as a magnetic sail} [P+E, R7, exploration]. A dipole $m$ in a wind of density $n$ and speed $v$
+holds it off at the radius where $B^2/2\mu_0=\rho v^2/2$ \cite{magsailrev}:
+\begin{equation}
+R_{\rm MHD}=\Big(\frac{\mu_0m}{4\pi B_{\rm mp}}\Big)^{1/3},\quad B_{\rm mp}=\sqrt{\mu_0\rho v^2},\qquad
+\frac{m_pv}{eB_{\rm mp}}=\sqrt{\frac{m_p}{\mu_0ne^2}}=\frac{c}{\omega_{pi}}=d_i .\label{eq:magsail}
+\end{equation}
+The identity follows by substituting $B_{\rm mp}=v\sqrt{\mu_0nm_p}$: at the standoff field the proton gyroradius equals the ion inertial
+length. A fluid magnetosphere needs $R_{\rm MHD}\gg d_i$; below it the deflecting region shrinks to about the St\"ormer radius
+$C_{\rm St}=\sqrt{\mu_0me/4\pi m_pv}$ \cite{shaikh11,khazanov04}.
+\emph{Inputs:} 1 AU, $n=5$ cm$^{-3}$, $v=400$ km/s; rotor moment $I_r\pi R^2=1.47\e7$ A\,m$^2$; an uncompensated stator (I.18's coil pair scaled to
+30 T) $2.1\e9$ A\,m$^2$; craft $\ge312$ kg (rotor and minimum stator, I.17).
+\emph{Numbers:} $\rho v^2=1.34$ nPa, $B_{\rm mp}=41$ nT, $d_i=102$ km. $R_{\rm MHD}=330$ m and 1.72 km, i.e.\ 0.003--0.017 $d_i$: deeply kinetic.
+$C_{\rm St}=19$ and 224 m, so the thrust $\sim\rho v^2\pi C_{\rm St}^2$ is 1.5 $\mu$N to 0.21 mN (0.46--12.5 mN if the fluid picture held), 0.15--21 m/s
+per year. A 100 m$^2$ solar sail gives 0.91 mN. A fluid-scale magnetosphere at 1 AU needs $m\gtrsim4\e{14}$ A\,m$^2$.
+\emph{Verdict:} the craft's field is a real but tiny sail. It pushes on outside momentum, so it does not conflict with III.1--III.2. Cut as
+propulsion.

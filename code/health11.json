@@ -1,0 +1,67 @@
+{
+ "values": {
+  "repeat": 0.0,
+  "repeat_yield": 1.0,
+  "recycled": 0.2,
+  "concentration": 0.3,
+  "explore": 0.4,
+  "kill_ratio": 1.5,
+  "domain_novelty": 0.2857142857142857,
+  "progress": 0,
+  "repeated_errors": 0,
+  "too_easy": false,
+  "circular": 0.09,
+  "canary": "pass",
+  "prompt_growth": 0.031521142229544274,
+  "rework": 0.0
+ },
+ "lights": {
+  "repeat": "green",
+  "repeat_yield": "green",
+  "recycled": "amber",
+  "concentration": "green",
+  "explore": "green",
+  "kill_ratio": "green",
+  "domain_novelty": "red",
+  "progress": "red",
+  "repeated_errors": "green",
+  "too_easy": "green",
+  "circular": "green",
+  "canary": "green",
+  "prompt_growth": "green",
+  "rework": "green"
+ },
+ "sims": [
+  0.24,
+  0.15,
+  0.07,
+  0.15,
+  0.23,
+  0.19,
+  0.18,
+  0.23,
+  0.24,
+  0.26
+ ],
+ "max_sim": 0.2631578947368421,
+ "top_topic": "cyclotron",
+ "novelty_all": [
+  8,
+  28
+ ],
+ "novelty_planned": [
+  7,
+  25
+ ],
+ "new_domains": [
+  "imeko.info",
+  "um.edu.mt",
+  "proquest.com",
+  "tdl-ir.tdl.org",
+  "unknowncountry.com",
+  "thedebrief.org",
+  "research-collection.ethz.ch",
+  "aminer.cn"
+ ],
+ "explore_planned": 0.4444444444444444
+}

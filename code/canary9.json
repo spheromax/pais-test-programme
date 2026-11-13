@@ -1,0 +1,128 @@
+[
+ {
+  "name": "rotor mass 2T/v^2 (kg)",
+  "new": 22.366651289046064,
+  "logged": 22.36813969355933,
+  "ok": true
+ },
+ {
+  "name": "rho v^2 (Pa)",
+  "new": 351357916678.7811,
+  "logged": 351357916678.7812,
+  "ok": true
+ },
+ {
+  "name": "loss-of-hold tolerance sigma_a/rho v^2",
+  "new": 0.002846100664110612,
+  "logged": 0.0028461006641106114,
+  "ok": true
+ },
+ {
+  "name": "self-supporting speed sqrt(sigma_a/rho) (m/s)",
+  "new": 335.20076157699543,
+  "logged": 335.20076157699543,
+  "ok": true
+ },
+ {
+  "name": "TNT equivalent (kg, 4.184 MJ/kg)",
+  "new": 105.52103250478011,
+  "logged": 105.52805447597264,
+  "ok": true
+ },
+ {
+  "name": "catcher mass T/e_abs (t)",
+  "new": 7.197563025210083,
+  "logged": 7.19804199209488,
+  "ok": true
+ },
+ {
+  "name": "rotor specific energy v^2/2 (J/kg)",
+  "new": 19739208.802178714,
+  "logged": 19739208.80217872,
+  "ok": true
+ },
+ {
+  "name": "angular momentum 2T/omega (N m s)",
+  "new": 281067.6295002872,
+  "logged": 281086.33334302495,
+  "ok": true
+ },
+ {
+  "name": "J_e = rho v^2/(B R) (A/m2)",
+  "new": 5855965277.979686,
+  "logged": 5855965277.979687,
+  "ok": true
+ },
+ {
+  "name": "self-pinch at 2 cm2 (Pa)",
+  "new": 950785256.311248,
+  "logged": 950785256.3112483,
+  "ok": true
+ },
+ {
+  "name": "max section at 0.3 GPa (m2)",
+  "new": 6.310573244770476e-05,
+  "logged": 6.310573244770473e-05,
+  "ok": true
+ },
+ {
+  "name": "safe fraction 1/(1+0.975)",
+  "new": 0.5063137322410458,
+  "logged": 0.5063134548508121,
+  "ok": true
+ },
+ {
+  "name": "radiated heat 30 K, eps 0.1, 2.5635 m2 (W)",
+  "new": 0.011774163906716264,
+  "logged": 0.011769822581435536,
+  "ok": true
+ },
+ {
+  "name": "tabletop J_e (kA/mm2)",
+  "new": 10.4675125,
+  "logged": 10.4675125,
+  "ok": true
+ },
+ {
+  "name": "tabletop energy (J)",
+  "new": 10523.072644999998,
+  "logged": 10523.091318834988,
+  "ok": true
+ },
+ {
+  "name": "tabletop tolerance",
+  "new": 0.11941710124540095,
+  "logged": 0.11941710124540095,
+  "ok": true
+ },
+ {
+  "name": "film absorption 4y/(2+y)^2 at 22.5 nm",
+  "new": 0.19999982328352617,
+  "logged": 0.2,
+  "ok": true
+ },
+ {
+  "name": "vacuum field, half-wave cube (V/m)",
+  "new": 333.3132597186213,
+  "logged": 333.3132597186213,
+  "ok": true
+ },
+ {
+  "name": "PTFE relaxation eps0 eps_r rho (s)",
+  "new": 185937.94406880002,
+  "logged": 185937.94406880002,
+  "ok": true
+ },
+ {
+  "name": "trapped charge sqrt(2 eps0 F/A) (C/m2)",
+  "new": 5.620653175216418e-06,
+  "logged": 5.620653175216418e-06,
+  "ok": true
+ },
+ {
+  "name": "identity m B = T (J)",
+  "new": 441529379.9274695,
+  "logged": 441529379.9274695,
+  "ok": true
+ }
+]

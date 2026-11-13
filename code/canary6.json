@@ -1,0 +1,106 @@
+[
+ {
+  "name": "fraction of tubes reaching 200 mm",
+  "rederived": 0.1551599323405416,
+  "logged": 0.155,
+  "deviation": 0.0010318215518812673,
+  "passed": true,
+  "note": "I.15: L_half 74.4 mm; logged 16 % (0.155)"
+ },
+ {
+  "name": "fraction of tubes reaching 1 m",
+  "rederived": 8.992861559882828e-05,
+  "logged": 9e-05,
+  "deviation": 0.0007931600130191225,
+  "passed": true,
+  "note": "I.15"
+ },
+ {
+  "name": "tubes 2 cm long per cm2 of section",
+  "rederived": 1.2000000000000002e+16,
+  "logged": 1.2e+16,
+  "deviation": 1.6666666666666665e-16,
+  "passed": true,
+  "note": "I.15, logged to 2 figures"
+ },
+ {
+  "name": "S_m, R&D tape at 30 T (J/kg)",
+  "rederived": 31011235.95505618,
+  "logged": 31000000.0,
+  "deviation": 0.00036245016310255853,
+  "passed": true,
+  "note": "I.17"
+ },
+ {
+  "name": "shortfall v^2/S_m at 30 T",
+  "rederived": 1.273035929995584,
+  "logged": 1.27,
+  "deviation": 0.0023904960595149583,
+  "passed": true,
+  "note": "I.17 (logged 1.3x, 1.27 in run5_numbers)"
+ },
+ {
+  "name": "rotor kinetic energy T (MJ)",
+  "rederived": 441.5293799274695,
+  "logged": 442,
+  "deviation": 0.0010647512953178594,
+  "passed": true,
+  "note": "I.17: 2 x 100 mm, rho 8900"
+ },
+ {
+  "name": "stator mass, T1200 hoop (kg)",
+  "rederived": 289.20174385249254,
+  "logged": 289,
+  "deviation": 0.0006980756141610415,
+  "passed": true,
+  "note": "I.17"
+ },
+ {
+  "name": "radial tension at ds 0.26 % (MPa)",
+  "rederived": 27.35064935064935,
+  "logged": 27.4,
+  "deviation": 0.0018011185894397865,
+  "passed": true,
+  "note": "I.16"
+ },
+ {
+  "name": "radial tension at ds 0.322 % (MPa)",
+  "rederived": 33.872727272727275,
+  "logged": 33.9,
+  "deviation": 0.0008045052292838875,
+  "passed": true,
+  "note": "I.16"
+ },
+ {
+  "name": "Anderson K = 2 w_E R_E / c",
+  "rederived": 3.0993484609275927e-06,
+  "logged": 3.099e-06,
+  "deviation": 0.00011244302277922559,
+  "passed": true,
+  "note": "III.5"
+ },
+ {
+  "name": "sigma for 10 mN on 25 cm2 (uC/m2)",
+  "rederived": 8.416264165435875,
+  "logged": 8.4,
+  "deviation": 0.0019362101709374272,
+  "passed": true,
+  "note": "III.6"
+ },
+ {
+  "name": "demo full-support J (kA/mm2)",
+  "rederived": 2.225,
+  "logged": 2.2,
+  "deviation": 0.011363636363636322,
+  "passed": true,
+  "note": "I.17, logged 2.2"
+ },
+ {
+  "name": "REBCO self-burst speed sqrt(1.45e5) (m/s)",
+  "rederived": 380.7886552931954,
+  "logged": 381,
+  "deviation": 0.0005547105165474953,
+  "passed": true,
+  "note": "I.3 table"
+ }
+]

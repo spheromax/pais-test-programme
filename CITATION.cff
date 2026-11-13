@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: dataset
+title: "Five Experiments to Settle What Is Left of the Pais Patents: open designs, costs and what each result would mean"
+version: "1.0"
+date-released: "2026-11-14"
+authors:
+  - name: Spheromax
+license-url: "https://firstdonoharm.dev/build?modules=mil"
+keywords:
+  - Pais patents
+  - inertial mass reduction
+  - REBCO superconductor
+  - light-gas gun
+  - free-electron laser
+  - K3C60
+  - torsion balance
+  - propellantless propulsion
+  - open hardware
+  - ethical source
+abstract: >-
+  An AI-assisted research loop examined the physics claims in the Pais patents and related propulsion
+  and superconductivity claims. Over eleven runs it logged 162 searches with sources, built a ledger of
+  36 settled results and a 40-page mathematics run sheet, and stopped by its own rule. Nothing in the
+  patents survives as physics; what survives is engineering (a magnetically held rotor and a light-driven
+  film in a laser cavity), plus two claims that only null tests can settle. This record sets out five
+  deciding experiments with concept designs, A3 drawings, CAD, code, rough costs and what each result
+  would mean. Made with Claude (Anthropic) as a research assistant; AI tools are not listed as authors.

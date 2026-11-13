@@ -1,0 +1,155 @@
+% Pais gap loop -- mathematics run sheet, part 4: run-6 items (loaded by \input from part 2, after part 3).
+% Items keep their chain numbers (counters set below). Numbers: run6_numbers.json from run6_math.py.
+%=====================================================================================================
+\section*{Run 6 additions to chains I and V}
+\addcontentsline{toc}{section}{Run 6 additions: I.18--I.21, V.8}
+\noindent\textbf{Notes on earlier items found in run 6.}
+\begin{itemize}
+\item \emph{I.6 and I.14 (correction).} A band wound warm with pre-strain spends that pre-strain from its own failure strain. The ``72 T'' quoted for
+an M55J band since run 4 is unreachable; I.21 gives 50 T. The error is logged.
+\item \emph{I.11 (open input).} The 2 cm bundles' 80 GPa is computed on the tubes' own cross-section; on the engineering cross-section the
+same bundles carry 43 GPa \cite{physt18}. Their specific strength is 61.5 N/tex only if 80 GPa goes with a density of at most 2{,}030
+kg/m$^3$; if the assumed 1{,}300 kg/m$^3$ goes with the engineering area it is 33 N/tex, below the 39.5 N/tex the rim needs. To be checked
+against the paper's methods.
+\item \emph{I.17 (conductor).} The 4.6 kA/mm$^2$ R\&D value comes from thick REBCO films. Torque magnetometry to 45 T found that films
+3.0--5.0 $\mu$m thick always flux-jump at 4.2 K during field sweeps, films 1.4--1.8 $\mu$m sporadically, a 1.12 $\mu$m film never;
+production tapes carry 700--2000 A at 30 T in the ab plane (width not stated) \cite{jaroszynski25}.
+\item \emph{III.6 (X1).} No independent replication had been published as of May 2026; the company's own patent cites a vacuum null for
+asymmetric capacitors (Canning, 2004) \cite{exodus891}; a force that persists after power-off matches a balance-drift signature seen in
+EMDrive tests \cite{tajmar15}. X1 stays at grade E.
+\end{itemize}
+Numbers below come from \texttt{run6\_math.py}; the run opened with a blind re-derivation of thirteen run-5 numbers (\texttt{canary6.py}, 13
+of 13).
+
+\setcounter{section}{1}\setcounter{subsection}{17}
+\subsection{A current ring in an axisymmetric field: the translational stiffness has zero trace (B6)}
+\meta{[P] run 6 $\cdot$ gap 2 (bridge B6) $\cdot$ from I.17; Earnshaw's theorem for a rigid ring}
+\begin{theorem}\label{thm:ring}
+A rigid thin ring of radius $R$ carries a fixed current $I$ in a static, current-free, axisymmetric field whose axial component at the ring,
+$B_0$, pulls each element inward with force $f=|IB_0|$ per unit length. With field index $n=-(R/B_z)\,\partial B_z/\partial r$, the stiffnesses
+against translation are
+\begin{equation}
+k_x=k_y=-\pi nf,\qquad k_z=2\pi nf,\qquad k_x+k_y+k_z=0 .\label{eq:ringk}
+\end{equation}
+For any rigid loop in any current-free field, the trace of the translational stiffness at fixed current is zero: one direction at least is
+unstable unless all three are neutral.
+\end{theorem}
+\begin{proof}
+At fixed current the energy is $U=-I\Phi_{\rm ext}(\boldsymbol\xi)$, with $\Phi_{\rm ext}(\boldsymbol\xi)=\int B_z(\mathbf x+\boldsymbol\xi)\,dA$ for a
+translation $\boldsymbol\xi$. Hence $\sum_i\partial^2U/\partial\xi_i^2=-I\int\nabla^2B_z\,dA=0$, because $\nabla^2\mathbf B=0$ where there is no
+current. For the ring: a shift $x$ puts the element at angle $\phi$ at radius $R+x\cos\phi$, where the inward force is $f(1-nx\cos\phi/R)$;
+summing the $x$-components, $F_x=\int_0^{2\pi}f(1-nx\cos\phi/R)(-\cos\phi)R\,d\phi=\pi nfx$. Curl-free means $\partial B_r/\partial z=\partial
+B_z/\partial r$, so $B_r(R,z)=-nB_0z/R$; the force on the azimuthal current is $-IB_r$ per unit length along $z$, and
+$F_z=-2\pi R\,IB_r=-2\pi nfz$ (with $IB_0=-f$).
+\end{proof}
+\begin{corollary}[rates]\label{cor:rates}
+If a share $\beta$ of the centripetal load of a ring of mass $M$ spinning at $\omega$ is magnetic, $f=\beta Mv^2/(2\pi R^2)$ and
+\begin{equation}
+k_\perp=-\tfrac12 n\beta M\omega^2,\qquad k_z=n\beta M\omega^2 .\label{eq:ringrates}
+\end{equation}
+For $n<0$ the ring is held in its plane at $\omega\sqrt{|n|\beta/2}$ and falls out of it vertically at the rate $\omega\sqrt{|n|\beta}$; for $n>0$
+the roles swap. The instability is a fixed fraction of the spin rate.
+\end{corollary}
+\noindent\emph{Flux conservation.} A closed superconducting ring keeps $LI+\Phi_{\rm ext}$ fixed, so $U=(\Phi-\Phi_{\rm ext})^2/2L$ and each stiffness
+gains $(\partial\Phi_{\rm ext}/\partial\xi)^2/L\ge0$. At the symmetric position $\partial\Phi_{\rm ext}/\partial x=\partial\Phi_{\rm ext}/\partial z=0$,
+so it gains nothing. Off the midplane by $z_0$, $\partial\Phi_{\rm ext}/\partial z=-2\pi RB_r=2\pi nB_0z_0$, and passive vertical stability needs
+$z_0\ge\sqrt{IL/(2\pi|n|B_0)}$.
+\inputs{rotor of I.17: $R=2$ m, 30\,000 rpm, $2\times100$ mm REBCO section, $\rho=8900$; $\beta=1$; single-turn-equivalent inductance
+$L=\mu_0R(\ln 8R/a-2)$ with $a=8$ mm. Numerical check: two coaxial loops of radius 2.5 m at $z=\pm0.6$ m, $10^7$ A-turns each (assumed),
+and a test ring of $10^4$ A-turns.}
+\nums{$M=22.4$ kg, $\omega=3142$ rad/s, centripetal acceleration $2.0\e6\,g$, $f=3.51\e7$ N/m (1.17 MA-turns at 30 T, i.e.\ 5.86 kA/mm$^2$).
+At $|n|=0.1$ the unstable mode grows at 993 s$^{-1}$ ($n<0$, vertical) or 702 s$^{-1}$ ($n>0$, in plane); at $|n|=10^{-3}$, at 99 or 70
+s$^{-1}$. Holding the rotor within 20 $\mu$m vertically takes 442 N at $|n|=0.1$ and 4.4 N at $10^{-3}$ (its weight is 219 N). A levitated
+dipole held against gravity grows at roughly $\sqrt{g/\ell}=3$--10 s$^{-1}$ (estimate, $\ell=0.1$--1 m). Numerical check: the coil pair gives $B_z=5.62$ T and $n=0.666$ at the ring;
+summing $I\,d\mathbf l\times\mathbf B$ around displaced rings gives $k_x=-1.17733\e5$ and $k_z=2.35463\e5$ N/m, equal to \eqref{eq:ringk} to
+$10^{-5}$, with a trace of $-1\e{-5}k_z$. Flux conservation: $L=1.41\e{-5}$ H; passive vertical stability would need $z_0=0.94$ m at $|n|=0.1$
+and 30 T, and still 0.30 m at $|n|=1$.}
+\verdict{No field shape makes B6 passively stable in translation, and flux conservation does not rescue it at any practical offset. One
+translation must be held actively, as levitated dipoles do: APEX-LD holds a REBCO floating coil to $\sigma_z<20\,\mu$m for over three hours
+\cite{apexld}, and LDX flew a 560 kg coil on feedback for more than 80 hours \cite{ldx07,ldxfpa}. Because the rate scales with spin, the stator
+field should be uniform to $|n|\lesssim10^{-3}$ over the rotor: about 100 s$^{-1}$ and a few newtons of control force, a kilohertz loop on a 22
+kg ring. B6 kept (D), with this control requirement added.}
+
+\subsection{Supercritical whirl: damping on the rotor destabilizes, damping on the stator stabilizes}
+\meta{[D] run 6 $\cdot$ gap 2 (B6 kill search) $\cdot$ from I.18}
+\begin{proposition}\label{prop:whirl}
+A rotor of mass $M$ on an in-plane suspension of stiffness $k$ ($\omega_n=\sqrt{k/M}$), with non-rotating damping $c_n$ and damping $c_r$ in parts
+spinning at $\Omega$, whirls forward unstably when
+\begin{equation}
+\Omega>\omega_n\Big(1+\frac{c_n}{c_r}\Big).\label{eq:whirl}
+\end{equation}
+\end{proposition}
+\begin{proof}
+With $\zeta=x+iy$, a damping force $-c_r(\dot\zeta-i\Omega\zeta)$ acts in the rotating frame, so $M\ddot\zeta+(c_n+c_r)\dot\zeta+(k-i\Omega c_r)\zeta=0$.
+Put $\zeta=e^{st}$ with $s=i\omega_n+\delta$ and keep first order in the damping: $2iM\omega_n\delta=-i[(c_n+c_r)\omega_n-\Omega c_r]$. The forward
+mode decays only while $(c_n+c_r)\omega_n>\Omega c_r$ \cite{genta,ismb10}.
+\end{proof}
+\nums{With the in-plane stiffness of \eqref{eq:ringrates} ($n<0$, $\beta=1$), $\Omega/\omega_\perp=\sqrt{2/|n|}$: 4.5 at $|n|=0.1$, 14 at 0.01 and
+45 at $10^{-3}$, so the stator-side damping must exceed the rotor-side damping 3.5, 13 and 44 times. Eigenvalue check with $c_n=3c_r$: the real
+part of the forward root goes from $-0.0089$ to $+0.0089$ s$^{-1}$ as $\Omega$ crosses $4\omega_n$ by $\pm1\,\%$.}
+\verdict{A uniform field eases I.18's control loop but makes the rotor more supercritical. B6 needs its rotor nearly loss-free
+(rotating damping comes from the rotor's own losses, I.20) and its damping on the stator side: eddy-current dampers or active damping in
+the control loop, as rotordynamics prescribes for supercritical machines \cite{genta}.}
+
+\subsection{Ripple loss in a spinning REBCO rotor}
+\meta{[D]+[E] run 6 $\cdot$ gap 2 (B6) $\cdot$ from I.17, I.19}
+\begin{statement}
+A thin superconducting strip of width $2a$ and sheet critical current $K_c=J_cd$ in a perpendicular field of amplitude $H_m$ dissipates per
+cycle and unit length \cite{brandt93}
+\begin{equation}
+Q=4\mu_0a^2K_cH_m\,g\!\Big(\frac{H_m}{H_c}\Big),\quad H_c=\frac{K_c}{\pi},\quad g(x)=\frac2x\ln\cosh x-\tanh x;\qquad
+Q\simeq\frac{2\pi^3}{3}\,\frac{\mu_0a^2H_m^4}{K_c^2}\quad(H_m\ll H_c).\label{eq:brandt}
+\end{equation}
+\end{statement}
+\begin{proof}[Small-amplitude limit]
+$\ln\cosh x=x^2/2-x^4/12+O(x^6)$ and $\tanh x=x-x^3/3+O(x^5)$ give $g(x)=x^3/6+O(x^5)$; substitute $x=\pi H_m/K_c$.
+\end{proof}
+\inputs{rotor wound from 4 mm $\times$ 0.1 mm tape (assumed): 500 tapes of 12.57 m, 6{,}283 m in all; $K_c=J_e\times0.1$ mm; ripple at the
+rotation frequency (500 Hz) or its 24th harmonic (12 kHz); zero transport current (a lower bound).}
+\nums{For 1 W at 4.2 K the perpendicular ripple must stay below 6.3 mT at 500 Hz or 2.9 mT at 12 kHz with R\&D tape ($K_c=4.6\e5$ A/m), and
+below 2.3 or 1.0 mT with commercial tape. The loss grows as the fourth power: 10 mT at 12 kHz dissipates 148 W at 4.2 K, at least 70 W of
+room-temperature power per watt (Carnot) and several hundred in practice.}
+\verdict{An axisymmetric stator has no azimuthal ripple in principle; joints, winding errors and rotor run-out must keep the perpendicular
+component near or below $10^{-4}$ of 30 T. Transport current near $I_c$ and eddy currents in the stabilizer add to this bound, and every
+watt the rotor dissipates is rotating damping (I.19).}
+
+\subsection{A pre-strained band spends its pre-strain from its own failure strain (correction to I.6, I.14)}
+\meta{[D] run 6 $\cdot$ gap 6 (K2) $\cdot$ from I.6, I.14, I.16}
+\begin{statement}
+A band wound warm with pre-strain $\varepsilon_{\rm pre}\ge s_{\rm tape}-s_{\rm band}$ (I.14) shares the tape's working strain once loaded, so
+$\varepsilon_{\rm pre}+\varepsilon_{\rm work}\le\varepsilon_f$ and
+\begin{equation}
+\varepsilon_{\rm work}\le\min(\varepsilon_{\rm irr},\;\varepsilon_f-\varepsilon_{\rm pre}),\qquad
+B_{\max}\approx\sqrt{2\mu_0E_{\rm band}\varepsilon_{\rm work}},\qquad \frac MU\ge\frac{\rho_{\rm band}}{E_{\rm band}\varepsilon_{\rm work}} .\label{eq:prestrain}
+\end{equation}
+\end{statement}
+\begin{proof}Strain compatibility with the pre-strain added, then \eqref{eq:strain} and \eqref{eq:mmin}.\end{proof}
+\inputs{Toray M55J fibre 4.02 GPa, 540 GPa, 0.8\,\%, 1.91 g/cm$^3$; unidirectional composite 338 GPa and 0.61\,\% strain, 1.90 GPa at 55\,\% $V_f$
+\cite{toraym55j}; composite density 1{,}630 kg/m$^3$; $s_{\rm tape}=0.31$--0.32\,\% (I.16), carbon $\approx0$; Hastelloy-class co-wind 220 GPa
+at $\varepsilon_{\rm irr}=0.63\,\%$.}
+\nums{M55J band: $\varepsilon_{\rm work}=0.29$--0.30\,\%, $B_{\max}=49.6$--50.5 T, 1.6--1.7 t/GJ (54.5 T with run 4's 0.26\,\%).
+Hastelloy-class co-wind: 59.0 T, 6.4 t/GJ. Run 4's 72 T used $0.6\times540$ GPa at the tape's 0.63\,\% with no pre-strain; the composite fails at
+0.61\,\% before any pre-strain is applied. Cross-check: $338\un{GPa}\times0.61\,\%=2.06$ GPa, close to the measured 1.90 GPa laminate strength.}
+\verdict{A carbon band gives no field gain over a metal co-wind; it is still 3.9 times lighter per stored joule. Gap 6 stays closed (it needs
+about 20 T); K2 reduces to metal co-winds, plus carbon only where mass matters more than field.}
+
+\setcounter{section}{5}\setcounter{subsection}{7}
+\subsection{Strain as pressure: what a substrate can do for a superconductor (gap 8)}
+\meta{[D]+[E] run 6 $\cdot$ gap 8, in-between pairing $\cdot$ from V.1}
+\begin{statement}
+A film clamped to a substrate with biaxial in-plane strain $\varepsilon$ and free out of plane has $\varepsilon_{zz}=-2\nu\varepsilon/(1-\nu)$,
+in-plane stress $\sigma=E\varepsilon/(1-\nu)$ and volume strain $2\varepsilon(1-2\nu)/(1-\nu)$. The hydrostatic pressure that gives the same
+volume change is
+\begin{equation}
+P_{\rm eq}=-K\frac{\Delta V}{V}=\frac23|\sigma|=\frac{2E|\varepsilon|}{3(1-\nu)} .\label{eq:peq}
+\end{equation}
+\end{statement}
+\begin{proof}Hooke's law with $\sigma_{zz}=0$, and $K=E/3(1-2\nu)$.\end{proof}
+\inputs{$E=200$ GPa, $\nu=0.3$ (assumed oxide film). Bilayer nickelate films superconduct at ambient pressure under $-1.2$ to $-2.0\,\%$ strain,
+onset near 40--42 K \cite{nickfilm}; bulk La$_3$Ni$_2$O$_7$ needs about 14 GPa for about 80 K \cite{sun23}. Clamped Nb--H films stay elastic
+to about $-10$ GPa below 6--8 nm \cite{nbh}. Superhydrides need 100--260 GPa (ledger, gap 8).}
+\nums{$\varepsilon=1.2$, 2.0 and 3.0\,\%: $P_{\rm eq}=2.3$, 3.8 and 5.7 GPa; in-plane stress 3.4, 5.7 and 8.6 GPa. Strained nickelate films
+supply about a quarter of the bulk pressure by volume (two-fifths by in-plane stress) and show about half the bulk $T_c$. Clamping supplies
+at most about 10 GPa, 10--26 times less than superhydrides need.}
+\verdict{Strain is a route only where the pressure needed is below about 10 GPa (nickelates, fine-tuning cuprates); it cannot bring a
+superhydride to 1 atm. Gap 8's factor of 2 in $T_c$ is not closed by strain: cut for hydrides, kept as context for nickelates.}
